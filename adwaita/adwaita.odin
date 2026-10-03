@@ -1,0 +1,3868 @@
+package adwaita
+
+import gio "glib:gio"
+import glib "glib:glib"
+import gobj "glib:gobject"
+import gtk "gtk4:gtk4"
+import pango "pango:pango"
+
+MAJOR_VERSION :: (1)
+MINOR_VERSION :: (5)
+MICRO_VERSION :: (0)
+VERSION_S :: "1.5.0"
+VERSION_HEX :: ((((1)) << 24 | ((5)) << 16 | ((0)) << 8))
+VERSION_1_1 :: (((1) << 24 | (1) << 16 | (0) << 8))
+VERSION_1_2 :: (((1) << 24 | (2) << 16 | (0) << 8))
+VERSION_1_3 :: (((1) << 24 | (3) << 16 | (0) << 8))
+VERSION_1_4 :: (((1) << 24 | (4) << 16 | (0) << 8))
+VERSION_1_5 :: (((1) << 24 | (5) << 16 | (0) << 8))
+VERSION_MAX_ALLOWED :: (((1) << 24 | (5) << 16 | (0) << 8))
+VERSION_MIN_REQUIRED :: (((1) << 24 | (5) << 16 | (0) << 8))
+TYPE_BREAKPOINT_CONDITION :: breakpoint_condition_get_type
+TYPE_BREAKPOINT :: breakpoint_get_type
+TYPE_RESPONSE_APPEARANCE :: response_appearance_get_type
+TYPE_ANIMATION_STATE :: animation_state_get_type
+TYPE_BREAKPOINT_CONDITION_LENGTH_TYPE :: breakpoint_condition_length_type_get_type
+TYPE_BREAKPOINT_CONDITION_RATIO_TYPE :: breakpoint_condition_ratio_type_get_type
+TYPE_DIALOG_PRESENTATION_MODE :: dialog_presentation_mode_get_type
+TYPE_EASING :: easing_get_type
+TYPE_FLAP_FOLD_POLICY :: flap_fold_policy_get_type
+TYPE_FLAP_TRANSITION_TYPE :: flap_transition_type_get_type
+TYPE_FOLD_THRESHOLD_POLICY :: fold_threshold_policy_get_type
+TYPE_CENTERING_POLICY :: centering_policy_get_type
+TYPE_LEAFLET_TRANSITION_TYPE :: leaflet_transition_type_get_type
+TYPE_LENGTH_UNIT :: length_unit_get_type
+TYPE_NAVIGATION_DIRECTION :: navigation_direction_get_type
+TYPE_SQUEEZER_TRANSITION_TYPE :: squeezer_transition_type_get_type
+TYPE_COLOR_SCHEME :: color_scheme_get_type
+TYPE_TAB_VIEW_SHORTCUTS :: tab_view_shortcuts_get_type
+TYPE_TOAST_PRIORITY :: toast_priority_get_type
+TYPE_TOOLBAR_STYLE :: toolbar_style_get_type
+TYPE_VIEW_SWITCHER_POLICY :: view_switcher_policy_get_type
+TYPE_DIALOG :: dialog_get_type
+TYPE_ABOUT_DIALOG :: about_dialog_get_type
+TYPE_WINDOW :: window_get_type
+TYPE_ABOUT_WINDOW :: about_window_get_type
+TYPE_PREFERENCES_ROW :: preferences_row_get_type
+TYPE_ACTION_ROW :: action_row_get_type
+TYPE_ALERT_DIALOG :: alert_dialog_get_type
+TYPE_ANIMATION_TARGET :: animation_target_get_type
+TYPE_CALLBACK_ANIMATION_TARGET :: callback_animation_target_get_type
+TYPE_PROPERTY_ANIMATION_TARGET :: property_animation_target_get_type
+DURATION_INFINITE :: 0xffffffff
+TYPE_ANIMATION :: animation_get_type
+TYPE_STYLE_MANAGER :: style_manager_get_type
+TYPE_APPLICATION :: application_get_type
+TYPE_APPLICATION_WINDOW :: application_window_get_type
+TYPE_AVATAR :: avatar_get_type
+TYPE_BANNER :: banner_get_type
+TYPE_BIN :: bin_get_type
+TYPE_BREAKPOINT_BIN :: breakpoint_bin_get_type
+TYPE_BUTTON_CONTENT :: button_content_get_type
+TYPE_SPRING_PARAMS :: spring_params_get_type
+TYPE_CAROUSEL :: carousel_get_type
+TYPE_CAROUSEL_INDICATOR_DOTS :: carousel_indicator_dots_get_type
+TYPE_CAROUSEL_INDICATOR_LINES :: carousel_indicator_lines_get_type
+TYPE_CLAMP :: clamp_get_type
+TYPE_CLAMP_LAYOUT :: clamp_layout_get_type
+TYPE_CLAMP_SCROLLABLE :: clamp_scrollable_get_type
+TYPE_COMBO_ROW :: combo_row_get_type
+TYPE_ENTRY_ROW :: entry_row_get_type
+TYPE_ENUM_LIST_ITEM :: enum_list_item_get_type
+TYPE_ENUM_LIST_MODEL :: enum_list_model_get_type
+TYPE_EXPANDER_ROW :: expander_row_get_type
+TYPE_FLAP :: flap_get_type
+TYPE_HEADER_BAR :: header_bar_get_type
+TYPE_LEAFLET_PAGE :: leaflet_page_get_type
+TYPE_LEAFLET :: leaflet_get_type
+TYPE_MESSAGE_DIALOG :: message_dialog_get_type
+TYPE_NAVIGATION_PAGE :: navigation_page_get_type
+TYPE_NAVIGATION_VIEW :: navigation_view_get_type
+TYPE_NAVIGATION_SPLIT_VIEW :: navigation_split_view_get_type
+TYPE_OVERLAY_SPLIT_VIEW :: overlay_split_view_get_type
+TYPE_PASSWORD_ENTRY_ROW :: password_entry_row_get_type
+TYPE_PREFERENCES_GROUP :: preferences_group_get_type
+TYPE_PREFERENCES_PAGE :: preferences_page_get_type
+TYPE_TOAST :: toast_get_type
+TYPE_PREFERENCES_DIALOG :: preferences_dialog_get_type
+TYPE_PREFERENCES_WINDOW :: preferences_window_get_type
+TYPE_SPIN_ROW :: spin_row_get_type
+TYPE_SPLIT_BUTTON :: split_button_get_type
+TYPE_SPRING_ANIMATION :: spring_animation_get_type
+TYPE_SQUEEZER_PAGE :: squeezer_page_get_type
+TYPE_SQUEEZER :: squeezer_get_type
+TYPE_STATUS_PAGE :: status_page_get_type
+TYPE_SWIPEABLE :: swipeable_get_type
+TYPE_SWIPE_TRACKER :: swipe_tracker_get_type
+TYPE_SWITCH_ROW :: switch_row_get_type
+TYPE_TAB_PAGE :: tab_page_get_type
+TYPE_TAB_VIEW :: tab_view_get_type
+TYPE_TAB_BAR :: tab_bar_get_type
+TYPE_TAB_BUTTON :: tab_button_get_type
+TYPE_TAB_OVERVIEW :: tab_overview_get_type
+TYPE_TIMED_ANIMATION :: timed_animation_get_type
+TYPE_TOAST_OVERLAY :: toast_overlay_get_type
+TYPE_TOOLBAR_VIEW :: toolbar_view_get_type
+TYPE_VIEW_STACK_PAGE :: view_stack_page_get_type
+TYPE_VIEW_STACK :: view_stack_get_type
+TYPE_VIEW_STACK_PAGES :: view_stack_pages_get_type
+TYPE_VIEW_SWITCHER :: view_switcher_get_type
+TYPE_VIEW_SWITCHER_BAR :: view_switcher_bar_get_type
+TYPE_VIEW_SWITCHER_TITLE :: view_switcher_title_get_type
+TYPE_WINDOW_TITLE :: window_title_get_type
+
+LengthUnit :: enum u32 {PX = 0, PT = 1, SP = 2 }
+BreakpointConditionLengthType :: enum u32 {BREAKPOINT_CONDITION_MIN_WIDTH = 0, BREAKPOINT_CONDITION_MAX_WIDTH = 1, BREAKPOINT_CONDITION_MIN_HEIGHT = 2, BREAKPOINT_CONDITION_MAX_HEIGHT = 3 }
+BreakpointConditionRatioType :: enum u32 {BREAKPOINT_CONDITION_MIN_ASPECT_RATIO = 0, BREAKPOINT_CONDITION_MAX_ASPECT_RATIO = 1 }
+BreakpointCondition :: struct #packed {}
+
+Breakpoint :: struct #packed {}
+
+BreakpointClass :: struct {
+    parent_class: gobj.ObjectClass,
+}
+DialogPresentationMode :: enum u32 {DIALOG_AUTO = 0, DIALOG_FLOATING = 1, DIALOG_BOTTOM_SHEET = 2 }
+Dialog :: struct {
+    parent_instance: gtk.Widget,
+}
+
+close_attempt_func_ptr_anon_0 :: #type proc "c" (dialog: ^Dialog)
+closed_func_ptr_anon_1 :: #type proc "c" (dialog: ^Dialog)
+DialogClass :: struct {
+    parent_class: gtk.WidgetClass,
+    close_attempt: close_attempt_func_ptr_anon_0,
+    closed: closed_func_ptr_anon_1,
+    padding: [4]glib.pointer,
+}
+
+AboutDialog :: struct #packed {}
+
+AboutDialogClass :: struct {
+    parent_class: DialogClass,
+}
+Window :: struct {
+    parent_instance: gtk.Window,
+}
+
+WindowClass :: struct {
+    parent_class: gtk.WindowClass,
+    padding: [4]glib.pointer,
+}
+
+AboutWindow :: struct #packed {}
+
+AboutWindowClass :: struct {
+    parent_class: WindowClass,
+}
+PreferencesRow :: struct {
+    parent_instance: gtk.ListBoxRow,
+}
+
+PreferencesRowClass :: struct {
+    parent_class: gtk.ListBoxRowClass,
+    padding: [4]glib.pointer,
+}
+
+ActionRow :: struct {
+    parent_instance: PreferencesRow,
+}
+
+activate_func_ptr_anon_2 :: #type proc "c" (self: ^ActionRow)
+ActionRowClass :: struct {
+    parent_class: PreferencesRowClass,
+    activate: activate_func_ptr_anon_2,
+    padding: [4]glib.pointer,
+}
+
+ResponseAppearance :: enum u32 {RESPONSE_DEFAULT = 0, RESPONSE_SUGGESTED = 1, RESPONSE_DESTRUCTIVE = 2 }
+AlertDialog :: struct {
+    parent_instance: Dialog,
+}
+
+response_func_ptr_anon_3 :: #type proc "c" (self: ^AlertDialog, response: cstring)
+AlertDialogClass :: struct {
+    parent_class: DialogClass,
+    response: response_func_ptr_anon_3,
+    padding: [4]glib.pointer,
+}
+
+AnimationTarget :: struct #packed {}
+
+AnimationTargetClass :: struct #packed {}
+
+AnimationTargetFunc :: #type proc "c" (value: f64, user_data: glib.pointer)
+CallbackAnimationTarget :: struct #packed {}
+
+CallbackAnimationTargetClass :: struct #packed {}
+
+PropertyAnimationTarget :: struct #packed {}
+
+PropertyAnimationTargetClass :: struct #packed {}
+
+Animation :: struct {
+    parent_instance: gobj.Object,
+}
+
+AnimationClass :: struct #packed {}
+
+AnimationState :: enum u32 {ANIMATION_IDLE = 0, ANIMATION_PAUSED = 1, ANIMATION_PLAYING = 2, ANIMATION_FINISHED = 3 }
+ColorScheme :: enum u32 {DEFAULT = 0, FORCE_LIGHT = 1, PREFER_LIGHT = 2, PREFER_DARK = 3, FORCE_DARK = 4 }
+StyleManager :: struct #packed {}
+
+StyleManagerClass :: struct {
+    parent_class: gobj.ObjectClass,
+}
+Application :: struct {
+    parent_instance: gtk.Application,
+}
+
+ApplicationClass :: struct {
+    parent_class: gtk.ApplicationClass,
+    padding: [4]glib.pointer,
+}
+
+ApplicationWindow :: struct {
+    parent_instance: gtk.ApplicationWindow,
+}
+
+ApplicationWindowClass :: struct {
+    parent_class: gtk.ApplicationWindowClass,
+    padding: [4]glib.pointer,
+}
+
+Avatar :: struct #packed {}
+
+AvatarClass :: struct {
+    parent_class: gtk.WidgetClass,
+}
+Banner :: struct #packed {}
+
+BannerClass :: struct {
+    parent_class: gtk.WidgetClass,
+}
+Bin :: struct {
+    parent_instance: gtk.Widget,
+}
+
+BinClass :: struct {
+    parent_class: gtk.WidgetClass,
+}
+
+BreakpointBin :: struct {
+    parent_instance: gtk.Widget,
+}
+
+BreakpointBinClass :: struct {
+    parent_class: gtk.WidgetClass,
+    padding: [4]glib.pointer,
+}
+
+ButtonContent :: struct #packed {}
+
+ButtonContentClass :: struct {
+    parent_class: gtk.WidgetClass,
+}
+SpringParams :: struct #packed {}
+
+Carousel :: struct #packed {}
+
+CarouselClass :: struct {
+    parent_class: gtk.WidgetClass,
+}
+CarouselIndicatorDots :: struct #packed {}
+
+CarouselIndicatorDotsClass :: struct {
+    parent_class: gtk.WidgetClass,
+}
+CarouselIndicatorLines :: struct #packed {}
+
+CarouselIndicatorLinesClass :: struct {
+    parent_class: gtk.WidgetClass,
+}
+Clamp :: struct #packed {}
+
+ClampClass :: struct {
+    parent_class: gtk.WidgetClass,
+}
+ClampLayout :: struct #packed {}
+
+ClampLayoutClass :: struct {
+    parent_class: gtk.LayoutManagerClass,
+}
+ClampScrollable :: struct #packed {}
+
+ClampScrollableClass :: struct {
+    parent_class: gtk.WidgetClass,
+}
+ComboRow :: struct {
+    parent_instance: ActionRow,
+}
+
+ComboRowClass :: struct {
+    parent_class: ActionRowClass,
+    padding: [4]glib.pointer,
+}
+
+Easing :: enum u32 {LINEAR = 0, EASE_IN_QUAD = 1, EASE_OUT_QUAD = 2, EASE_IN_OUT_QUAD = 3, EASE_IN_CUBIC = 4, EASE_OUT_CUBIC = 5, EASE_IN_OUT_CUBIC = 6, EASE_IN_QUART = 7, EASE_OUT_QUART = 8, EASE_IN_OUT_QUART = 9, EASE_IN_QUINT = 10, EASE_OUT_QUINT = 11, EASE_IN_OUT_QUINT = 12, EASE_IN_SINE = 13, EASE_OUT_SINE = 14, EASE_IN_OUT_SINE = 15, EASE_IN_EXPO = 16, EASE_OUT_EXPO = 17, EASE_IN_OUT_EXPO = 18, EASE_IN_CIRC = 19, EASE_OUT_CIRC = 20, EASE_IN_OUT_CIRC = 21, EASE_IN_ELASTIC = 22, EASE_OUT_ELASTIC = 23, EASE_IN_OUT_ELASTIC = 24, EASE_IN_BACK = 25, EASE_OUT_BACK = 26, EASE_IN_OUT_BACK = 27, EASE_IN_BOUNCE = 28, EASE_OUT_BOUNCE = 29, EASE_IN_OUT_BOUNCE = 30 }
+EntryRow :: struct {
+    parent_instance: PreferencesRow,
+}
+
+EntryRowClass :: struct {
+    parent_class: PreferencesRowClass,
+}
+
+EnumListItem :: struct #packed {}
+
+EnumListItemClass :: struct {
+    parent_class: gobj.ObjectClass,
+}
+EnumListModel :: struct #packed {}
+
+EnumListModelClass :: struct {
+    parent_class: gobj.ObjectClass,
+}
+ExpanderRow :: struct {
+    parent_instance: PreferencesRow,
+}
+
+ExpanderRowClass :: struct {
+    parent_class: PreferencesRowClass,
+    padding: [4]glib.pointer,
+}
+
+FoldThresholdPolicy :: enum u32 {MINIMUM = 0, NATURAL = 1 }
+Flap :: struct #packed {}
+
+FlapClass :: struct {
+    parent_class: gtk.WidgetClass,
+}
+FlapFoldPolicy :: enum u32 {NEVER = 0, ALWAYS = 1, AUTO = 2 }
+FlapTransitionType :: enum u32 {OVER = 0, UNDER = 1, SLIDE = 2 }
+HeaderBar :: struct #packed {}
+
+HeaderBarClass :: struct {
+    parent_class: gtk.WidgetClass,
+}
+CenteringPolicy :: enum u32 {LOOSE = 0, STRICT = 1 }
+NavigationDirection :: enum u32 {BACK = 0, FORWARD = 1 }
+LeafletPage :: struct #packed {}
+
+LeafletPageClass :: struct {
+    parent_class: gobj.ObjectClass,
+}
+Leaflet :: struct #packed {}
+
+LeafletClass :: struct {
+    parent_class: gtk.WidgetClass,
+}
+LeafletTransitionType :: enum u32 {OVER = 0, UNDER = 1, SLIDE = 2 }
+MessageDialog :: struct {
+    parent_instance: gtk.Window,
+}
+
+response_func_ptr_anon_4 :: #type proc "c" (self: ^MessageDialog, response: cstring)
+MessageDialogClass :: struct {
+    parent_class: gtk.WindowClass,
+    response: response_func_ptr_anon_4,
+    padding: [4]glib.pointer,
+}
+
+NavigationPage :: struct {
+    parent_instance: gtk.Widget,
+}
+
+showing_func_ptr_anon_5 :: #type proc "c" (self: ^NavigationPage)
+shown_func_ptr_anon_6 :: #type proc "c" (self: ^NavigationPage)
+hiding_func_ptr_anon_7 :: #type proc "c" (self: ^NavigationPage)
+hidden_func_ptr_anon_8 :: #type proc "c" (self: ^NavigationPage)
+NavigationPageClass :: struct {
+    parent_class: gtk.WidgetClass,
+    showing: showing_func_ptr_anon_5,
+    shown: shown_func_ptr_anon_6,
+    hiding: hiding_func_ptr_anon_7,
+    hidden: hidden_func_ptr_anon_8,
+    padding: [8]glib.pointer,
+}
+
+NavigationView :: struct #packed {}
+
+NavigationViewClass :: struct {
+    parent_class: gtk.WidgetClass,
+}
+NavigationSplitView :: struct #packed {}
+
+NavigationSplitViewClass :: struct {
+    parent_class: gtk.WidgetClass,
+}
+OverlaySplitView :: struct #packed {}
+
+OverlaySplitViewClass :: struct {
+    parent_class: gtk.WidgetClass,
+}
+PasswordEntryRow :: struct #packed {}
+
+PasswordEntryRowClass :: struct {
+    parent_class: EntryRowClass,
+}
+PreferencesGroup :: struct {
+    parent_instance: gtk.Widget,
+}
+
+PreferencesGroupClass :: struct {
+    parent_class: gtk.WidgetClass,
+    padding: [4]glib.pointer,
+}
+
+PreferencesPage :: struct {
+    parent_instance: gtk.Widget,
+}
+
+PreferencesPageClass :: struct {
+    parent_class: gtk.WidgetClass,
+    padding: [4]glib.pointer,
+}
+
+ToastPriority :: enum u32 {NORMAL = 0, HIGH = 1 }
+Toast :: struct #packed {}
+
+ToastClass :: struct {
+    parent_class: gobj.ObjectClass,
+}
+PreferencesDialog :: struct {
+    parent_instance: Dialog,
+}
+
+PreferencesDialogClass :: struct {
+    parent_class: DialogClass,
+    padding: [4]glib.pointer,
+}
+
+PreferencesWindow :: struct {
+    parent_instance: Window,
+}
+
+PreferencesWindowClass :: struct {
+    parent_class: WindowClass,
+    padding: [4]glib.pointer,
+}
+
+SpinRow :: struct #packed {}
+
+SpinRowClass :: struct {
+    parent_class: ActionRowClass,
+}
+SplitButton :: struct #packed {}
+
+SplitButtonClass :: struct {
+    parent_class: gtk.WidgetClass,
+}
+SpringAnimation :: struct #packed {}
+
+SpringAnimationClass :: struct #packed {}
+
+SqueezerPage :: struct #packed {}
+
+SqueezerPageClass :: struct {
+    parent_class: gobj.ObjectClass,
+}
+Squeezer :: struct #packed {}
+
+SqueezerClass :: struct {
+    parent_class: gtk.WidgetClass,
+}
+SqueezerTransitionType :: enum u32 {NONE = 0, CROSSFADE = 1 }
+StatusPage :: struct #packed {}
+
+StatusPageClass :: struct {
+    parent_class: gtk.WidgetClass,
+}
+Swipeable :: struct #packed {}
+
+et_distance_func_ptr_anon_9 :: #type proc "c" (self: ^Swipeable) -> f64
+et_snap_points_func_ptr_anon_10 :: #type proc "c" (self: ^Swipeable, n_snap_points: [^]i32) -> ^f64
+et_progress_func_ptr_anon_11 :: #type proc "c" (self: ^Swipeable) -> f64
+et_cancel_progress_func_ptr_anon_12 :: #type proc "c" (self: ^Swipeable) -> f64
+et_swipe_area_func_ptr_anon_13 :: #type proc "c" (self: ^Swipeable, navigation_direction: NavigationDirection, is_drag: glib.boolean, rect: ^gtk.Rectangle)
+SwipeableInterface :: struct {
+    parent: gobj.TypeInterface,
+    get_distance: et_distance_func_ptr_anon_9,
+    get_snap_points: et_snap_points_func_ptr_anon_10,
+    get_progress: et_progress_func_ptr_anon_11,
+    get_cancel_progress: et_cancel_progress_func_ptr_anon_12,
+    get_swipe_area: et_swipe_area_func_ptr_anon_13,
+    padding: [4]glib.pointer,
+}
+
+SwipeTracker :: struct #packed {}
+
+SwipeTrackerClass :: struct {
+    parent_class: gobj.ObjectClass,
+}
+SwitchRow :: struct #packed {}
+
+SwitchRowClass :: struct {
+    parent_class: ActionRowClass,
+}
+TabViewShortcutsBit :: enum u32 {TAB_VIEW_SHORTCUT_CONTROL_TAB = 0, TAB_VIEW_SHORTCUT_CONTROL_SHIFT_TAB = 1, TAB_VIEW_SHORTCUT_CONTROL_PAGE_UP = 2, TAB_VIEW_SHORTCUT_CONTROL_PAGE_DOWN = 3, TAB_VIEW_SHORTCUT_CONTROL_HOME = 4, TAB_VIEW_SHORTCUT_CONTROL_END = 5, TAB_VIEW_SHORTCUT_CONTROL_SHIFT_PAGE_UP = 6, TAB_VIEW_SHORTCUT_CONTROL_SHIFT_PAGE_DOWN = 7, TAB_VIEW_SHORTCUT_CONTROL_SHIFT_HOME = 8, TAB_VIEW_SHORTCUT_CONTROL_SHIFT_END = 9, TAB_VIEW_SHORTCUT_ALT_DIGITS = 10, TAB_VIEW_SHORTCUT_ALT_ZERO = 11}
+TabViewShortcuts :: bit_set[TabViewShortcutsBit; u32]
+TAB_VIEW_SHORTCUT_NONE :: TabViewShortcuts{}
+TAB_VIEW_SHORTCUT_ALL_SHORTCUTS :: TabViewShortcuts{.TAB_VIEW_SHORTCUT_CONTROL_TAB, .TAB_VIEW_SHORTCUT_CONTROL_SHIFT_TAB, .TAB_VIEW_SHORTCUT_CONTROL_PAGE_UP, .TAB_VIEW_SHORTCUT_CONTROL_PAGE_DOWN, .TAB_VIEW_SHORTCUT_CONTROL_HOME, .TAB_VIEW_SHORTCUT_CONTROL_END, .TAB_VIEW_SHORTCUT_CONTROL_SHIFT_PAGE_UP, .TAB_VIEW_SHORTCUT_CONTROL_SHIFT_PAGE_DOWN, .TAB_VIEW_SHORTCUT_CONTROL_SHIFT_HOME, .TAB_VIEW_SHORTCUT_CONTROL_SHIFT_END, .TAB_VIEW_SHORTCUT_ALT_DIGITS, .TAB_VIEW_SHORTCUT_ALT_ZERO}
+TabPage :: struct #packed {}
+
+TabPageClass :: struct {
+    parent_class: gobj.ObjectClass,
+}
+TabView :: struct #packed {}
+
+TabViewClass :: struct {
+    parent_class: gtk.WidgetClass,
+}
+TabBar :: struct #packed {}
+
+TabBarClass :: struct {
+    parent_class: gtk.WidgetClass,
+}
+TabButton :: struct #packed {}
+
+TabButtonClass :: struct {
+    parent_class: gtk.WidgetClass,
+}
+TabOverview :: struct #packed {}
+
+TabOverviewClass :: struct {
+    parent_class: gtk.WidgetClass,
+}
+TimedAnimation :: struct #packed {}
+
+TimedAnimationClass :: struct #packed {}
+
+ToastOverlay :: struct #packed {}
+
+ToastOverlayClass :: struct {
+    parent_class: gtk.WidgetClass,
+}
+ToolbarStyle :: enum u32 {TOOLBAR_FLAT = 0, TOOLBAR_RAISED = 1, TOOLBAR_RAISED_BORDER = 2 }
+ToolbarView :: struct #packed {}
+
+ToolbarViewClass :: struct {
+    parent_class: gtk.WidgetClass,
+}
+ViewStackPage :: struct #packed {}
+
+ViewStackPageClass :: struct {
+    parent_class: gobj.ObjectClass,
+}
+ViewStack :: struct #packed {}
+
+ViewStackClass :: struct {
+    parent_class: gtk.WidgetClass,
+}
+ViewStackPages :: struct #packed {}
+
+ViewStackPagesClass :: struct {
+    parent_class: gobj.ObjectClass,
+}
+ViewSwitcher :: struct #packed {}
+
+ViewSwitcherClass :: struct {
+    parent_class: gtk.WidgetClass,
+}
+ViewSwitcherPolicy :: enum u32 {NARROW = 0, WIDE = 1 }
+ViewSwitcherBar :: struct #packed {}
+
+ViewSwitcherBarClass :: struct {
+    parent_class: gtk.WidgetClass,
+}
+ViewSwitcherTitle :: struct #packed {}
+
+ViewSwitcherTitleClass :: struct {
+    parent_class: gtk.WidgetClass,
+}
+WindowTitle :: struct #packed {}
+
+WindowTitleClass :: struct {
+    parent_class: gtk.WidgetClass,
+}
+
+@(default_calling_convention = "c")
+foreign adwaita_runic {
+    @(link_name = "adw_get_major_version")
+    get_major_version :: proc() -> glib.uint_ ---
+
+    @(link_name = "adw_get_minor_version")
+    get_minor_version :: proc() -> glib.uint_ ---
+
+    @(link_name = "adw_get_micro_version")
+    get_micro_version :: proc() -> glib.uint_ ---
+
+    @(link_name = "adw_length_unit_to_px")
+    length_unit_to_px :: proc(unit: LengthUnit, value: f64, settings: ^gtk.Settings) -> f64 ---
+
+    @(link_name = "adw_length_unit_from_px")
+    length_unit_from_px :: proc(unit: LengthUnit, value: f64, settings: ^gtk.Settings) -> f64 ---
+
+    @(link_name = "adw_breakpoint_condition_get_type")
+    breakpoint_condition_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_breakpoint_condition_new_length")
+    breakpoint_condition_new_length :: proc(type: BreakpointConditionLengthType, value: f64, unit: LengthUnit) -> ^BreakpointCondition ---
+
+    @(link_name = "adw_breakpoint_condition_new_ratio")
+    breakpoint_condition_new_ratio :: proc(type: BreakpointConditionRatioType, width: i32, height: i32) -> ^BreakpointCondition ---
+
+    @(link_name = "adw_breakpoint_condition_new_and")
+    breakpoint_condition_new_and :: proc(condition_1: ^BreakpointCondition, condition_2: ^BreakpointCondition) -> ^BreakpointCondition ---
+
+    @(link_name = "adw_breakpoint_condition_new_or")
+    breakpoint_condition_new_or :: proc(condition_1: ^BreakpointCondition, condition_2: ^BreakpointCondition) -> ^BreakpointCondition ---
+
+    @(link_name = "adw_breakpoint_condition_copy")
+    breakpoint_condition_copy :: proc(self: ^BreakpointCondition) -> ^BreakpointCondition ---
+
+    @(link_name = "adw_breakpoint_condition_free")
+    breakpoint_condition_free :: proc(self: ^BreakpointCondition) ---
+
+    @(link_name = "adw_breakpoint_condition_parse")
+    breakpoint_condition_parse :: proc(str: cstring) -> ^BreakpointCondition ---
+
+    @(link_name = "adw_breakpoint_condition_to_string")
+    breakpoint_condition_to_string :: proc(self: ^BreakpointCondition) -> cstring ---
+
+    @(link_name = "adw_breakpoint_get_type")
+    breakpoint_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_breakpoint_new")
+    breakpoint_new :: proc(condition: ^BreakpointCondition) -> ^Breakpoint ---
+
+    @(link_name = "adw_breakpoint_get_condition")
+    breakpoint_get_condition :: proc(self: ^Breakpoint) -> ^BreakpointCondition ---
+
+    @(link_name = "adw_breakpoint_set_condition")
+    breakpoint_set_condition :: proc(self: ^Breakpoint, condition: ^BreakpointCondition) ---
+
+    @(link_name = "adw_breakpoint_add_setter")
+    breakpoint_add_setter :: proc(self: ^Breakpoint, object: ^gobj.Object, property: cstring, value: ^gobj.Value) ---
+
+    @(link_name = "adw_breakpoint_add_setters")
+    breakpoint_add_setters :: proc(self: ^Breakpoint, first_object: ^gobj.Object, first_property: cstring, #c_vararg var_args: ..any) ---
+
+    @(link_name = "adw_breakpoint_add_settersv")
+    breakpoint_add_settersv :: proc(self: ^Breakpoint, n_setters: i32, objects: [^]^gobj.Object, names: [^]cstring, values: [^]^gobj.Value) ---
+
+    // breakpoint_add_setters_valist skipped: its trailing va_list is dropped by runic, so it would be a wrong #c_vararg ..any call
+
+    @(link_name = "adw_response_appearance_get_type")
+    response_appearance_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_animation_state_get_type")
+    animation_state_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_breakpoint_condition_length_type_get_type")
+    breakpoint_condition_length_type_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_breakpoint_condition_ratio_type_get_type")
+    breakpoint_condition_ratio_type_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_dialog_presentation_mode_get_type")
+    dialog_presentation_mode_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_easing_get_type")
+    easing_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_flap_fold_policy_get_type")
+    flap_fold_policy_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_flap_transition_type_get_type")
+    flap_transition_type_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_fold_threshold_policy_get_type")
+    fold_threshold_policy_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_centering_policy_get_type")
+    centering_policy_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_leaflet_transition_type_get_type")
+    leaflet_transition_type_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_length_unit_get_type")
+    length_unit_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_navigation_direction_get_type")
+    navigation_direction_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_squeezer_transition_type_get_type")
+    squeezer_transition_type_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_color_scheme_get_type")
+    color_scheme_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_tab_view_shortcuts_get_type")
+    tab_view_shortcuts_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_toast_priority_get_type")
+    toast_priority_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_toolbar_style_get_type")
+    toolbar_style_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_view_switcher_policy_get_type")
+    view_switcher_policy_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_dialog_get_type")
+    dialog_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_dialog_new")
+    dialog_new :: proc() -> ^Dialog ---
+
+    @(link_name = "adw_dialog_get_child")
+    dialog_get_child :: proc(self: ^Dialog) -> ^gtk.Widget ---
+
+    @(link_name = "adw_dialog_set_child")
+    dialog_set_child :: proc(self: ^Dialog, child: ^gtk.Widget) ---
+
+    @(link_name = "adw_dialog_get_title")
+    dialog_get_title :: proc(self: ^Dialog) -> cstring ---
+
+    @(link_name = "adw_dialog_set_title")
+    dialog_set_title :: proc(self: ^Dialog, title: cstring) ---
+
+    @(link_name = "adw_dialog_get_can_close")
+    dialog_get_can_close :: proc(self: ^Dialog) -> glib.boolean ---
+
+    @(link_name = "adw_dialog_set_can_close")
+    dialog_set_can_close :: proc(self: ^Dialog, can_close: glib.boolean) ---
+
+    @(link_name = "adw_dialog_get_content_width")
+    dialog_get_content_width :: proc(self: ^Dialog) -> i32 ---
+
+    @(link_name = "adw_dialog_set_content_width")
+    dialog_set_content_width :: proc(self: ^Dialog, content_width: i32) ---
+
+    @(link_name = "adw_dialog_get_content_height")
+    dialog_get_content_height :: proc(self: ^Dialog) -> i32 ---
+
+    @(link_name = "adw_dialog_set_content_height")
+    dialog_set_content_height :: proc(self: ^Dialog, content_height: i32) ---
+
+    @(link_name = "adw_dialog_get_follows_content_size")
+    dialog_get_follows_content_size :: proc(self: ^Dialog) -> glib.boolean ---
+
+    @(link_name = "adw_dialog_set_follows_content_size")
+    dialog_set_follows_content_size :: proc(self: ^Dialog, follows_content_size: glib.boolean) ---
+
+    @(link_name = "adw_dialog_get_presentation_mode")
+    dialog_get_presentation_mode :: proc(self: ^Dialog) -> DialogPresentationMode ---
+
+    @(link_name = "adw_dialog_set_presentation_mode")
+    dialog_set_presentation_mode :: proc(self: ^Dialog, presentation_mode: DialogPresentationMode) ---
+
+    @(link_name = "adw_dialog_get_focus")
+    dialog_get_focus :: proc(self: ^Dialog) -> ^gtk.Widget ---
+
+    @(link_name = "adw_dialog_set_focus")
+    dialog_set_focus :: proc(self: ^Dialog, focus: ^gtk.Widget) ---
+
+    @(link_name = "adw_dialog_get_default_widget")
+    dialog_get_default_widget :: proc(self: ^Dialog) -> ^gtk.Widget ---
+
+    @(link_name = "adw_dialog_set_default_widget")
+    dialog_set_default_widget :: proc(self: ^Dialog, default_widget: ^gtk.Widget) ---
+
+    @(link_name = "adw_dialog_close")
+    dialog_close :: proc(self: ^Dialog) -> glib.boolean ---
+
+    @(link_name = "adw_dialog_force_close")
+    dialog_force_close :: proc(self: ^Dialog) ---
+
+    @(link_name = "adw_dialog_add_breakpoint")
+    dialog_add_breakpoint :: proc(self: ^Dialog, breakpoint: ^Breakpoint) ---
+
+    @(link_name = "adw_dialog_get_current_breakpoint")
+    dialog_get_current_breakpoint :: proc(self: ^Dialog) -> ^Breakpoint ---
+
+    @(link_name = "adw_dialog_present")
+    dialog_present :: proc(self: ^Dialog, parent: ^gtk.Widget) ---
+
+    @(link_name = "adw_about_dialog_get_type")
+    about_dialog_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_about_dialog_new")
+    about_dialog_new :: proc() -> ^Dialog ---
+
+    @(link_name = "adw_about_dialog_new_from_appdata")
+    about_dialog_new_from_appdata :: proc(resource_path: cstring, release_notes_version: cstring) -> ^Dialog ---
+
+    @(link_name = "adw_about_dialog_get_application_name")
+    about_dialog_get_application_name :: proc(self: ^AboutDialog) -> cstring ---
+
+    @(link_name = "adw_about_dialog_set_application_name")
+    about_dialog_set_application_name :: proc(self: ^AboutDialog, application_name: cstring) ---
+
+    @(link_name = "adw_about_dialog_get_application_icon")
+    about_dialog_get_application_icon :: proc(self: ^AboutDialog) -> cstring ---
+
+    @(link_name = "adw_about_dialog_set_application_icon")
+    about_dialog_set_application_icon :: proc(self: ^AboutDialog, application_icon: cstring) ---
+
+    @(link_name = "adw_about_dialog_get_developer_name")
+    about_dialog_get_developer_name :: proc(self: ^AboutDialog) -> cstring ---
+
+    @(link_name = "adw_about_dialog_set_developer_name")
+    about_dialog_set_developer_name :: proc(self: ^AboutDialog, developer_name: cstring) ---
+
+    @(link_name = "adw_about_dialog_get_version")
+    about_dialog_get_version :: proc(self: ^AboutDialog) -> cstring ---
+
+    @(link_name = "adw_about_dialog_set_version")
+    about_dialog_set_version :: proc(self: ^AboutDialog, version: cstring) ---
+
+    @(link_name = "adw_about_dialog_get_release_notes_version")
+    about_dialog_get_release_notes_version :: proc(self: ^AboutDialog) -> cstring ---
+
+    @(link_name = "adw_about_dialog_set_release_notes_version")
+    about_dialog_set_release_notes_version :: proc(self: ^AboutDialog, version: cstring) ---
+
+    @(link_name = "adw_about_dialog_get_release_notes")
+    about_dialog_get_release_notes :: proc(self: ^AboutDialog) -> cstring ---
+
+    @(link_name = "adw_about_dialog_set_release_notes")
+    about_dialog_set_release_notes :: proc(self: ^AboutDialog, release_notes: cstring) ---
+
+    @(link_name = "adw_about_dialog_get_comments")
+    about_dialog_get_comments :: proc(self: ^AboutDialog) -> cstring ---
+
+    @(link_name = "adw_about_dialog_set_comments")
+    about_dialog_set_comments :: proc(self: ^AboutDialog, comments: cstring) ---
+
+    @(link_name = "adw_about_dialog_get_website")
+    about_dialog_get_website :: proc(self: ^AboutDialog) -> cstring ---
+
+    @(link_name = "adw_about_dialog_set_website")
+    about_dialog_set_website :: proc(self: ^AboutDialog, website: cstring) ---
+
+    @(link_name = "adw_about_dialog_get_support_url")
+    about_dialog_get_support_url :: proc(self: ^AboutDialog) -> cstring ---
+
+    @(link_name = "adw_about_dialog_set_support_url")
+    about_dialog_set_support_url :: proc(self: ^AboutDialog, support_url: cstring) ---
+
+    @(link_name = "adw_about_dialog_get_issue_url")
+    about_dialog_get_issue_url :: proc(self: ^AboutDialog) -> cstring ---
+
+    @(link_name = "adw_about_dialog_set_issue_url")
+    about_dialog_set_issue_url :: proc(self: ^AboutDialog, issue_url: cstring) ---
+
+    @(link_name = "adw_about_dialog_add_link")
+    about_dialog_add_link :: proc(self: ^AboutDialog, title: cstring, url: cstring) ---
+
+    @(link_name = "adw_about_dialog_get_debug_info")
+    about_dialog_get_debug_info :: proc(self: ^AboutDialog) -> cstring ---
+
+    @(link_name = "adw_about_dialog_set_debug_info")
+    about_dialog_set_debug_info :: proc(self: ^AboutDialog, debug_info: cstring) ---
+
+    @(link_name = "adw_about_dialog_get_debug_info_filename")
+    about_dialog_get_debug_info_filename :: proc(self: ^AboutDialog) -> cstring ---
+
+    @(link_name = "adw_about_dialog_set_debug_info_filename")
+    about_dialog_set_debug_info_filename :: proc(self: ^AboutDialog, filename: cstring) ---
+
+    @(link_name = "adw_about_dialog_get_developers")
+    about_dialog_get_developers :: proc(self: ^AboutDialog) -> ^cstring ---
+
+    @(link_name = "adw_about_dialog_set_developers")
+    about_dialog_set_developers :: proc(self: ^AboutDialog, developers: [^]cstring) ---
+
+    @(link_name = "adw_about_dialog_get_designers")
+    about_dialog_get_designers :: proc(self: ^AboutDialog) -> ^cstring ---
+
+    @(link_name = "adw_about_dialog_set_designers")
+    about_dialog_set_designers :: proc(self: ^AboutDialog, designers: [^]cstring) ---
+
+    @(link_name = "adw_about_dialog_get_artists")
+    about_dialog_get_artists :: proc(self: ^AboutDialog) -> ^cstring ---
+
+    @(link_name = "adw_about_dialog_set_artists")
+    about_dialog_set_artists :: proc(self: ^AboutDialog, artists: [^]cstring) ---
+
+    @(link_name = "adw_about_dialog_get_documenters")
+    about_dialog_get_documenters :: proc(self: ^AboutDialog) -> ^cstring ---
+
+    @(link_name = "adw_about_dialog_set_documenters")
+    about_dialog_set_documenters :: proc(self: ^AboutDialog, documenters: [^]cstring) ---
+
+    @(link_name = "adw_about_dialog_get_translator_credits")
+    about_dialog_get_translator_credits :: proc(self: ^AboutDialog) -> cstring ---
+
+    @(link_name = "adw_about_dialog_set_translator_credits")
+    about_dialog_set_translator_credits :: proc(self: ^AboutDialog, translator_credits: cstring) ---
+
+    @(link_name = "adw_about_dialog_add_credit_section")
+    about_dialog_add_credit_section :: proc(self: ^AboutDialog, name: cstring, people: ^cstring) ---
+
+    @(link_name = "adw_about_dialog_add_acknowledgement_section")
+    about_dialog_add_acknowledgement_section :: proc(self: ^AboutDialog, name: cstring, people: ^cstring) ---
+
+    @(link_name = "adw_about_dialog_get_copyright")
+    about_dialog_get_copyright :: proc(self: ^AboutDialog) -> cstring ---
+
+    @(link_name = "adw_about_dialog_set_copyright")
+    about_dialog_set_copyright :: proc(self: ^AboutDialog, copyright: cstring) ---
+
+    @(link_name = "adw_about_dialog_get_license_type")
+    about_dialog_get_license_type :: proc(self: ^AboutDialog) -> gtk.License ---
+
+    @(link_name = "adw_about_dialog_set_license_type")
+    about_dialog_set_license_type :: proc(self: ^AboutDialog, license_type: gtk.License) ---
+
+    @(link_name = "adw_about_dialog_get_license")
+    about_dialog_get_license :: proc(self: ^AboutDialog) -> cstring ---
+
+    @(link_name = "adw_about_dialog_set_license")
+    about_dialog_set_license :: proc(self: ^AboutDialog, license: cstring) ---
+
+    @(link_name = "adw_about_dialog_add_legal_section")
+    about_dialog_add_legal_section :: proc(self: ^AboutDialog, title: cstring, copyright: cstring, license_type: gtk.License, license: cstring) ---
+
+    @(link_name = "adw_show_about_dialog")
+    show_about_dialog :: proc(parent: ^gtk.Widget, first_property_name: cstring, #c_vararg var_args: ..any) ---
+
+    @(link_name = "adw_show_about_dialog_from_appdata")
+    show_about_dialog_from_appdata :: proc(parent: ^gtk.Widget, resource_path: cstring, release_notes_version: cstring, first_property_name: cstring, #c_vararg var_args: ..any) ---
+
+    @(link_name = "adw_window_get_type")
+    window_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_window_new")
+    window_new :: proc() -> ^gtk.Widget ---
+
+    @(link_name = "adw_window_get_content")
+    window_get_content :: proc(self: ^Window) -> ^gtk.Widget ---
+
+    @(link_name = "adw_window_set_content")
+    window_set_content :: proc(self: ^Window, content: ^gtk.Widget) ---
+
+    @(link_name = "adw_window_add_breakpoint")
+    window_add_breakpoint :: proc(self: ^Window, breakpoint: ^Breakpoint) ---
+
+    @(link_name = "adw_window_get_current_breakpoint")
+    window_get_current_breakpoint :: proc(self: ^Window) -> ^Breakpoint ---
+
+    @(link_name = "adw_window_get_dialogs")
+    window_get_dialogs :: proc(self: ^Window) -> ^gio.ListModel ---
+
+    @(link_name = "adw_window_get_visible_dialog")
+    window_get_visible_dialog :: proc(self: ^Window) -> ^Dialog ---
+
+    @(link_name = "adw_about_window_get_type")
+    about_window_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_about_window_new")
+    about_window_new :: proc() -> ^gtk.Widget ---
+
+    @(link_name = "adw_about_window_new_from_appdata")
+    about_window_new_from_appdata :: proc(resource_path: cstring, release_notes_version: cstring) -> ^gtk.Widget ---
+
+    @(link_name = "adw_about_window_get_application_name")
+    about_window_get_application_name :: proc(self: ^AboutWindow) -> cstring ---
+
+    @(link_name = "adw_about_window_set_application_name")
+    about_window_set_application_name :: proc(self: ^AboutWindow, application_name: cstring) ---
+
+    @(link_name = "adw_about_window_get_application_icon")
+    about_window_get_application_icon :: proc(self: ^AboutWindow) -> cstring ---
+
+    @(link_name = "adw_about_window_set_application_icon")
+    about_window_set_application_icon :: proc(self: ^AboutWindow, application_icon: cstring) ---
+
+    @(link_name = "adw_about_window_get_developer_name")
+    about_window_get_developer_name :: proc(self: ^AboutWindow) -> cstring ---
+
+    @(link_name = "adw_about_window_set_developer_name")
+    about_window_set_developer_name :: proc(self: ^AboutWindow, developer_name: cstring) ---
+
+    @(link_name = "adw_about_window_get_version")
+    about_window_get_version :: proc(self: ^AboutWindow) -> cstring ---
+
+    @(link_name = "adw_about_window_set_version")
+    about_window_set_version :: proc(self: ^AboutWindow, version: cstring) ---
+
+    @(link_name = "adw_about_window_get_release_notes_version")
+    about_window_get_release_notes_version :: proc(self: ^AboutWindow) -> cstring ---
+
+    @(link_name = "adw_about_window_set_release_notes_version")
+    about_window_set_release_notes_version :: proc(self: ^AboutWindow, version: cstring) ---
+
+    @(link_name = "adw_about_window_get_release_notes")
+    about_window_get_release_notes :: proc(self: ^AboutWindow) -> cstring ---
+
+    @(link_name = "adw_about_window_set_release_notes")
+    about_window_set_release_notes :: proc(self: ^AboutWindow, release_notes: cstring) ---
+
+    @(link_name = "adw_about_window_get_comments")
+    about_window_get_comments :: proc(self: ^AboutWindow) -> cstring ---
+
+    @(link_name = "adw_about_window_set_comments")
+    about_window_set_comments :: proc(self: ^AboutWindow, comments: cstring) ---
+
+    @(link_name = "adw_about_window_get_website")
+    about_window_get_website :: proc(self: ^AboutWindow) -> cstring ---
+
+    @(link_name = "adw_about_window_set_website")
+    about_window_set_website :: proc(self: ^AboutWindow, website: cstring) ---
+
+    @(link_name = "adw_about_window_get_support_url")
+    about_window_get_support_url :: proc(self: ^AboutWindow) -> cstring ---
+
+    @(link_name = "adw_about_window_set_support_url")
+    about_window_set_support_url :: proc(self: ^AboutWindow, support_url: cstring) ---
+
+    @(link_name = "adw_about_window_get_issue_url")
+    about_window_get_issue_url :: proc(self: ^AboutWindow) -> cstring ---
+
+    @(link_name = "adw_about_window_set_issue_url")
+    about_window_set_issue_url :: proc(self: ^AboutWindow, issue_url: cstring) ---
+
+    @(link_name = "adw_about_window_add_link")
+    about_window_add_link :: proc(self: ^AboutWindow, title: cstring, url: cstring) ---
+
+    @(link_name = "adw_about_window_get_debug_info")
+    about_window_get_debug_info :: proc(self: ^AboutWindow) -> cstring ---
+
+    @(link_name = "adw_about_window_set_debug_info")
+    about_window_set_debug_info :: proc(self: ^AboutWindow, debug_info: cstring) ---
+
+    @(link_name = "adw_about_window_get_debug_info_filename")
+    about_window_get_debug_info_filename :: proc(self: ^AboutWindow) -> cstring ---
+
+    @(link_name = "adw_about_window_set_debug_info_filename")
+    about_window_set_debug_info_filename :: proc(self: ^AboutWindow, filename: cstring) ---
+
+    @(link_name = "adw_about_window_get_developers")
+    about_window_get_developers :: proc(self: ^AboutWindow) -> ^cstring ---
+
+    @(link_name = "adw_about_window_set_developers")
+    about_window_set_developers :: proc(self: ^AboutWindow, developers: [^]cstring) ---
+
+    @(link_name = "adw_about_window_get_designers")
+    about_window_get_designers :: proc(self: ^AboutWindow) -> ^cstring ---
+
+    @(link_name = "adw_about_window_set_designers")
+    about_window_set_designers :: proc(self: ^AboutWindow, designers: [^]cstring) ---
+
+    @(link_name = "adw_about_window_get_artists")
+    about_window_get_artists :: proc(self: ^AboutWindow) -> ^cstring ---
+
+    @(link_name = "adw_about_window_set_artists")
+    about_window_set_artists :: proc(self: ^AboutWindow, artists: [^]cstring) ---
+
+    @(link_name = "adw_about_window_get_documenters")
+    about_window_get_documenters :: proc(self: ^AboutWindow) -> ^cstring ---
+
+    @(link_name = "adw_about_window_set_documenters")
+    about_window_set_documenters :: proc(self: ^AboutWindow, documenters: [^]cstring) ---
+
+    @(link_name = "adw_about_window_get_translator_credits")
+    about_window_get_translator_credits :: proc(self: ^AboutWindow) -> cstring ---
+
+    @(link_name = "adw_about_window_set_translator_credits")
+    about_window_set_translator_credits :: proc(self: ^AboutWindow, translator_credits: cstring) ---
+
+    @(link_name = "adw_about_window_add_credit_section")
+    about_window_add_credit_section :: proc(self: ^AboutWindow, name: cstring, people: ^cstring) ---
+
+    @(link_name = "adw_about_window_add_acknowledgement_section")
+    about_window_add_acknowledgement_section :: proc(self: ^AboutWindow, name: cstring, people: ^cstring) ---
+
+    @(link_name = "adw_about_window_get_copyright")
+    about_window_get_copyright :: proc(self: ^AboutWindow) -> cstring ---
+
+    @(link_name = "adw_about_window_set_copyright")
+    about_window_set_copyright :: proc(self: ^AboutWindow, copyright: cstring) ---
+
+    @(link_name = "adw_about_window_get_license_type")
+    about_window_get_license_type :: proc(self: ^AboutWindow) -> gtk.License ---
+
+    @(link_name = "adw_about_window_set_license_type")
+    about_window_set_license_type :: proc(self: ^AboutWindow, license_type: gtk.License) ---
+
+    @(link_name = "adw_about_window_get_license")
+    about_window_get_license :: proc(self: ^AboutWindow) -> cstring ---
+
+    @(link_name = "adw_about_window_set_license")
+    about_window_set_license :: proc(self: ^AboutWindow, license: cstring) ---
+
+    @(link_name = "adw_about_window_add_legal_section")
+    about_window_add_legal_section :: proc(self: ^AboutWindow, title: cstring, copyright: cstring, license_type: gtk.License, license: cstring) ---
+
+    @(link_name = "adw_show_about_window")
+    show_about_window :: proc(parent: ^gtk.Window, first_property_name: cstring, #c_vararg var_args: ..any) ---
+
+    @(link_name = "adw_show_about_window_from_appdata")
+    show_about_window_from_appdata :: proc(parent: ^gtk.Window, resource_path: cstring, release_notes_version: cstring, first_property_name: cstring, #c_vararg var_args: ..any) ---
+
+    @(link_name = "adw_preferences_row_get_type")
+    preferences_row_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_preferences_row_new")
+    preferences_row_new :: proc() -> ^gtk.Widget ---
+
+    @(link_name = "adw_preferences_row_get_title")
+    preferences_row_get_title :: proc(self: ^PreferencesRow) -> cstring ---
+
+    @(link_name = "adw_preferences_row_set_title")
+    preferences_row_set_title :: proc(self: ^PreferencesRow, title: cstring) ---
+
+    @(link_name = "adw_preferences_row_get_use_underline")
+    preferences_row_get_use_underline :: proc(self: ^PreferencesRow) -> glib.boolean ---
+
+    @(link_name = "adw_preferences_row_set_use_underline")
+    preferences_row_set_use_underline :: proc(self: ^PreferencesRow, use_underline: glib.boolean) ---
+
+    @(link_name = "adw_preferences_row_get_title_selectable")
+    preferences_row_get_title_selectable :: proc(self: ^PreferencesRow) -> glib.boolean ---
+
+    @(link_name = "adw_preferences_row_set_title_selectable")
+    preferences_row_set_title_selectable :: proc(self: ^PreferencesRow, title_selectable: glib.boolean) ---
+
+    @(link_name = "adw_preferences_row_get_use_markup")
+    preferences_row_get_use_markup :: proc(self: ^PreferencesRow) -> glib.boolean ---
+
+    @(link_name = "adw_preferences_row_set_use_markup")
+    preferences_row_set_use_markup :: proc(self: ^PreferencesRow, use_markup: glib.boolean) ---
+
+    @(link_name = "adw_action_row_get_type")
+    action_row_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_action_row_new")
+    action_row_new :: proc() -> ^gtk.Widget ---
+
+    @(link_name = "adw_action_row_add_prefix")
+    action_row_add_prefix :: proc(self: ^ActionRow, widget: ^gtk.Widget) ---
+
+    @(link_name = "adw_action_row_add_suffix")
+    action_row_add_suffix :: proc(self: ^ActionRow, widget: ^gtk.Widget) ---
+
+    @(link_name = "adw_action_row_remove")
+    action_row_remove :: proc(self: ^ActionRow, widget: ^gtk.Widget) ---
+
+    @(link_name = "adw_action_row_get_subtitle")
+    action_row_get_subtitle :: proc(self: ^ActionRow) -> cstring ---
+
+    @(link_name = "adw_action_row_set_subtitle")
+    action_row_set_subtitle :: proc(self: ^ActionRow, subtitle: cstring) ---
+
+    @(link_name = "adw_action_row_get_icon_name")
+    action_row_get_icon_name :: proc(self: ^ActionRow) -> cstring ---
+
+    @(link_name = "adw_action_row_set_icon_name")
+    action_row_set_icon_name :: proc(self: ^ActionRow, icon_name: cstring) ---
+
+    @(link_name = "adw_action_row_get_activatable_widget")
+    action_row_get_activatable_widget :: proc(self: ^ActionRow) -> ^gtk.Widget ---
+
+    @(link_name = "adw_action_row_set_activatable_widget")
+    action_row_set_activatable_widget :: proc(self: ^ActionRow, widget: ^gtk.Widget) ---
+
+    @(link_name = "adw_action_row_get_title_lines")
+    action_row_get_title_lines :: proc(self: ^ActionRow) -> i32 ---
+
+    @(link_name = "adw_action_row_set_title_lines")
+    action_row_set_title_lines :: proc(self: ^ActionRow, title_lines: i32) ---
+
+    @(link_name = "adw_action_row_get_subtitle_lines")
+    action_row_get_subtitle_lines :: proc(self: ^ActionRow) -> i32 ---
+
+    @(link_name = "adw_action_row_set_subtitle_lines")
+    action_row_set_subtitle_lines :: proc(self: ^ActionRow, subtitle_lines: i32) ---
+
+    @(link_name = "adw_action_row_get_subtitle_selectable")
+    action_row_get_subtitle_selectable :: proc(self: ^ActionRow) -> glib.boolean ---
+
+    @(link_name = "adw_action_row_set_subtitle_selectable")
+    action_row_set_subtitle_selectable :: proc(self: ^ActionRow, subtitle_selectable: glib.boolean) ---
+
+    @(link_name = "adw_action_row_activate")
+    action_row_activate :: proc(self: ^ActionRow) ---
+
+    @(link_name = "adw_alert_dialog_get_type")
+    alert_dialog_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_alert_dialog_new")
+    alert_dialog_new :: proc(heading: cstring, body: cstring) -> ^Dialog ---
+
+    @(link_name = "adw_alert_dialog_get_heading")
+    alert_dialog_get_heading :: proc(self: ^AlertDialog) -> cstring ---
+
+    @(link_name = "adw_alert_dialog_set_heading")
+    alert_dialog_set_heading :: proc(self: ^AlertDialog, heading: cstring) ---
+
+    @(link_name = "adw_alert_dialog_get_heading_use_markup")
+    alert_dialog_get_heading_use_markup :: proc(self: ^AlertDialog) -> glib.boolean ---
+
+    @(link_name = "adw_alert_dialog_set_heading_use_markup")
+    alert_dialog_set_heading_use_markup :: proc(self: ^AlertDialog, use_markup: glib.boolean) ---
+
+    @(link_name = "adw_alert_dialog_format_heading")
+    alert_dialog_format_heading :: proc(self: ^AlertDialog, format: cstring, #c_vararg var_args: ..any) ---
+
+    @(link_name = "adw_alert_dialog_format_heading_markup")
+    alert_dialog_format_heading_markup :: proc(self: ^AlertDialog, format: cstring, #c_vararg var_args: ..any) ---
+
+    @(link_name = "adw_alert_dialog_get_body")
+    alert_dialog_get_body :: proc(self: ^AlertDialog) -> cstring ---
+
+    @(link_name = "adw_alert_dialog_set_body")
+    alert_dialog_set_body :: proc(self: ^AlertDialog, body: cstring) ---
+
+    @(link_name = "adw_alert_dialog_get_body_use_markup")
+    alert_dialog_get_body_use_markup :: proc(self: ^AlertDialog) -> glib.boolean ---
+
+    @(link_name = "adw_alert_dialog_set_body_use_markup")
+    alert_dialog_set_body_use_markup :: proc(self: ^AlertDialog, use_markup: glib.boolean) ---
+
+    @(link_name = "adw_alert_dialog_format_body")
+    alert_dialog_format_body :: proc(self: ^AlertDialog, format: cstring, #c_vararg var_args: ..any) ---
+
+    @(link_name = "adw_alert_dialog_format_body_markup")
+    alert_dialog_format_body_markup :: proc(self: ^AlertDialog, format: cstring, #c_vararg var_args: ..any) ---
+
+    @(link_name = "adw_alert_dialog_get_extra_child")
+    alert_dialog_get_extra_child :: proc(self: ^AlertDialog) -> ^gtk.Widget ---
+
+    @(link_name = "adw_alert_dialog_set_extra_child")
+    alert_dialog_set_extra_child :: proc(self: ^AlertDialog, child: ^gtk.Widget) ---
+
+    @(link_name = "adw_alert_dialog_add_response")
+    alert_dialog_add_response :: proc(self: ^AlertDialog, id: cstring, label: cstring) ---
+
+    @(link_name = "adw_alert_dialog_add_responses")
+    alert_dialog_add_responses :: proc(self: ^AlertDialog, first_id: cstring, #c_vararg var_args: ..any) ---
+
+    @(link_name = "adw_alert_dialog_remove_response")
+    alert_dialog_remove_response :: proc(self: ^AlertDialog, id: cstring) ---
+
+    @(link_name = "adw_alert_dialog_get_response_label")
+    alert_dialog_get_response_label :: proc(self: ^AlertDialog, response: cstring) -> cstring ---
+
+    @(link_name = "adw_alert_dialog_set_response_label")
+    alert_dialog_set_response_label :: proc(self: ^AlertDialog, response: cstring, label: cstring) ---
+
+    @(link_name = "adw_alert_dialog_get_response_appearance")
+    alert_dialog_get_response_appearance :: proc(self: ^AlertDialog, response: cstring) -> ResponseAppearance ---
+
+    @(link_name = "adw_alert_dialog_set_response_appearance")
+    alert_dialog_set_response_appearance :: proc(self: ^AlertDialog, response: cstring, appearance: ResponseAppearance) ---
+
+    @(link_name = "adw_alert_dialog_get_response_enabled")
+    alert_dialog_get_response_enabled :: proc(self: ^AlertDialog, response: cstring) -> glib.boolean ---
+
+    @(link_name = "adw_alert_dialog_set_response_enabled")
+    alert_dialog_set_response_enabled :: proc(self: ^AlertDialog, response: cstring, enabled: glib.boolean) ---
+
+    @(link_name = "adw_alert_dialog_get_default_response")
+    alert_dialog_get_default_response :: proc(self: ^AlertDialog) -> cstring ---
+
+    @(link_name = "adw_alert_dialog_set_default_response")
+    alert_dialog_set_default_response :: proc(self: ^AlertDialog, response: cstring) ---
+
+    @(link_name = "adw_alert_dialog_get_close_response")
+    alert_dialog_get_close_response :: proc(self: ^AlertDialog) -> cstring ---
+
+    @(link_name = "adw_alert_dialog_set_close_response")
+    alert_dialog_set_close_response :: proc(self: ^AlertDialog, response: cstring) ---
+
+    @(link_name = "adw_alert_dialog_has_response")
+    alert_dialog_has_response :: proc(self: ^AlertDialog, response: cstring) -> glib.boolean ---
+
+    @(link_name = "adw_alert_dialog_choose")
+    alert_dialog_choose :: proc(self: ^AlertDialog, parent: ^gtk.Widget, cancellable: ^gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: glib.pointer) ---
+
+    @(link_name = "adw_alert_dialog_choose_finish")
+    alert_dialog_choose_finish :: proc(self: ^AlertDialog, result: ^gio.AsyncResult) -> cstring ---
+
+    @(link_name = "adw_animation_target_get_type")
+    animation_target_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_callback_animation_target_get_type")
+    callback_animation_target_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_callback_animation_target_new")
+    callback_animation_target_new :: proc(callback: AnimationTargetFunc, user_data: glib.pointer, destroy: glib.DestroyNotify) -> ^AnimationTarget ---
+
+    @(link_name = "adw_property_animation_target_get_type")
+    property_animation_target_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_property_animation_target_new")
+    property_animation_target_new :: proc(object: ^gobj.Object, property_name: cstring) -> ^AnimationTarget ---
+
+    @(link_name = "adw_property_animation_target_new_for_pspec")
+    property_animation_target_new_for_pspec :: proc(object: ^gobj.Object, pspec: ^gobj.ParamSpec) -> ^AnimationTarget ---
+
+    @(link_name = "adw_property_animation_target_get_object")
+    property_animation_target_get_object :: proc(self: ^PropertyAnimationTarget) -> ^gobj.Object ---
+
+    @(link_name = "adw_property_animation_target_get_pspec")
+    property_animation_target_get_pspec :: proc(self: ^PropertyAnimationTarget) -> ^gobj.ParamSpec ---
+
+    @(link_name = "adw_animation_get_type")
+    animation_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_animation_get_widget")
+    animation_get_widget :: proc(self: ^Animation) -> ^gtk.Widget ---
+
+    @(link_name = "adw_animation_get_target")
+    animation_get_target :: proc(self: ^Animation) -> ^AnimationTarget ---
+
+    @(link_name = "adw_animation_set_target")
+    animation_set_target :: proc(self: ^Animation, target: ^AnimationTarget) ---
+
+    @(link_name = "adw_animation_get_value")
+    animation_get_value :: proc(self: ^Animation) -> f64 ---
+
+    @(link_name = "adw_animation_get_state")
+    animation_get_state :: proc(self: ^Animation) -> AnimationState ---
+
+    @(link_name = "adw_animation_play")
+    animation_play :: proc(self: ^Animation) ---
+
+    @(link_name = "adw_animation_pause")
+    animation_pause :: proc(self: ^Animation) ---
+
+    @(link_name = "adw_animation_resume")
+    animation_resume :: proc(self: ^Animation) ---
+
+    @(link_name = "adw_animation_reset")
+    animation_reset :: proc(self: ^Animation) ---
+
+    @(link_name = "adw_animation_skip")
+    animation_skip :: proc(self: ^Animation) ---
+
+    @(link_name = "adw_animation_get_follow_enable_animations_setting")
+    animation_get_follow_enable_animations_setting :: proc(self: ^Animation) -> glib.boolean ---
+
+    @(link_name = "adw_animation_set_follow_enable_animations_setting")
+    animation_set_follow_enable_animations_setting :: proc(self: ^Animation, setting: glib.boolean) ---
+
+    @(link_name = "adw_lerp")
+    lerp :: proc(a: f64, b: f64, t: f64) -> f64 ---
+
+    @(link_name = "adw_get_enable_animations")
+    get_enable_animations :: proc(widget: ^gtk.Widget) -> glib.boolean ---
+
+    @(link_name = "adw_style_manager_get_type")
+    style_manager_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_style_manager_get_default")
+    style_manager_get_default :: proc() -> ^StyleManager ---
+
+    @(link_name = "adw_style_manager_get_for_display")
+    style_manager_get_for_display :: proc(display: ^gtk.Display) -> ^StyleManager ---
+
+    @(link_name = "adw_style_manager_get_display")
+    style_manager_get_display :: proc(self: ^StyleManager) -> ^gtk.Display ---
+
+    @(link_name = "adw_style_manager_get_color_scheme")
+    style_manager_get_color_scheme :: proc(self: ^StyleManager) -> ColorScheme ---
+
+    @(link_name = "adw_style_manager_set_color_scheme")
+    style_manager_set_color_scheme :: proc(self: ^StyleManager, color_scheme: ColorScheme) ---
+
+    @(link_name = "adw_style_manager_get_system_supports_color_schemes")
+    style_manager_get_system_supports_color_schemes :: proc(self: ^StyleManager) -> glib.boolean ---
+
+    @(link_name = "adw_style_manager_get_dark")
+    style_manager_get_dark :: proc(self: ^StyleManager) -> glib.boolean ---
+
+    @(link_name = "adw_style_manager_get_high_contrast")
+    style_manager_get_high_contrast :: proc(self: ^StyleManager) -> glib.boolean ---
+
+    @(link_name = "adw_application_get_type")
+    application_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_application_new")
+    application_new :: proc(application_id: cstring, flags: gio.ApplicationFlags) -> ^Application ---
+
+    @(link_name = "adw_application_get_style_manager")
+    application_get_style_manager :: proc(self: ^Application) -> ^StyleManager ---
+
+    @(link_name = "adw_application_window_get_type")
+    application_window_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_application_window_new")
+    application_window_new :: proc(app: ^gtk.Application) -> ^gtk.Widget ---
+
+    @(link_name = "adw_application_window_set_content")
+    application_window_set_content :: proc(self: ^ApplicationWindow, content: ^gtk.Widget) ---
+
+    @(link_name = "adw_application_window_get_content")
+    application_window_get_content :: proc(self: ^ApplicationWindow) -> ^gtk.Widget ---
+
+    @(link_name = "adw_application_window_add_breakpoint")
+    application_window_add_breakpoint :: proc(self: ^ApplicationWindow, breakpoint: ^Breakpoint) ---
+
+    @(link_name = "adw_application_window_get_current_breakpoint")
+    application_window_get_current_breakpoint :: proc(self: ^ApplicationWindow) -> ^Breakpoint ---
+
+    @(link_name = "adw_application_window_get_dialogs")
+    application_window_get_dialogs :: proc(self: ^ApplicationWindow) -> ^gio.ListModel ---
+
+    @(link_name = "adw_application_window_get_visible_dialog")
+    application_window_get_visible_dialog :: proc(self: ^ApplicationWindow) -> ^Dialog ---
+
+    @(link_name = "adw_avatar_get_type")
+    avatar_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_avatar_new")
+    avatar_new :: proc(size_p: i32, text: cstring, show_initials: glib.boolean) -> ^gtk.Widget ---
+
+    @(link_name = "adw_avatar_get_icon_name")
+    avatar_get_icon_name :: proc(self: ^Avatar) -> cstring ---
+
+    @(link_name = "adw_avatar_set_icon_name")
+    avatar_set_icon_name :: proc(self: ^Avatar, icon_name: cstring) ---
+
+    @(link_name = "adw_avatar_get_text")
+    avatar_get_text :: proc(self: ^Avatar) -> cstring ---
+
+    @(link_name = "adw_avatar_set_text")
+    avatar_set_text :: proc(self: ^Avatar, text: cstring) ---
+
+    @(link_name = "adw_avatar_get_show_initials")
+    avatar_get_show_initials :: proc(self: ^Avatar) -> glib.boolean ---
+
+    @(link_name = "adw_avatar_set_show_initials")
+    avatar_set_show_initials :: proc(self: ^Avatar, show_initials: glib.boolean) ---
+
+    @(link_name = "adw_avatar_get_custom_image")
+    avatar_get_custom_image :: proc(self: ^Avatar) -> ^gtk.Paintable ---
+
+    @(link_name = "adw_avatar_set_custom_image")
+    avatar_set_custom_image :: proc(self: ^Avatar, custom_image: ^gtk.Paintable) ---
+
+    @(link_name = "adw_avatar_get_size")
+    avatar_get_size :: proc(self: ^Avatar) -> i32 ---
+
+    @(link_name = "adw_avatar_set_size")
+    avatar_set_size :: proc(self: ^Avatar, size_p: i32) ---
+
+    @(link_name = "adw_avatar_draw_to_texture")
+    avatar_draw_to_texture :: proc(self: ^Avatar, scale_factor: i32) -> ^gtk.Texture ---
+
+    @(link_name = "adw_banner_get_type")
+    banner_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_banner_new")
+    banner_new :: proc(title: cstring) -> ^gtk.Widget ---
+
+    @(link_name = "adw_banner_get_title")
+    banner_get_title :: proc(self: ^Banner) -> cstring ---
+
+    @(link_name = "adw_banner_set_title")
+    banner_set_title :: proc(self: ^Banner, title: cstring) ---
+
+    @(link_name = "adw_banner_get_button_label")
+    banner_get_button_label :: proc(self: ^Banner) -> cstring ---
+
+    @(link_name = "adw_banner_set_button_label")
+    banner_set_button_label :: proc(self: ^Banner, label: cstring) ---
+
+    @(link_name = "adw_banner_get_revealed")
+    banner_get_revealed :: proc(self: ^Banner) -> glib.boolean ---
+
+    @(link_name = "adw_banner_set_revealed")
+    banner_set_revealed :: proc(self: ^Banner, revealed: glib.boolean) ---
+
+    @(link_name = "adw_banner_get_use_markup")
+    banner_get_use_markup :: proc(self: ^Banner) -> glib.boolean ---
+
+    @(link_name = "adw_banner_set_use_markup")
+    banner_set_use_markup :: proc(self: ^Banner, use_markup: glib.boolean) ---
+
+    @(link_name = "adw_bin_get_type")
+    bin_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_bin_new")
+    bin_new :: proc() -> ^gtk.Widget ---
+
+    @(link_name = "adw_bin_get_child")
+    bin_get_child :: proc(self: ^Bin) -> ^gtk.Widget ---
+
+    @(link_name = "adw_bin_set_child")
+    bin_set_child :: proc(self: ^Bin, child: ^gtk.Widget) ---
+
+    @(link_name = "adw_breakpoint_bin_get_type")
+    breakpoint_bin_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_breakpoint_bin_new")
+    breakpoint_bin_new :: proc() -> ^gtk.Widget ---
+
+    @(link_name = "adw_breakpoint_bin_get_child")
+    breakpoint_bin_get_child :: proc(self: ^BreakpointBin) -> ^gtk.Widget ---
+
+    @(link_name = "adw_breakpoint_bin_set_child")
+    breakpoint_bin_set_child :: proc(self: ^BreakpointBin, child: ^gtk.Widget) ---
+
+    @(link_name = "adw_breakpoint_bin_add_breakpoint")
+    breakpoint_bin_add_breakpoint :: proc(self: ^BreakpointBin, breakpoint: ^Breakpoint) ---
+
+    @(link_name = "adw_breakpoint_bin_remove_breakpoint")
+    breakpoint_bin_remove_breakpoint :: proc(self: ^BreakpointBin, breakpoint: ^Breakpoint) ---
+
+    @(link_name = "adw_breakpoint_bin_get_current_breakpoint")
+    breakpoint_bin_get_current_breakpoint :: proc(self: ^BreakpointBin) -> ^Breakpoint ---
+
+    @(link_name = "adw_button_content_get_type")
+    button_content_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_button_content_new")
+    button_content_new :: proc() -> ^gtk.Widget ---
+
+    @(link_name = "adw_button_content_get_label")
+    button_content_get_label :: proc(self: ^ButtonContent) -> cstring ---
+
+    @(link_name = "adw_button_content_set_label")
+    button_content_set_label :: proc(self: ^ButtonContent, label: cstring) ---
+
+    @(link_name = "adw_button_content_get_icon_name")
+    button_content_get_icon_name :: proc(self: ^ButtonContent) -> cstring ---
+
+    @(link_name = "adw_button_content_set_icon_name")
+    button_content_set_icon_name :: proc(self: ^ButtonContent, icon_name: cstring) ---
+
+    @(link_name = "adw_button_content_get_use_underline")
+    button_content_get_use_underline :: proc(self: ^ButtonContent) -> glib.boolean ---
+
+    @(link_name = "adw_button_content_set_use_underline")
+    button_content_set_use_underline :: proc(self: ^ButtonContent, use_underline: glib.boolean) ---
+
+    @(link_name = "adw_button_content_get_can_shrink")
+    button_content_get_can_shrink :: proc(self: ^ButtonContent) -> glib.boolean ---
+
+    @(link_name = "adw_button_content_set_can_shrink")
+    button_content_set_can_shrink :: proc(self: ^ButtonContent, can_shrink: glib.boolean) ---
+
+    @(link_name = "adw_spring_params_get_type")
+    spring_params_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_spring_params_new")
+    spring_params_new :: proc(damping_ratio: f64, mass: f64, stiffness: f64) -> ^SpringParams ---
+
+    @(link_name = "adw_spring_params_new_full")
+    spring_params_new_full :: proc(damping: f64, mass: f64, stiffness: f64) -> ^SpringParams ---
+
+    @(link_name = "adw_spring_params_ref")
+    spring_params_ref :: proc(self: ^SpringParams) -> ^SpringParams ---
+
+    @(link_name = "adw_spring_params_unref")
+    spring_params_unref :: proc(self: ^SpringParams) ---
+
+    @(link_name = "adw_spring_params_get_damping")
+    spring_params_get_damping :: proc(self: ^SpringParams) -> f64 ---
+
+    @(link_name = "adw_spring_params_get_damping_ratio")
+    spring_params_get_damping_ratio :: proc(self: ^SpringParams) -> f64 ---
+
+    @(link_name = "adw_spring_params_get_mass")
+    spring_params_get_mass :: proc(self: ^SpringParams) -> f64 ---
+
+    @(link_name = "adw_spring_params_get_stiffness")
+    spring_params_get_stiffness :: proc(self: ^SpringParams) -> f64 ---
+
+    @(link_name = "adw_carousel_get_type")
+    carousel_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_carousel_new")
+    carousel_new :: proc() -> ^gtk.Widget ---
+
+    @(link_name = "adw_carousel_prepend")
+    carousel_prepend :: proc(self: ^Carousel, child: ^gtk.Widget) ---
+
+    @(link_name = "adw_carousel_append")
+    carousel_append :: proc(self: ^Carousel, child: ^gtk.Widget) ---
+
+    @(link_name = "adw_carousel_insert")
+    carousel_insert :: proc(self: ^Carousel, child: ^gtk.Widget, position: i32) ---
+
+    @(link_name = "adw_carousel_reorder")
+    carousel_reorder :: proc(self: ^Carousel, child: ^gtk.Widget, position: i32) ---
+
+    @(link_name = "adw_carousel_remove")
+    carousel_remove :: proc(self: ^Carousel, child: ^gtk.Widget) ---
+
+    @(link_name = "adw_carousel_scroll_to")
+    carousel_scroll_to :: proc(self: ^Carousel, widget: ^gtk.Widget, animate: glib.boolean) ---
+
+    @(link_name = "adw_carousel_get_nth_page")
+    carousel_get_nth_page :: proc(self: ^Carousel, n: glib.uint_) -> ^gtk.Widget ---
+
+    @(link_name = "adw_carousel_get_n_pages")
+    carousel_get_n_pages :: proc(self: ^Carousel) -> glib.uint_ ---
+
+    @(link_name = "adw_carousel_get_position")
+    carousel_get_position :: proc(self: ^Carousel) -> f64 ---
+
+    @(link_name = "adw_carousel_get_interactive")
+    carousel_get_interactive :: proc(self: ^Carousel) -> glib.boolean ---
+
+    @(link_name = "adw_carousel_set_interactive")
+    carousel_set_interactive :: proc(self: ^Carousel, interactive: glib.boolean) ---
+
+    @(link_name = "adw_carousel_get_spacing")
+    carousel_get_spacing :: proc(self: ^Carousel) -> glib.uint_ ---
+
+    @(link_name = "adw_carousel_set_spacing")
+    carousel_set_spacing :: proc(self: ^Carousel, spacing: glib.uint_) ---
+
+    @(link_name = "adw_carousel_get_scroll_params")
+    carousel_get_scroll_params :: proc(self: ^Carousel) -> ^SpringParams ---
+
+    @(link_name = "adw_carousel_set_scroll_params")
+    carousel_set_scroll_params :: proc(self: ^Carousel, params: ^SpringParams) ---
+
+    @(link_name = "adw_carousel_get_allow_mouse_drag")
+    carousel_get_allow_mouse_drag :: proc(self: ^Carousel) -> glib.boolean ---
+
+    @(link_name = "adw_carousel_set_allow_mouse_drag")
+    carousel_set_allow_mouse_drag :: proc(self: ^Carousel, allow_mouse_drag: glib.boolean) ---
+
+    @(link_name = "adw_carousel_get_allow_scroll_wheel")
+    carousel_get_allow_scroll_wheel :: proc(self: ^Carousel) -> glib.boolean ---
+
+    @(link_name = "adw_carousel_set_allow_scroll_wheel")
+    carousel_set_allow_scroll_wheel :: proc(self: ^Carousel, allow_scroll_wheel: glib.boolean) ---
+
+    @(link_name = "adw_carousel_get_allow_long_swipes")
+    carousel_get_allow_long_swipes :: proc(self: ^Carousel) -> glib.boolean ---
+
+    @(link_name = "adw_carousel_set_allow_long_swipes")
+    carousel_set_allow_long_swipes :: proc(self: ^Carousel, allow_long_swipes: glib.boolean) ---
+
+    @(link_name = "adw_carousel_get_reveal_duration")
+    carousel_get_reveal_duration :: proc(self: ^Carousel) -> glib.uint_ ---
+
+    @(link_name = "adw_carousel_set_reveal_duration")
+    carousel_set_reveal_duration :: proc(self: ^Carousel, reveal_duration: glib.uint_) ---
+
+    @(link_name = "adw_carousel_indicator_dots_get_type")
+    carousel_indicator_dots_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_carousel_indicator_dots_new")
+    carousel_indicator_dots_new :: proc() -> ^gtk.Widget ---
+
+    @(link_name = "adw_carousel_indicator_dots_get_carousel")
+    carousel_indicator_dots_get_carousel :: proc(self: ^CarouselIndicatorDots) -> ^Carousel ---
+
+    @(link_name = "adw_carousel_indicator_dots_set_carousel")
+    carousel_indicator_dots_set_carousel :: proc(self: ^CarouselIndicatorDots, carousel: ^Carousel) ---
+
+    @(link_name = "adw_carousel_indicator_lines_get_type")
+    carousel_indicator_lines_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_carousel_indicator_lines_new")
+    carousel_indicator_lines_new :: proc() -> ^gtk.Widget ---
+
+    @(link_name = "adw_carousel_indicator_lines_get_carousel")
+    carousel_indicator_lines_get_carousel :: proc(self: ^CarouselIndicatorLines) -> ^Carousel ---
+
+    @(link_name = "adw_carousel_indicator_lines_set_carousel")
+    carousel_indicator_lines_set_carousel :: proc(self: ^CarouselIndicatorLines, carousel: ^Carousel) ---
+
+    @(link_name = "adw_clamp_get_type")
+    clamp_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_clamp_new")
+    clamp_new :: proc() -> ^gtk.Widget ---
+
+    @(link_name = "adw_clamp_get_child")
+    clamp_get_child :: proc(self: ^Clamp) -> ^gtk.Widget ---
+
+    @(link_name = "adw_clamp_set_child")
+    clamp_set_child :: proc(self: ^Clamp, child: ^gtk.Widget) ---
+
+    @(link_name = "adw_clamp_get_maximum_size")
+    clamp_get_maximum_size :: proc(self: ^Clamp) -> i32 ---
+
+    @(link_name = "adw_clamp_set_maximum_size")
+    clamp_set_maximum_size :: proc(self: ^Clamp, maximum_size: i32) ---
+
+    @(link_name = "adw_clamp_get_tightening_threshold")
+    clamp_get_tightening_threshold :: proc(self: ^Clamp) -> i32 ---
+
+    @(link_name = "adw_clamp_set_tightening_threshold")
+    clamp_set_tightening_threshold :: proc(self: ^Clamp, tightening_threshold: i32) ---
+
+    @(link_name = "adw_clamp_get_unit")
+    clamp_get_unit :: proc(self: ^Clamp) -> LengthUnit ---
+
+    @(link_name = "adw_clamp_set_unit")
+    clamp_set_unit :: proc(self: ^Clamp, unit: LengthUnit) ---
+
+    @(link_name = "adw_clamp_layout_get_type")
+    clamp_layout_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_clamp_layout_new")
+    clamp_layout_new :: proc() -> ^gtk.LayoutManager ---
+
+    @(link_name = "adw_clamp_layout_get_maximum_size")
+    clamp_layout_get_maximum_size :: proc(self: ^ClampLayout) -> i32 ---
+
+    @(link_name = "adw_clamp_layout_set_maximum_size")
+    clamp_layout_set_maximum_size :: proc(self: ^ClampLayout, maximum_size: i32) ---
+
+    @(link_name = "adw_clamp_layout_get_tightening_threshold")
+    clamp_layout_get_tightening_threshold :: proc(self: ^ClampLayout) -> i32 ---
+
+    @(link_name = "adw_clamp_layout_set_tightening_threshold")
+    clamp_layout_set_tightening_threshold :: proc(self: ^ClampLayout, tightening_threshold: i32) ---
+
+    @(link_name = "adw_clamp_layout_get_unit")
+    clamp_layout_get_unit :: proc(self: ^ClampLayout) -> LengthUnit ---
+
+    @(link_name = "adw_clamp_layout_set_unit")
+    clamp_layout_set_unit :: proc(self: ^ClampLayout, unit: LengthUnit) ---
+
+    @(link_name = "adw_clamp_scrollable_get_type")
+    clamp_scrollable_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_clamp_scrollable_new")
+    clamp_scrollable_new :: proc() -> ^gtk.Widget ---
+
+    @(link_name = "adw_clamp_scrollable_get_child")
+    clamp_scrollable_get_child :: proc(self: ^ClampScrollable) -> ^gtk.Widget ---
+
+    @(link_name = "adw_clamp_scrollable_set_child")
+    clamp_scrollable_set_child :: proc(self: ^ClampScrollable, child: ^gtk.Widget) ---
+
+    @(link_name = "adw_clamp_scrollable_get_maximum_size")
+    clamp_scrollable_get_maximum_size :: proc(self: ^ClampScrollable) -> i32 ---
+
+    @(link_name = "adw_clamp_scrollable_set_maximum_size")
+    clamp_scrollable_set_maximum_size :: proc(self: ^ClampScrollable, maximum_size: i32) ---
+
+    @(link_name = "adw_clamp_scrollable_get_tightening_threshold")
+    clamp_scrollable_get_tightening_threshold :: proc(self: ^ClampScrollable) -> i32 ---
+
+    @(link_name = "adw_clamp_scrollable_set_tightening_threshold")
+    clamp_scrollable_set_tightening_threshold :: proc(self: ^ClampScrollable, tightening_threshold: i32) ---
+
+    @(link_name = "adw_clamp_scrollable_get_unit")
+    clamp_scrollable_get_unit :: proc(self: ^ClampScrollable) -> LengthUnit ---
+
+    @(link_name = "adw_clamp_scrollable_set_unit")
+    clamp_scrollable_set_unit :: proc(self: ^ClampScrollable, unit: LengthUnit) ---
+
+    @(link_name = "adw_combo_row_get_type")
+    combo_row_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_combo_row_new")
+    combo_row_new :: proc() -> ^gtk.Widget ---
+
+    @(link_name = "adw_combo_row_get_model")
+    combo_row_get_model :: proc(self: ^ComboRow) -> ^gio.ListModel ---
+
+    @(link_name = "adw_combo_row_set_model")
+    combo_row_set_model :: proc(self: ^ComboRow, model: ^gio.ListModel) ---
+
+    @(link_name = "adw_combo_row_get_selected")
+    combo_row_get_selected :: proc(self: ^ComboRow) -> glib.uint_ ---
+
+    @(link_name = "adw_combo_row_set_selected")
+    combo_row_set_selected :: proc(self: ^ComboRow, position: glib.uint_) ---
+
+    @(link_name = "adw_combo_row_get_selected_item")
+    combo_row_get_selected_item :: proc(self: ^ComboRow) -> glib.pointer ---
+
+    @(link_name = "adw_combo_row_get_factory")
+    combo_row_get_factory :: proc(self: ^ComboRow) -> ^gtk.ListItemFactory ---
+
+    @(link_name = "adw_combo_row_set_factory")
+    combo_row_set_factory :: proc(self: ^ComboRow, factory: ^gtk.ListItemFactory) ---
+
+    @(link_name = "adw_combo_row_get_list_factory")
+    combo_row_get_list_factory :: proc(self: ^ComboRow) -> ^gtk.ListItemFactory ---
+
+    @(link_name = "adw_combo_row_set_list_factory")
+    combo_row_set_list_factory :: proc(self: ^ComboRow, factory: ^gtk.ListItemFactory) ---
+
+    @(link_name = "adw_combo_row_get_expression")
+    combo_row_get_expression :: proc(self: ^ComboRow) -> ^gtk.Expression ---
+
+    @(link_name = "adw_combo_row_set_expression")
+    combo_row_set_expression :: proc(self: ^ComboRow, expression: ^gtk.Expression) ---
+
+    @(link_name = "adw_combo_row_get_use_subtitle")
+    combo_row_get_use_subtitle :: proc(self: ^ComboRow) -> glib.boolean ---
+
+    @(link_name = "adw_combo_row_set_use_subtitle")
+    combo_row_set_use_subtitle :: proc(self: ^ComboRow, use_subtitle: glib.boolean) ---
+
+    @(link_name = "adw_combo_row_get_enable_search")
+    combo_row_get_enable_search :: proc(self: ^ComboRow) -> glib.boolean ---
+
+    @(link_name = "adw_combo_row_set_enable_search")
+    combo_row_set_enable_search :: proc(self: ^ComboRow, enable_search: glib.boolean) ---
+
+    @(link_name = "adw_easing_ease")
+    easing_ease :: proc(self: Easing, value: f64) -> f64 ---
+
+    @(link_name = "adw_entry_row_get_type")
+    entry_row_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_entry_row_new")
+    entry_row_new :: proc() -> ^gtk.Widget ---
+
+    @(link_name = "adw_entry_row_add_prefix")
+    entry_row_add_prefix :: proc(self: ^EntryRow, widget: ^gtk.Widget) ---
+
+    @(link_name = "adw_entry_row_add_suffix")
+    entry_row_add_suffix :: proc(self: ^EntryRow, widget: ^gtk.Widget) ---
+
+    @(link_name = "adw_entry_row_remove")
+    entry_row_remove :: proc(self: ^EntryRow, widget: ^gtk.Widget) ---
+
+    @(link_name = "adw_entry_row_get_show_apply_button")
+    entry_row_get_show_apply_button :: proc(self: ^EntryRow) -> glib.boolean ---
+
+    @(link_name = "adw_entry_row_set_show_apply_button")
+    entry_row_set_show_apply_button :: proc(self: ^EntryRow, show_apply_button: glib.boolean) ---
+
+    @(link_name = "adw_entry_row_get_input_hints")
+    entry_row_get_input_hints :: proc(self: ^EntryRow) -> gtk.InputHints ---
+
+    @(link_name = "adw_entry_row_set_input_hints")
+    entry_row_set_input_hints :: proc(self: ^EntryRow, hints: gtk.InputHints) ---
+
+    @(link_name = "adw_entry_row_get_input_purpose")
+    entry_row_get_input_purpose :: proc(self: ^EntryRow) -> gtk.InputPurpose ---
+
+    @(link_name = "adw_entry_row_set_input_purpose")
+    entry_row_set_input_purpose :: proc(self: ^EntryRow, purpose: gtk.InputPurpose) ---
+
+    @(link_name = "adw_entry_row_get_enable_emoji_completion")
+    entry_row_get_enable_emoji_completion :: proc(self: ^EntryRow) -> glib.boolean ---
+
+    @(link_name = "adw_entry_row_set_enable_emoji_completion")
+    entry_row_set_enable_emoji_completion :: proc(self: ^EntryRow, enable_emoji_completion: glib.boolean) ---
+
+    @(link_name = "adw_entry_row_get_attributes")
+    entry_row_get_attributes :: proc(self: ^EntryRow) -> ^pango.AttrList ---
+
+    @(link_name = "adw_entry_row_set_attributes")
+    entry_row_set_attributes :: proc(self: ^EntryRow, attributes: ^pango.AttrList) ---
+
+    @(link_name = "adw_entry_row_get_activates_default")
+    entry_row_get_activates_default :: proc(self: ^EntryRow) -> glib.boolean ---
+
+    @(link_name = "adw_entry_row_set_activates_default")
+    entry_row_set_activates_default :: proc(self: ^EntryRow, activates: glib.boolean) ---
+
+    @(link_name = "adw_entry_row_get_text_length")
+    entry_row_get_text_length :: proc(self: ^EntryRow) -> glib.uint_ ---
+
+    @(link_name = "adw_entry_row_grab_focus_without_selecting")
+    entry_row_grab_focus_without_selecting :: proc(self: ^EntryRow) -> glib.boolean ---
+
+    @(link_name = "adw_enum_list_item_get_type")
+    enum_list_item_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_enum_list_item_get_value")
+    enum_list_item_get_value :: proc(self: ^EnumListItem) -> i32 ---
+
+    @(link_name = "adw_enum_list_item_get_name")
+    enum_list_item_get_name :: proc(self: ^EnumListItem) -> cstring ---
+
+    @(link_name = "adw_enum_list_item_get_nick")
+    enum_list_item_get_nick :: proc(self: ^EnumListItem) -> cstring ---
+
+    @(link_name = "adw_enum_list_model_get_type")
+    enum_list_model_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_enum_list_model_new")
+    enum_list_model_new :: proc(enum_type: gobj.Type) -> ^EnumListModel ---
+
+    @(link_name = "adw_enum_list_model_get_enum_type")
+    enum_list_model_get_enum_type :: proc(self: ^EnumListModel) -> gobj.Type ---
+
+    @(link_name = "adw_enum_list_model_find_position")
+    enum_list_model_find_position :: proc(self: ^EnumListModel, value: i32) -> glib.uint_ ---
+
+    @(link_name = "adw_expander_row_get_type")
+    expander_row_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_expander_row_new")
+    expander_row_new :: proc() -> ^gtk.Widget ---
+
+    @(link_name = "adw_expander_row_add_action")
+    expander_row_add_action :: proc(self: ^ExpanderRow, widget: ^gtk.Widget) ---
+
+    @(link_name = "adw_expander_row_add_prefix")
+    expander_row_add_prefix :: proc(self: ^ExpanderRow, widget: ^gtk.Widget) ---
+
+    @(link_name = "adw_expander_row_add_suffix")
+    expander_row_add_suffix :: proc(self: ^ExpanderRow, widget: ^gtk.Widget) ---
+
+    @(link_name = "adw_expander_row_add_row")
+    expander_row_add_row :: proc(self: ^ExpanderRow, child: ^gtk.Widget) ---
+
+    @(link_name = "adw_expander_row_remove")
+    expander_row_remove :: proc(self: ^ExpanderRow, child: ^gtk.Widget) ---
+
+    @(link_name = "adw_expander_row_get_subtitle")
+    expander_row_get_subtitle :: proc(self: ^ExpanderRow) -> cstring ---
+
+    @(link_name = "adw_expander_row_set_subtitle")
+    expander_row_set_subtitle :: proc(self: ^ExpanderRow, subtitle: cstring) ---
+
+    @(link_name = "adw_expander_row_get_icon_name")
+    expander_row_get_icon_name :: proc(self: ^ExpanderRow) -> cstring ---
+
+    @(link_name = "adw_expander_row_set_icon_name")
+    expander_row_set_icon_name :: proc(self: ^ExpanderRow, icon_name: cstring) ---
+
+    @(link_name = "adw_expander_row_get_expanded")
+    expander_row_get_expanded :: proc(self: ^ExpanderRow) -> glib.boolean ---
+
+    @(link_name = "adw_expander_row_set_expanded")
+    expander_row_set_expanded :: proc(self: ^ExpanderRow, expanded: glib.boolean) ---
+
+    @(link_name = "adw_expander_row_get_enable_expansion")
+    expander_row_get_enable_expansion :: proc(self: ^ExpanderRow) -> glib.boolean ---
+
+    @(link_name = "adw_expander_row_set_enable_expansion")
+    expander_row_set_enable_expansion :: proc(self: ^ExpanderRow, enable_expansion: glib.boolean) ---
+
+    @(link_name = "adw_expander_row_get_show_enable_switch")
+    expander_row_get_show_enable_switch :: proc(self: ^ExpanderRow) -> glib.boolean ---
+
+    @(link_name = "adw_expander_row_set_show_enable_switch")
+    expander_row_set_show_enable_switch :: proc(self: ^ExpanderRow, show_enable_switch: glib.boolean) ---
+
+    @(link_name = "adw_expander_row_get_title_lines")
+    expander_row_get_title_lines :: proc(self: ^ExpanderRow) -> glib.boolean ---
+
+    @(link_name = "adw_expander_row_set_title_lines")
+    expander_row_set_title_lines :: proc(self: ^ExpanderRow, title_lines: i32) ---
+
+    @(link_name = "adw_expander_row_get_subtitle_lines")
+    expander_row_get_subtitle_lines :: proc(self: ^ExpanderRow) -> glib.boolean ---
+
+    @(link_name = "adw_expander_row_set_subtitle_lines")
+    expander_row_set_subtitle_lines :: proc(self: ^ExpanderRow, subtitle_lines: i32) ---
+
+    @(link_name = "adw_flap_get_type")
+    flap_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_flap_new")
+    flap_new :: proc() -> ^gtk.Widget ---
+
+    @(link_name = "adw_flap_get_content")
+    flap_get_content :: proc(self: ^Flap) -> ^gtk.Widget ---
+
+    @(link_name = "adw_flap_set_content")
+    flap_set_content :: proc(self: ^Flap, content: ^gtk.Widget) ---
+
+    @(link_name = "adw_flap_get_flap")
+    flap_get_flap :: proc(self: ^Flap) -> ^gtk.Widget ---
+
+    @(link_name = "adw_flap_set_flap")
+    flap_set_flap :: proc(self: ^Flap, flap: ^gtk.Widget) ---
+
+    @(link_name = "adw_flap_get_separator")
+    flap_get_separator :: proc(self: ^Flap) -> ^gtk.Widget ---
+
+    @(link_name = "adw_flap_set_separator")
+    flap_set_separator :: proc(self: ^Flap, separator: ^gtk.Widget) ---
+
+    @(link_name = "adw_flap_get_flap_position")
+    flap_get_flap_position :: proc(self: ^Flap) -> gtk.PackType ---
+
+    @(link_name = "adw_flap_set_flap_position")
+    flap_set_flap_position :: proc(self: ^Flap, position: gtk.PackType) ---
+
+    @(link_name = "adw_flap_get_reveal_flap")
+    flap_get_reveal_flap :: proc(self: ^Flap) -> glib.boolean ---
+
+    @(link_name = "adw_flap_set_reveal_flap")
+    flap_set_reveal_flap :: proc(self: ^Flap, reveal_flap: glib.boolean) ---
+
+    @(link_name = "adw_flap_get_reveal_params")
+    flap_get_reveal_params :: proc(self: ^Flap) -> ^SpringParams ---
+
+    @(link_name = "adw_flap_set_reveal_params")
+    flap_set_reveal_params :: proc(self: ^Flap, params: ^SpringParams) ---
+
+    @(link_name = "adw_flap_get_reveal_progress")
+    flap_get_reveal_progress :: proc(self: ^Flap) -> f64 ---
+
+    @(link_name = "adw_flap_get_fold_policy")
+    flap_get_fold_policy :: proc(self: ^Flap) -> FlapFoldPolicy ---
+
+    @(link_name = "adw_flap_set_fold_policy")
+    flap_set_fold_policy :: proc(self: ^Flap, policy: FlapFoldPolicy) ---
+
+    @(link_name = "adw_flap_get_fold_threshold_policy")
+    flap_get_fold_threshold_policy :: proc(self: ^Flap) -> FoldThresholdPolicy ---
+
+    @(link_name = "adw_flap_set_fold_threshold_policy")
+    flap_set_fold_threshold_policy :: proc(self: ^Flap, policy: FoldThresholdPolicy) ---
+
+    @(link_name = "adw_flap_get_fold_duration")
+    flap_get_fold_duration :: proc(self: ^Flap) -> glib.uint_ ---
+
+    @(link_name = "adw_flap_set_fold_duration")
+    flap_set_fold_duration :: proc(self: ^Flap, duration: glib.uint_) ---
+
+    @(link_name = "adw_flap_get_folded")
+    flap_get_folded :: proc(self: ^Flap) -> glib.boolean ---
+
+    @(link_name = "adw_flap_get_locked")
+    flap_get_locked :: proc(self: ^Flap) -> glib.boolean ---
+
+    @(link_name = "adw_flap_set_locked")
+    flap_set_locked :: proc(self: ^Flap, locked: glib.boolean) ---
+
+    @(link_name = "adw_flap_get_transition_type")
+    flap_get_transition_type :: proc(self: ^Flap) -> FlapTransitionType ---
+
+    @(link_name = "adw_flap_set_transition_type")
+    flap_set_transition_type :: proc(self: ^Flap, transition_type: FlapTransitionType) ---
+
+    @(link_name = "adw_flap_get_modal")
+    flap_get_modal :: proc(self: ^Flap) -> glib.boolean ---
+
+    @(link_name = "adw_flap_set_modal")
+    flap_set_modal :: proc(self: ^Flap, modal: glib.boolean) ---
+
+    @(link_name = "adw_flap_get_swipe_to_open")
+    flap_get_swipe_to_open :: proc(self: ^Flap) -> glib.boolean ---
+
+    @(link_name = "adw_flap_set_swipe_to_open")
+    flap_set_swipe_to_open :: proc(self: ^Flap, swipe_to_open: glib.boolean) ---
+
+    @(link_name = "adw_flap_get_swipe_to_close")
+    flap_get_swipe_to_close :: proc(self: ^Flap) -> glib.boolean ---
+
+    @(link_name = "adw_flap_set_swipe_to_close")
+    flap_set_swipe_to_close :: proc(self: ^Flap, swipe_to_close: glib.boolean) ---
+
+    @(link_name = "adw_header_bar_get_type")
+    header_bar_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_header_bar_new")
+    header_bar_new :: proc() -> ^gtk.Widget ---
+
+    @(link_name = "adw_header_bar_pack_start")
+    header_bar_pack_start :: proc(self: ^HeaderBar, child: ^gtk.Widget) ---
+
+    @(link_name = "adw_header_bar_pack_end")
+    header_bar_pack_end :: proc(self: ^HeaderBar, child: ^gtk.Widget) ---
+
+    @(link_name = "adw_header_bar_remove")
+    header_bar_remove :: proc(self: ^HeaderBar, child: ^gtk.Widget) ---
+
+    @(link_name = "adw_header_bar_get_title_widget")
+    header_bar_get_title_widget :: proc(self: ^HeaderBar) -> ^gtk.Widget ---
+
+    @(link_name = "adw_header_bar_set_title_widget")
+    header_bar_set_title_widget :: proc(self: ^HeaderBar, title_widget: ^gtk.Widget) ---
+
+    @(link_name = "adw_header_bar_get_show_start_title_buttons")
+    header_bar_get_show_start_title_buttons :: proc(self: ^HeaderBar) -> glib.boolean ---
+
+    @(link_name = "adw_header_bar_set_show_start_title_buttons")
+    header_bar_set_show_start_title_buttons :: proc(self: ^HeaderBar, setting: glib.boolean) ---
+
+    @(link_name = "adw_header_bar_get_show_end_title_buttons")
+    header_bar_get_show_end_title_buttons :: proc(self: ^HeaderBar) -> glib.boolean ---
+
+    @(link_name = "adw_header_bar_set_show_end_title_buttons")
+    header_bar_set_show_end_title_buttons :: proc(self: ^HeaderBar, setting: glib.boolean) ---
+
+    @(link_name = "adw_header_bar_get_show_back_button")
+    header_bar_get_show_back_button :: proc(self: ^HeaderBar) -> glib.boolean ---
+
+    @(link_name = "adw_header_bar_set_show_back_button")
+    header_bar_set_show_back_button :: proc(self: ^HeaderBar, show_back_button: glib.boolean) ---
+
+    @(link_name = "adw_header_bar_get_decoration_layout")
+    header_bar_get_decoration_layout :: proc(self: ^HeaderBar) -> cstring ---
+
+    @(link_name = "adw_header_bar_set_decoration_layout")
+    header_bar_set_decoration_layout :: proc(self: ^HeaderBar, layout: cstring) ---
+
+    @(link_name = "adw_header_bar_get_centering_policy")
+    header_bar_get_centering_policy :: proc(self: ^HeaderBar) -> CenteringPolicy ---
+
+    @(link_name = "adw_header_bar_set_centering_policy")
+    header_bar_set_centering_policy :: proc(self: ^HeaderBar, centering_policy: CenteringPolicy) ---
+
+    @(link_name = "adw_header_bar_get_show_title")
+    header_bar_get_show_title :: proc(self: ^HeaderBar) -> glib.boolean ---
+
+    @(link_name = "adw_header_bar_set_show_title")
+    header_bar_set_show_title :: proc(self: ^HeaderBar, show_title: glib.boolean) ---
+
+    @(link_name = "adw_leaflet_page_get_type")
+    leaflet_page_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_leaflet_page_get_child")
+    leaflet_page_get_child :: proc(self: ^LeafletPage) -> ^gtk.Widget ---
+
+    @(link_name = "adw_leaflet_page_get_name")
+    leaflet_page_get_name :: proc(self: ^LeafletPage) -> cstring ---
+
+    @(link_name = "adw_leaflet_page_set_name")
+    leaflet_page_set_name :: proc(self: ^LeafletPage, name: cstring) ---
+
+    @(link_name = "adw_leaflet_page_get_navigatable")
+    leaflet_page_get_navigatable :: proc(self: ^LeafletPage) -> glib.boolean ---
+
+    @(link_name = "adw_leaflet_page_set_navigatable")
+    leaflet_page_set_navigatable :: proc(self: ^LeafletPage, navigatable: glib.boolean) ---
+
+    @(link_name = "adw_leaflet_get_type")
+    leaflet_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_leaflet_new")
+    leaflet_new :: proc() -> ^gtk.Widget ---
+
+    @(link_name = "adw_leaflet_append")
+    leaflet_append :: proc(self: ^Leaflet, child: ^gtk.Widget) -> ^LeafletPage ---
+
+    @(link_name = "adw_leaflet_prepend")
+    leaflet_prepend :: proc(self: ^Leaflet, child: ^gtk.Widget) -> ^LeafletPage ---
+
+    @(link_name = "adw_leaflet_insert_child_after")
+    leaflet_insert_child_after :: proc(self: ^Leaflet, child: ^gtk.Widget, sibling: ^gtk.Widget) -> ^LeafletPage ---
+
+    @(link_name = "adw_leaflet_reorder_child_after")
+    leaflet_reorder_child_after :: proc(self: ^Leaflet, child: ^gtk.Widget, sibling: ^gtk.Widget) ---
+
+    @(link_name = "adw_leaflet_remove")
+    leaflet_remove :: proc(self: ^Leaflet, child: ^gtk.Widget) ---
+
+    @(link_name = "adw_leaflet_get_page")
+    leaflet_get_page :: proc(self: ^Leaflet, child: ^gtk.Widget) -> ^LeafletPage ---
+
+    @(link_name = "adw_leaflet_get_can_unfold")
+    leaflet_get_can_unfold :: proc(self: ^Leaflet) -> glib.boolean ---
+
+    @(link_name = "adw_leaflet_set_can_unfold")
+    leaflet_set_can_unfold :: proc(self: ^Leaflet, can_unfold: glib.boolean) ---
+
+    @(link_name = "adw_leaflet_get_folded")
+    leaflet_get_folded :: proc(self: ^Leaflet) -> glib.boolean ---
+
+    @(link_name = "adw_leaflet_get_fold_threshold_policy")
+    leaflet_get_fold_threshold_policy :: proc(self: ^Leaflet) -> FoldThresholdPolicy ---
+
+    @(link_name = "adw_leaflet_set_fold_threshold_policy")
+    leaflet_set_fold_threshold_policy :: proc(self: ^Leaflet, policy: FoldThresholdPolicy) ---
+
+    @(link_name = "adw_leaflet_get_homogeneous")
+    leaflet_get_homogeneous :: proc(self: ^Leaflet) -> glib.boolean ---
+
+    @(link_name = "adw_leaflet_set_homogeneous")
+    leaflet_set_homogeneous :: proc(self: ^Leaflet, homogeneous: glib.boolean) ---
+
+    @(link_name = "adw_leaflet_get_visible_child")
+    leaflet_get_visible_child :: proc(self: ^Leaflet) -> ^gtk.Widget ---
+
+    @(link_name = "adw_leaflet_set_visible_child")
+    leaflet_set_visible_child :: proc(self: ^Leaflet, visible_child: ^gtk.Widget) ---
+
+    @(link_name = "adw_leaflet_get_visible_child_name")
+    leaflet_get_visible_child_name :: proc(self: ^Leaflet) -> cstring ---
+
+    @(link_name = "adw_leaflet_set_visible_child_name")
+    leaflet_set_visible_child_name :: proc(self: ^Leaflet, name: cstring) ---
+
+    @(link_name = "adw_leaflet_get_transition_type")
+    leaflet_get_transition_type :: proc(self: ^Leaflet) -> LeafletTransitionType ---
+
+    @(link_name = "adw_leaflet_set_transition_type")
+    leaflet_set_transition_type :: proc(self: ^Leaflet, transition: LeafletTransitionType) ---
+
+    @(link_name = "adw_leaflet_get_mode_transition_duration")
+    leaflet_get_mode_transition_duration :: proc(self: ^Leaflet) -> glib.uint_ ---
+
+    @(link_name = "adw_leaflet_set_mode_transition_duration")
+    leaflet_set_mode_transition_duration :: proc(self: ^Leaflet, duration: glib.uint_) ---
+
+    @(link_name = "adw_leaflet_get_child_transition_params")
+    leaflet_get_child_transition_params :: proc(self: ^Leaflet) -> ^SpringParams ---
+
+    @(link_name = "adw_leaflet_set_child_transition_params")
+    leaflet_set_child_transition_params :: proc(self: ^Leaflet, params: ^SpringParams) ---
+
+    @(link_name = "adw_leaflet_get_child_transition_running")
+    leaflet_get_child_transition_running :: proc(self: ^Leaflet) -> glib.boolean ---
+
+    @(link_name = "adw_leaflet_get_can_navigate_back")
+    leaflet_get_can_navigate_back :: proc(self: ^Leaflet) -> glib.boolean ---
+
+    @(link_name = "adw_leaflet_set_can_navigate_back")
+    leaflet_set_can_navigate_back :: proc(self: ^Leaflet, can_navigate_back: glib.boolean) ---
+
+    @(link_name = "adw_leaflet_get_can_navigate_forward")
+    leaflet_get_can_navigate_forward :: proc(self: ^Leaflet) -> glib.boolean ---
+
+    @(link_name = "adw_leaflet_set_can_navigate_forward")
+    leaflet_set_can_navigate_forward :: proc(self: ^Leaflet, can_navigate_forward: glib.boolean) ---
+
+    @(link_name = "adw_leaflet_get_adjacent_child")
+    leaflet_get_adjacent_child :: proc(self: ^Leaflet, direction: NavigationDirection) -> ^gtk.Widget ---
+
+    @(link_name = "adw_leaflet_navigate")
+    leaflet_navigate :: proc(self: ^Leaflet, direction: NavigationDirection) -> glib.boolean ---
+
+    @(link_name = "adw_leaflet_get_child_by_name")
+    leaflet_get_child_by_name :: proc(self: ^Leaflet, name: cstring) -> ^gtk.Widget ---
+
+    @(link_name = "adw_leaflet_get_pages")
+    leaflet_get_pages :: proc(self: ^Leaflet) -> ^gtk.SelectionModel ---
+
+    @(link_name = "adw_init")
+    init :: proc() ---
+
+    @(link_name = "adw_is_initialized")
+    is_initialized :: proc() -> glib.boolean ---
+
+    @(link_name = "adw_message_dialog_get_type")
+    message_dialog_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_message_dialog_new")
+    message_dialog_new :: proc(parent: ^gtk.Window, heading: cstring, body: cstring) -> ^gtk.Widget ---
+
+    @(link_name = "adw_message_dialog_get_heading")
+    message_dialog_get_heading :: proc(self: ^MessageDialog) -> cstring ---
+
+    @(link_name = "adw_message_dialog_set_heading")
+    message_dialog_set_heading :: proc(self: ^MessageDialog, heading: cstring) ---
+
+    @(link_name = "adw_message_dialog_get_heading_use_markup")
+    message_dialog_get_heading_use_markup :: proc(self: ^MessageDialog) -> glib.boolean ---
+
+    @(link_name = "adw_message_dialog_set_heading_use_markup")
+    message_dialog_set_heading_use_markup :: proc(self: ^MessageDialog, use_markup: glib.boolean) ---
+
+    @(link_name = "adw_message_dialog_format_heading")
+    message_dialog_format_heading :: proc(self: ^MessageDialog, format: cstring, #c_vararg var_args: ..any) ---
+
+    @(link_name = "adw_message_dialog_format_heading_markup")
+    message_dialog_format_heading_markup :: proc(self: ^MessageDialog, format: cstring, #c_vararg var_args: ..any) ---
+
+    @(link_name = "adw_message_dialog_get_body")
+    message_dialog_get_body :: proc(self: ^MessageDialog) -> cstring ---
+
+    @(link_name = "adw_message_dialog_set_body")
+    message_dialog_set_body :: proc(self: ^MessageDialog, body: cstring) ---
+
+    @(link_name = "adw_message_dialog_get_body_use_markup")
+    message_dialog_get_body_use_markup :: proc(self: ^MessageDialog) -> glib.boolean ---
+
+    @(link_name = "adw_message_dialog_set_body_use_markup")
+    message_dialog_set_body_use_markup :: proc(self: ^MessageDialog, use_markup: glib.boolean) ---
+
+    @(link_name = "adw_message_dialog_format_body")
+    message_dialog_format_body :: proc(self: ^MessageDialog, format: cstring, #c_vararg var_args: ..any) ---
+
+    @(link_name = "adw_message_dialog_format_body_markup")
+    message_dialog_format_body_markup :: proc(self: ^MessageDialog, format: cstring, #c_vararg var_args: ..any) ---
+
+    @(link_name = "adw_message_dialog_get_extra_child")
+    message_dialog_get_extra_child :: proc(self: ^MessageDialog) -> ^gtk.Widget ---
+
+    @(link_name = "adw_message_dialog_set_extra_child")
+    message_dialog_set_extra_child :: proc(self: ^MessageDialog, child: ^gtk.Widget) ---
+
+    @(link_name = "adw_message_dialog_add_response")
+    message_dialog_add_response :: proc(self: ^MessageDialog, id: cstring, label: cstring) ---
+
+    @(link_name = "adw_message_dialog_remove_response")
+    message_dialog_remove_response :: proc(self: ^MessageDialog, id: cstring) ---
+
+    @(link_name = "adw_message_dialog_add_responses")
+    message_dialog_add_responses :: proc(self: ^MessageDialog, first_id: cstring, #c_vararg var_args: ..any) ---
+
+    @(link_name = "adw_message_dialog_get_response_label")
+    message_dialog_get_response_label :: proc(self: ^MessageDialog, response: cstring) -> cstring ---
+
+    @(link_name = "adw_message_dialog_set_response_label")
+    message_dialog_set_response_label :: proc(self: ^MessageDialog, response: cstring, label: cstring) ---
+
+    @(link_name = "adw_message_dialog_get_response_appearance")
+    message_dialog_get_response_appearance :: proc(self: ^MessageDialog, response: cstring) -> ResponseAppearance ---
+
+    @(link_name = "adw_message_dialog_set_response_appearance")
+    message_dialog_set_response_appearance :: proc(self: ^MessageDialog, response: cstring, appearance: ResponseAppearance) ---
+
+    @(link_name = "adw_message_dialog_get_response_enabled")
+    message_dialog_get_response_enabled :: proc(self: ^MessageDialog, response: cstring) -> glib.boolean ---
+
+    @(link_name = "adw_message_dialog_set_response_enabled")
+    message_dialog_set_response_enabled :: proc(self: ^MessageDialog, response: cstring, enabled: glib.boolean) ---
+
+    @(link_name = "adw_message_dialog_get_default_response")
+    message_dialog_get_default_response :: proc(self: ^MessageDialog) -> cstring ---
+
+    @(link_name = "adw_message_dialog_set_default_response")
+    message_dialog_set_default_response :: proc(self: ^MessageDialog, response: cstring) ---
+
+    @(link_name = "adw_message_dialog_get_close_response")
+    message_dialog_get_close_response :: proc(self: ^MessageDialog) -> cstring ---
+
+    @(link_name = "adw_message_dialog_set_close_response")
+    message_dialog_set_close_response :: proc(self: ^MessageDialog, response: cstring) ---
+
+    @(link_name = "adw_message_dialog_response")
+    message_dialog_response :: proc(self: ^MessageDialog, response: cstring) ---
+
+    @(link_name = "adw_message_dialog_has_response")
+    message_dialog_has_response :: proc(self: ^MessageDialog, response: cstring) -> glib.boolean ---
+
+    @(link_name = "adw_message_dialog_choose")
+    message_dialog_choose :: proc(self: ^MessageDialog, cancellable: ^gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: glib.pointer) ---
+
+    @(link_name = "adw_message_dialog_choose_finish")
+    message_dialog_choose_finish :: proc(self: ^MessageDialog, result: ^gio.AsyncResult) -> cstring ---
+
+    @(link_name = "adw_navigation_page_get_type")
+    navigation_page_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_navigation_page_new")
+    navigation_page_new :: proc(child: ^gtk.Widget, title: cstring) -> ^NavigationPage ---
+
+    @(link_name = "adw_navigation_page_new_with_tag")
+    navigation_page_new_with_tag :: proc(child: ^gtk.Widget, title: cstring, tag: cstring) -> ^NavigationPage ---
+
+    @(link_name = "adw_navigation_page_get_child")
+    navigation_page_get_child :: proc(self: ^NavigationPage) -> ^gtk.Widget ---
+
+    @(link_name = "adw_navigation_page_set_child")
+    navigation_page_set_child :: proc(self: ^NavigationPage, child: ^gtk.Widget) ---
+
+    @(link_name = "adw_navigation_page_get_tag")
+    navigation_page_get_tag :: proc(self: ^NavigationPage) -> cstring ---
+
+    @(link_name = "adw_navigation_page_set_tag")
+    navigation_page_set_tag :: proc(self: ^NavigationPage, tag: cstring) ---
+
+    @(link_name = "adw_navigation_page_get_title")
+    navigation_page_get_title :: proc(self: ^NavigationPage) -> cstring ---
+
+    @(link_name = "adw_navigation_page_set_title")
+    navigation_page_set_title :: proc(self: ^NavigationPage, title: cstring) ---
+
+    @(link_name = "adw_navigation_page_get_can_pop")
+    navigation_page_get_can_pop :: proc(self: ^NavigationPage) -> glib.boolean ---
+
+    @(link_name = "adw_navigation_page_set_can_pop")
+    navigation_page_set_can_pop :: proc(self: ^NavigationPage, can_pop: glib.boolean) ---
+
+    @(link_name = "adw_navigation_view_get_type")
+    navigation_view_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_navigation_view_new")
+    navigation_view_new :: proc() -> ^gtk.Widget ---
+
+    @(link_name = "adw_navigation_view_add")
+    navigation_view_add :: proc(self: ^NavigationView, page: ^NavigationPage) ---
+
+    @(link_name = "adw_navigation_view_remove")
+    navigation_view_remove :: proc(self: ^NavigationView, page: ^NavigationPage) ---
+
+    @(link_name = "adw_navigation_view_find_page")
+    navigation_view_find_page :: proc(self: ^NavigationView, tag: cstring) -> ^NavigationPage ---
+
+    @(link_name = "adw_navigation_view_push")
+    navigation_view_push :: proc(self: ^NavigationView, page: ^NavigationPage) ---
+
+    @(link_name = "adw_navigation_view_push_by_tag")
+    navigation_view_push_by_tag :: proc(self: ^NavigationView, tag: cstring) ---
+
+    @(link_name = "adw_navigation_view_pop")
+    navigation_view_pop :: proc(self: ^NavigationView) -> glib.boolean ---
+
+    @(link_name = "adw_navigation_view_pop_to_page")
+    navigation_view_pop_to_page :: proc(self: ^NavigationView, page: ^NavigationPage) -> glib.boolean ---
+
+    @(link_name = "adw_navigation_view_pop_to_tag")
+    navigation_view_pop_to_tag :: proc(self: ^NavigationView, tag: cstring) -> glib.boolean ---
+
+    @(link_name = "adw_navigation_view_replace")
+    navigation_view_replace :: proc(self: ^NavigationView, pages: [^]^NavigationPage, n_pages: i32) ---
+
+    @(link_name = "adw_navigation_view_replace_with_tags")
+    navigation_view_replace_with_tags :: proc(self: ^NavigationView, tags: [^]cstring, n_tags: i32) ---
+
+    @(link_name = "adw_navigation_view_get_visible_page")
+    navigation_view_get_visible_page :: proc(self: ^NavigationView) -> ^NavigationPage ---
+
+    @(link_name = "adw_navigation_view_get_previous_page")
+    navigation_view_get_previous_page :: proc(self: ^NavigationView, page: ^NavigationPage) -> ^NavigationPage ---
+
+    @(link_name = "adw_navigation_view_get_animate_transitions")
+    navigation_view_get_animate_transitions :: proc(self: ^NavigationView) -> glib.boolean ---
+
+    @(link_name = "adw_navigation_view_set_animate_transitions")
+    navigation_view_set_animate_transitions :: proc(self: ^NavigationView, animate_transitions: glib.boolean) ---
+
+    @(link_name = "adw_navigation_view_get_pop_on_escape")
+    navigation_view_get_pop_on_escape :: proc(self: ^NavigationView) -> glib.boolean ---
+
+    @(link_name = "adw_navigation_view_set_pop_on_escape")
+    navigation_view_set_pop_on_escape :: proc(self: ^NavigationView, pop_on_escape: glib.boolean) ---
+
+    @(link_name = "adw_navigation_view_get_navigation_stack")
+    navigation_view_get_navigation_stack :: proc(self: ^NavigationView) -> ^gio.ListModel ---
+
+    @(link_name = "adw_navigation_split_view_get_type")
+    navigation_split_view_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_navigation_split_view_new")
+    navigation_split_view_new :: proc() -> ^gtk.Widget ---
+
+    @(link_name = "adw_navigation_split_view_get_sidebar")
+    navigation_split_view_get_sidebar :: proc(self: ^NavigationSplitView) -> ^NavigationPage ---
+
+    @(link_name = "adw_navigation_split_view_set_sidebar")
+    navigation_split_view_set_sidebar :: proc(self: ^NavigationSplitView, sidebar: ^NavigationPage) ---
+
+    @(link_name = "adw_navigation_split_view_get_content")
+    navigation_split_view_get_content :: proc(self: ^NavigationSplitView) -> ^NavigationPage ---
+
+    @(link_name = "adw_navigation_split_view_set_content")
+    navigation_split_view_set_content :: proc(self: ^NavigationSplitView, content: ^NavigationPage) ---
+
+    @(link_name = "adw_navigation_split_view_get_collapsed")
+    navigation_split_view_get_collapsed :: proc(self: ^NavigationSplitView) -> glib.boolean ---
+
+    @(link_name = "adw_navigation_split_view_set_collapsed")
+    navigation_split_view_set_collapsed :: proc(self: ^NavigationSplitView, collapsed: glib.boolean) ---
+
+    @(link_name = "adw_navigation_split_view_get_show_content")
+    navigation_split_view_get_show_content :: proc(self: ^NavigationSplitView) -> glib.boolean ---
+
+    @(link_name = "adw_navigation_split_view_set_show_content")
+    navigation_split_view_set_show_content :: proc(self: ^NavigationSplitView, show_content: glib.boolean) ---
+
+    @(link_name = "adw_navigation_split_view_get_min_sidebar_width")
+    navigation_split_view_get_min_sidebar_width :: proc(self: ^NavigationSplitView) -> f64 ---
+
+    @(link_name = "adw_navigation_split_view_set_min_sidebar_width")
+    navigation_split_view_set_min_sidebar_width :: proc(self: ^NavigationSplitView, width: f64) ---
+
+    @(link_name = "adw_navigation_split_view_get_max_sidebar_width")
+    navigation_split_view_get_max_sidebar_width :: proc(self: ^NavigationSplitView) -> f64 ---
+
+    @(link_name = "adw_navigation_split_view_set_max_sidebar_width")
+    navigation_split_view_set_max_sidebar_width :: proc(self: ^NavigationSplitView, width: f64) ---
+
+    @(link_name = "adw_navigation_split_view_get_sidebar_width_fraction")
+    navigation_split_view_get_sidebar_width_fraction :: proc(self: ^NavigationSplitView) -> f64 ---
+
+    @(link_name = "adw_navigation_split_view_set_sidebar_width_fraction")
+    navigation_split_view_set_sidebar_width_fraction :: proc(self: ^NavigationSplitView, fraction: f64) ---
+
+    @(link_name = "adw_navigation_split_view_get_sidebar_width_unit")
+    navigation_split_view_get_sidebar_width_unit :: proc(self: ^NavigationSplitView) -> LengthUnit ---
+
+    @(link_name = "adw_navigation_split_view_set_sidebar_width_unit")
+    navigation_split_view_set_sidebar_width_unit :: proc(self: ^NavigationSplitView, unit: LengthUnit) ---
+
+    @(link_name = "adw_overlay_split_view_get_type")
+    overlay_split_view_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_overlay_split_view_new")
+    overlay_split_view_new :: proc() -> ^gtk.Widget ---
+
+    @(link_name = "adw_overlay_split_view_get_sidebar")
+    overlay_split_view_get_sidebar :: proc(self: ^OverlaySplitView) -> ^gtk.Widget ---
+
+    @(link_name = "adw_overlay_split_view_set_sidebar")
+    overlay_split_view_set_sidebar :: proc(self: ^OverlaySplitView, sidebar: ^gtk.Widget) ---
+
+    @(link_name = "adw_overlay_split_view_get_content")
+    overlay_split_view_get_content :: proc(self: ^OverlaySplitView) -> ^gtk.Widget ---
+
+    @(link_name = "adw_overlay_split_view_set_content")
+    overlay_split_view_set_content :: proc(self: ^OverlaySplitView, content: ^gtk.Widget) ---
+
+    @(link_name = "adw_overlay_split_view_get_collapsed")
+    overlay_split_view_get_collapsed :: proc(self: ^OverlaySplitView) -> glib.boolean ---
+
+    @(link_name = "adw_overlay_split_view_set_collapsed")
+    overlay_split_view_set_collapsed :: proc(self: ^OverlaySplitView, collapsed: glib.boolean) ---
+
+    @(link_name = "adw_overlay_split_view_get_sidebar_position")
+    overlay_split_view_get_sidebar_position :: proc(self: ^OverlaySplitView) -> gtk.PackType ---
+
+    @(link_name = "adw_overlay_split_view_set_sidebar_position")
+    overlay_split_view_set_sidebar_position :: proc(self: ^OverlaySplitView, position: gtk.PackType) ---
+
+    @(link_name = "adw_overlay_split_view_get_show_sidebar")
+    overlay_split_view_get_show_sidebar :: proc(self: ^OverlaySplitView) -> glib.boolean ---
+
+    @(link_name = "adw_overlay_split_view_set_show_sidebar")
+    overlay_split_view_set_show_sidebar :: proc(self: ^OverlaySplitView, show_sidebar: glib.boolean) ---
+
+    @(link_name = "adw_overlay_split_view_get_pin_sidebar")
+    overlay_split_view_get_pin_sidebar :: proc(self: ^OverlaySplitView) -> glib.boolean ---
+
+    @(link_name = "adw_overlay_split_view_set_pin_sidebar")
+    overlay_split_view_set_pin_sidebar :: proc(self: ^OverlaySplitView, pin_sidebar: glib.boolean) ---
+
+    @(link_name = "adw_overlay_split_view_get_enable_show_gesture")
+    overlay_split_view_get_enable_show_gesture :: proc(self: ^OverlaySplitView) -> glib.boolean ---
+
+    @(link_name = "adw_overlay_split_view_set_enable_show_gesture")
+    overlay_split_view_set_enable_show_gesture :: proc(self: ^OverlaySplitView, enable_show_gesture: glib.boolean) ---
+
+    @(link_name = "adw_overlay_split_view_get_enable_hide_gesture")
+    overlay_split_view_get_enable_hide_gesture :: proc(self: ^OverlaySplitView) -> glib.boolean ---
+
+    @(link_name = "adw_overlay_split_view_set_enable_hide_gesture")
+    overlay_split_view_set_enable_hide_gesture :: proc(self: ^OverlaySplitView, enable_hide_gesture: glib.boolean) ---
+
+    @(link_name = "adw_overlay_split_view_get_min_sidebar_width")
+    overlay_split_view_get_min_sidebar_width :: proc(self: ^OverlaySplitView) -> f64 ---
+
+    @(link_name = "adw_overlay_split_view_set_min_sidebar_width")
+    overlay_split_view_set_min_sidebar_width :: proc(self: ^OverlaySplitView, width: f64) ---
+
+    @(link_name = "adw_overlay_split_view_get_max_sidebar_width")
+    overlay_split_view_get_max_sidebar_width :: proc(self: ^OverlaySplitView) -> f64 ---
+
+    @(link_name = "adw_overlay_split_view_set_max_sidebar_width")
+    overlay_split_view_set_max_sidebar_width :: proc(self: ^OverlaySplitView, width: f64) ---
+
+    @(link_name = "adw_overlay_split_view_get_sidebar_width_fraction")
+    overlay_split_view_get_sidebar_width_fraction :: proc(self: ^OverlaySplitView) -> f64 ---
+
+    @(link_name = "adw_overlay_split_view_set_sidebar_width_fraction")
+    overlay_split_view_set_sidebar_width_fraction :: proc(self: ^OverlaySplitView, fraction: f64) ---
+
+    @(link_name = "adw_overlay_split_view_get_sidebar_width_unit")
+    overlay_split_view_get_sidebar_width_unit :: proc(self: ^OverlaySplitView) -> LengthUnit ---
+
+    @(link_name = "adw_overlay_split_view_set_sidebar_width_unit")
+    overlay_split_view_set_sidebar_width_unit :: proc(self: ^OverlaySplitView, unit: LengthUnit) ---
+
+    @(link_name = "adw_password_entry_row_get_type")
+    password_entry_row_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_password_entry_row_new")
+    password_entry_row_new :: proc() -> ^gtk.Widget ---
+
+    @(link_name = "adw_preferences_group_get_type")
+    preferences_group_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_preferences_group_new")
+    preferences_group_new :: proc() -> ^gtk.Widget ---
+
+    @(link_name = "adw_preferences_group_add")
+    preferences_group_add :: proc(self: ^PreferencesGroup, child: ^gtk.Widget) ---
+
+    @(link_name = "adw_preferences_group_remove")
+    preferences_group_remove :: proc(self: ^PreferencesGroup, child: ^gtk.Widget) ---
+
+    @(link_name = "adw_preferences_group_get_title")
+    preferences_group_get_title :: proc(self: ^PreferencesGroup) -> cstring ---
+
+    @(link_name = "adw_preferences_group_set_title")
+    preferences_group_set_title :: proc(self: ^PreferencesGroup, title: cstring) ---
+
+    @(link_name = "adw_preferences_group_get_description")
+    preferences_group_get_description :: proc(self: ^PreferencesGroup) -> cstring ---
+
+    @(link_name = "adw_preferences_group_set_description")
+    preferences_group_set_description :: proc(self: ^PreferencesGroup, description: cstring) ---
+
+    @(link_name = "adw_preferences_group_get_header_suffix")
+    preferences_group_get_header_suffix :: proc(self: ^PreferencesGroup) -> ^gtk.Widget ---
+
+    @(link_name = "adw_preferences_group_set_header_suffix")
+    preferences_group_set_header_suffix :: proc(self: ^PreferencesGroup, suffix: ^gtk.Widget) ---
+
+    @(link_name = "adw_preferences_page_get_type")
+    preferences_page_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_preferences_page_new")
+    preferences_page_new :: proc() -> ^gtk.Widget ---
+
+    @(link_name = "adw_preferences_page_add")
+    preferences_page_add :: proc(self: ^PreferencesPage, group: ^PreferencesGroup) ---
+
+    @(link_name = "adw_preferences_page_remove")
+    preferences_page_remove :: proc(self: ^PreferencesPage, group: ^PreferencesGroup) ---
+
+    @(link_name = "adw_preferences_page_get_icon_name")
+    preferences_page_get_icon_name :: proc(self: ^PreferencesPage) -> cstring ---
+
+    @(link_name = "adw_preferences_page_set_icon_name")
+    preferences_page_set_icon_name :: proc(self: ^PreferencesPage, icon_name: cstring) ---
+
+    @(link_name = "adw_preferences_page_get_title")
+    preferences_page_get_title :: proc(self: ^PreferencesPage) -> cstring ---
+
+    @(link_name = "adw_preferences_page_set_title")
+    preferences_page_set_title :: proc(self: ^PreferencesPage, title: cstring) ---
+
+    @(link_name = "adw_preferences_page_get_description")
+    preferences_page_get_description :: proc(self: ^PreferencesPage) -> cstring ---
+
+    @(link_name = "adw_preferences_page_set_description")
+    preferences_page_set_description :: proc(self: ^PreferencesPage, description: cstring) ---
+
+    @(link_name = "adw_preferences_page_get_name")
+    preferences_page_get_name :: proc(self: ^PreferencesPage) -> cstring ---
+
+    @(link_name = "adw_preferences_page_set_name")
+    preferences_page_set_name :: proc(self: ^PreferencesPage, name: cstring) ---
+
+    @(link_name = "adw_preferences_page_get_use_underline")
+    preferences_page_get_use_underline :: proc(self: ^PreferencesPage) -> glib.boolean ---
+
+    @(link_name = "adw_preferences_page_set_use_underline")
+    preferences_page_set_use_underline :: proc(self: ^PreferencesPage, use_underline: glib.boolean) ---
+
+    @(link_name = "adw_preferences_page_scroll_to_top")
+    preferences_page_scroll_to_top :: proc(self: ^PreferencesPage) ---
+
+    @(link_name = "adw_toast_get_type")
+    toast_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_toast_new")
+    toast_new :: proc(title: cstring) -> ^Toast ---
+
+    @(link_name = "adw_toast_new_format")
+    toast_new_format :: proc(format: cstring, #c_vararg var_args: ..any) -> ^Toast ---
+
+    @(link_name = "adw_toast_get_title")
+    toast_get_title :: proc(self: ^Toast) -> cstring ---
+
+    @(link_name = "adw_toast_set_title")
+    toast_set_title :: proc(self: ^Toast, title: cstring) ---
+
+    @(link_name = "adw_toast_get_button_label")
+    toast_get_button_label :: proc(self: ^Toast) -> cstring ---
+
+    @(link_name = "adw_toast_set_button_label")
+    toast_set_button_label :: proc(self: ^Toast, button_label: cstring) ---
+
+    @(link_name = "adw_toast_get_action_name")
+    toast_get_action_name :: proc(self: ^Toast) -> cstring ---
+
+    @(link_name = "adw_toast_set_action_name")
+    toast_set_action_name :: proc(self: ^Toast, action_name: cstring) ---
+
+    @(link_name = "adw_toast_get_action_target_value")
+    toast_get_action_target_value :: proc(self: ^Toast) -> ^glib.Variant ---
+
+    @(link_name = "adw_toast_set_action_target_value")
+    toast_set_action_target_value :: proc(self: ^Toast, action_target: ^glib.Variant) ---
+
+    @(link_name = "adw_toast_set_action_target")
+    toast_set_action_target :: proc(self: ^Toast, format_string: cstring, #c_vararg var_args: ..any) ---
+
+    @(link_name = "adw_toast_set_detailed_action_name")
+    toast_set_detailed_action_name :: proc(self: ^Toast, detailed_action_name: cstring) ---
+
+    @(link_name = "adw_toast_get_priority")
+    toast_get_priority :: proc(self: ^Toast) -> ToastPriority ---
+
+    @(link_name = "adw_toast_set_priority")
+    toast_set_priority :: proc(self: ^Toast, priority: ToastPriority) ---
+
+    @(link_name = "adw_toast_get_timeout")
+    toast_get_timeout :: proc(self: ^Toast) -> glib.uint_ ---
+
+    @(link_name = "adw_toast_set_timeout")
+    toast_set_timeout :: proc(self: ^Toast, timeout: glib.uint_) ---
+
+    @(link_name = "adw_toast_get_custom_title")
+    toast_get_custom_title :: proc(self: ^Toast) -> ^gtk.Widget ---
+
+    @(link_name = "adw_toast_set_custom_title")
+    toast_set_custom_title :: proc(self: ^Toast, widget: ^gtk.Widget) ---
+
+    @(link_name = "adw_toast_get_use_markup")
+    toast_get_use_markup :: proc(self: ^Toast) -> glib.boolean ---
+
+    @(link_name = "adw_toast_set_use_markup")
+    toast_set_use_markup :: proc(self: ^Toast, use_markup: glib.boolean) ---
+
+    @(link_name = "adw_toast_dismiss")
+    toast_dismiss :: proc(self: ^Toast) ---
+
+    @(link_name = "adw_preferences_dialog_get_type")
+    preferences_dialog_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_preferences_dialog_new")
+    preferences_dialog_new :: proc() -> ^Dialog ---
+
+    @(link_name = "adw_preferences_dialog_add")
+    preferences_dialog_add :: proc(self: ^PreferencesDialog, page: ^PreferencesPage) ---
+
+    @(link_name = "adw_preferences_dialog_remove")
+    preferences_dialog_remove :: proc(self: ^PreferencesDialog, page: ^PreferencesPage) ---
+
+    @(link_name = "adw_preferences_dialog_get_visible_page")
+    preferences_dialog_get_visible_page :: proc(self: ^PreferencesDialog) -> ^PreferencesPage ---
+
+    @(link_name = "adw_preferences_dialog_set_visible_page")
+    preferences_dialog_set_visible_page :: proc(self: ^PreferencesDialog, page: ^PreferencesPage) ---
+
+    @(link_name = "adw_preferences_dialog_get_visible_page_name")
+    preferences_dialog_get_visible_page_name :: proc(self: ^PreferencesDialog) -> cstring ---
+
+    @(link_name = "adw_preferences_dialog_set_visible_page_name")
+    preferences_dialog_set_visible_page_name :: proc(self: ^PreferencesDialog, name: cstring) ---
+
+    @(link_name = "adw_preferences_dialog_get_search_enabled")
+    preferences_dialog_get_search_enabled :: proc(self: ^PreferencesDialog) -> glib.boolean ---
+
+    @(link_name = "adw_preferences_dialog_set_search_enabled")
+    preferences_dialog_set_search_enabled :: proc(self: ^PreferencesDialog, search_enabled: glib.boolean) ---
+
+    @(link_name = "adw_preferences_dialog_push_subpage")
+    preferences_dialog_push_subpage :: proc(self: ^PreferencesDialog, page: ^NavigationPage) ---
+
+    @(link_name = "adw_preferences_dialog_pop_subpage")
+    preferences_dialog_pop_subpage :: proc(self: ^PreferencesDialog) -> glib.boolean ---
+
+    @(link_name = "adw_preferences_dialog_add_toast")
+    preferences_dialog_add_toast :: proc(self: ^PreferencesDialog, toast: ^Toast) ---
+
+    @(link_name = "adw_preferences_window_get_type")
+    preferences_window_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_preferences_window_new")
+    preferences_window_new :: proc() -> ^gtk.Widget ---
+
+    @(link_name = "adw_preferences_window_add")
+    preferences_window_add :: proc(self: ^PreferencesWindow, page: ^PreferencesPage) ---
+
+    @(link_name = "adw_preferences_window_remove")
+    preferences_window_remove :: proc(self: ^PreferencesWindow, page: ^PreferencesPage) ---
+
+    @(link_name = "adw_preferences_window_get_visible_page")
+    preferences_window_get_visible_page :: proc(self: ^PreferencesWindow) -> ^PreferencesPage ---
+
+    @(link_name = "adw_preferences_window_set_visible_page")
+    preferences_window_set_visible_page :: proc(self: ^PreferencesWindow, page: ^PreferencesPage) ---
+
+    @(link_name = "adw_preferences_window_get_visible_page_name")
+    preferences_window_get_visible_page_name :: proc(self: ^PreferencesWindow) -> cstring ---
+
+    @(link_name = "adw_preferences_window_set_visible_page_name")
+    preferences_window_set_visible_page_name :: proc(self: ^PreferencesWindow, name: cstring) ---
+
+    @(link_name = "adw_preferences_window_get_search_enabled")
+    preferences_window_get_search_enabled :: proc(self: ^PreferencesWindow) -> glib.boolean ---
+
+    @(link_name = "adw_preferences_window_set_search_enabled")
+    preferences_window_set_search_enabled :: proc(self: ^PreferencesWindow, search_enabled: glib.boolean) ---
+
+    @(link_name = "adw_preferences_window_get_can_navigate_back")
+    preferences_window_get_can_navigate_back :: proc(self: ^PreferencesWindow) -> glib.boolean ---
+
+    @(link_name = "adw_preferences_window_set_can_navigate_back")
+    preferences_window_set_can_navigate_back :: proc(self: ^PreferencesWindow, can_navigate_back: glib.boolean) ---
+
+    @(link_name = "adw_preferences_window_present_subpage")
+    preferences_window_present_subpage :: proc(self: ^PreferencesWindow, subpage: ^gtk.Widget) ---
+
+    @(link_name = "adw_preferences_window_close_subpage")
+    preferences_window_close_subpage :: proc(self: ^PreferencesWindow) ---
+
+    @(link_name = "adw_preferences_window_push_subpage")
+    preferences_window_push_subpage :: proc(self: ^PreferencesWindow, page: ^NavigationPage) ---
+
+    @(link_name = "adw_preferences_window_pop_subpage")
+    preferences_window_pop_subpage :: proc(self: ^PreferencesWindow) -> glib.boolean ---
+
+    @(link_name = "adw_preferences_window_add_toast")
+    preferences_window_add_toast :: proc(self: ^PreferencesWindow, toast: ^Toast) ---
+
+    @(link_name = "adw_spin_row_get_type")
+    spin_row_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_spin_row_new")
+    spin_row_new :: proc(adjustment: ^gtk.Adjustment, climb_rate: f64, digits: glib.uint_) -> ^gtk.Widget ---
+
+    @(link_name = "adw_spin_row_new_with_range")
+    spin_row_new_with_range :: proc(min: f64, max: f64, step: f64) -> ^gtk.Widget ---
+
+    @(link_name = "adw_spin_row_configure")
+    spin_row_configure :: proc(self: ^SpinRow, adjustment: ^gtk.Adjustment, climb_rate: f64, digits: glib.uint_) ---
+
+    @(link_name = "adw_spin_row_get_adjustment")
+    spin_row_get_adjustment :: proc(self: ^SpinRow) -> ^gtk.Adjustment ---
+
+    @(link_name = "adw_spin_row_set_adjustment")
+    spin_row_set_adjustment :: proc(self: ^SpinRow, adjustment: ^gtk.Adjustment) ---
+
+    @(link_name = "adw_spin_row_get_climb_rate")
+    spin_row_get_climb_rate :: proc(self: ^SpinRow) -> f64 ---
+
+    @(link_name = "adw_spin_row_set_climb_rate")
+    spin_row_set_climb_rate :: proc(self: ^SpinRow, climb_rate: f64) ---
+
+    @(link_name = "adw_spin_row_get_digits")
+    spin_row_get_digits :: proc(self: ^SpinRow) -> glib.uint_ ---
+
+    @(link_name = "adw_spin_row_set_digits")
+    spin_row_set_digits :: proc(self: ^SpinRow, digits: glib.uint_) ---
+
+    @(link_name = "adw_spin_row_get_numeric")
+    spin_row_get_numeric :: proc(self: ^SpinRow) -> glib.boolean ---
+
+    @(link_name = "adw_spin_row_set_numeric")
+    spin_row_set_numeric :: proc(self: ^SpinRow, numeric: glib.boolean) ---
+
+    @(link_name = "adw_spin_row_get_snap_to_ticks")
+    spin_row_get_snap_to_ticks :: proc(self: ^SpinRow) -> glib.boolean ---
+
+    @(link_name = "adw_spin_row_set_snap_to_ticks")
+    spin_row_set_snap_to_ticks :: proc(self: ^SpinRow, snap_to_ticks: glib.boolean) ---
+
+    @(link_name = "adw_spin_row_get_update_policy")
+    spin_row_get_update_policy :: proc(self: ^SpinRow) -> gtk.SpinButtonUpdatePolicy ---
+
+    @(link_name = "adw_spin_row_set_update_policy")
+    spin_row_set_update_policy :: proc(self: ^SpinRow, policy: gtk.SpinButtonUpdatePolicy) ---
+
+    @(link_name = "adw_spin_row_get_value")
+    spin_row_get_value :: proc(self: ^SpinRow) -> f64 ---
+
+    @(link_name = "adw_spin_row_set_value")
+    spin_row_set_value :: proc(self: ^SpinRow, value: f64) ---
+
+    @(link_name = "adw_spin_row_get_wrap")
+    spin_row_get_wrap :: proc(self: ^SpinRow) -> glib.boolean ---
+
+    @(link_name = "adw_spin_row_set_wrap")
+    spin_row_set_wrap :: proc(self: ^SpinRow, wrap: glib.boolean) ---
+
+    @(link_name = "adw_spin_row_update")
+    spin_row_update :: proc(self: ^SpinRow) ---
+
+    @(link_name = "adw_spin_row_set_range")
+    spin_row_set_range :: proc(self: ^SpinRow, min: f64, max: f64) ---
+
+    @(link_name = "adw_split_button_get_type")
+    split_button_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_split_button_new")
+    split_button_new :: proc() -> ^gtk.Widget ---
+
+    @(link_name = "adw_split_button_get_label")
+    split_button_get_label :: proc(self: ^SplitButton) -> cstring ---
+
+    @(link_name = "adw_split_button_set_label")
+    split_button_set_label :: proc(self: ^SplitButton, label: cstring) ---
+
+    @(link_name = "adw_split_button_get_use_underline")
+    split_button_get_use_underline :: proc(self: ^SplitButton) -> glib.boolean ---
+
+    @(link_name = "adw_split_button_set_use_underline")
+    split_button_set_use_underline :: proc(self: ^SplitButton, use_underline: glib.boolean) ---
+
+    @(link_name = "adw_split_button_get_icon_name")
+    split_button_get_icon_name :: proc(self: ^SplitButton) -> cstring ---
+
+    @(link_name = "adw_split_button_set_icon_name")
+    split_button_set_icon_name :: proc(self: ^SplitButton, icon_name: cstring) ---
+
+    @(link_name = "adw_split_button_get_child")
+    split_button_get_child :: proc(self: ^SplitButton) -> ^gtk.Widget ---
+
+    @(link_name = "adw_split_button_set_child")
+    split_button_set_child :: proc(self: ^SplitButton, child: ^gtk.Widget) ---
+
+    @(link_name = "adw_split_button_get_can_shrink")
+    split_button_get_can_shrink :: proc(self: ^SplitButton) -> glib.boolean ---
+
+    @(link_name = "adw_split_button_set_can_shrink")
+    split_button_set_can_shrink :: proc(self: ^SplitButton, can_shrink: glib.boolean) ---
+
+    @(link_name = "adw_split_button_get_menu_model")
+    split_button_get_menu_model :: proc(self: ^SplitButton) -> ^gio.MenuModel ---
+
+    @(link_name = "adw_split_button_set_menu_model")
+    split_button_set_menu_model :: proc(self: ^SplitButton, menu_model: ^gio.MenuModel) ---
+
+    @(link_name = "adw_split_button_get_popover")
+    split_button_get_popover :: proc(self: ^SplitButton) -> ^gtk.Popover ---
+
+    @(link_name = "adw_split_button_set_popover")
+    split_button_set_popover :: proc(self: ^SplitButton, popover: ^gtk.Popover) ---
+
+    @(link_name = "adw_split_button_get_direction")
+    split_button_get_direction :: proc(self: ^SplitButton) -> gtk.ArrowType ---
+
+    @(link_name = "adw_split_button_set_direction")
+    split_button_set_direction :: proc(self: ^SplitButton, direction: gtk.ArrowType) ---
+
+    @(link_name = "adw_split_button_get_dropdown_tooltip")
+    split_button_get_dropdown_tooltip :: proc(self: ^SplitButton) -> cstring ---
+
+    @(link_name = "adw_split_button_set_dropdown_tooltip")
+    split_button_set_dropdown_tooltip :: proc(self: ^SplitButton, tooltip: cstring) ---
+
+    @(link_name = "adw_split_button_popup")
+    split_button_popup :: proc(self: ^SplitButton) ---
+
+    @(link_name = "adw_split_button_popdown")
+    split_button_popdown :: proc(self: ^SplitButton) ---
+
+    @(link_name = "adw_spring_animation_get_type")
+    spring_animation_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_spring_animation_new")
+    spring_animation_new :: proc(widget: ^gtk.Widget, from: f64, to: f64, spring_params: ^SpringParams, target: ^AnimationTarget) -> ^Animation ---
+
+    @(link_name = "adw_spring_animation_get_value_from")
+    spring_animation_get_value_from :: proc(self: ^SpringAnimation) -> f64 ---
+
+    @(link_name = "adw_spring_animation_set_value_from")
+    spring_animation_set_value_from :: proc(self: ^SpringAnimation, value: f64) ---
+
+    @(link_name = "adw_spring_animation_get_value_to")
+    spring_animation_get_value_to :: proc(self: ^SpringAnimation) -> f64 ---
+
+    @(link_name = "adw_spring_animation_set_value_to")
+    spring_animation_set_value_to :: proc(self: ^SpringAnimation, value: f64) ---
+
+    @(link_name = "adw_spring_animation_get_spring_params")
+    spring_animation_get_spring_params :: proc(self: ^SpringAnimation) -> ^SpringParams ---
+
+    @(link_name = "adw_spring_animation_set_spring_params")
+    spring_animation_set_spring_params :: proc(self: ^SpringAnimation, spring_params: ^SpringParams) ---
+
+    @(link_name = "adw_spring_animation_get_initial_velocity")
+    spring_animation_get_initial_velocity :: proc(self: ^SpringAnimation) -> f64 ---
+
+    @(link_name = "adw_spring_animation_set_initial_velocity")
+    spring_animation_set_initial_velocity :: proc(self: ^SpringAnimation, velocity: f64) ---
+
+    @(link_name = "adw_spring_animation_get_epsilon")
+    spring_animation_get_epsilon :: proc(self: ^SpringAnimation) -> f64 ---
+
+    @(link_name = "adw_spring_animation_set_epsilon")
+    spring_animation_set_epsilon :: proc(self: ^SpringAnimation, epsilon: f64) ---
+
+    @(link_name = "adw_spring_animation_get_clamp")
+    spring_animation_get_clamp :: proc(self: ^SpringAnimation) -> glib.boolean ---
+
+    @(link_name = "adw_spring_animation_set_clamp")
+    spring_animation_set_clamp :: proc(self: ^SpringAnimation, clamp: glib.boolean) ---
+
+    @(link_name = "adw_spring_animation_get_estimated_duration")
+    spring_animation_get_estimated_duration :: proc(self: ^SpringAnimation) -> glib.uint_ ---
+
+    @(link_name = "adw_spring_animation_get_velocity")
+    spring_animation_get_velocity :: proc(self: ^SpringAnimation) -> f64 ---
+
+    @(link_name = "adw_spring_animation_calculate_value")
+    spring_animation_calculate_value :: proc(self: ^SpringAnimation, time: glib.uint_) -> f64 ---
+
+    @(link_name = "adw_spring_animation_calculate_velocity")
+    spring_animation_calculate_velocity :: proc(self: ^SpringAnimation, time: glib.uint_) -> f64 ---
+
+    @(link_name = "adw_squeezer_page_get_type")
+    squeezer_page_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_squeezer_page_get_child")
+    squeezer_page_get_child :: proc(self: ^SqueezerPage) -> ^gtk.Widget ---
+
+    @(link_name = "adw_squeezer_page_get_enabled")
+    squeezer_page_get_enabled :: proc(self: ^SqueezerPage) -> glib.boolean ---
+
+    @(link_name = "adw_squeezer_page_set_enabled")
+    squeezer_page_set_enabled :: proc(self: ^SqueezerPage, enabled: glib.boolean) ---
+
+    @(link_name = "adw_squeezer_get_type")
+    squeezer_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_squeezer_new")
+    squeezer_new :: proc() -> ^gtk.Widget ---
+
+    @(link_name = "adw_squeezer_add")
+    squeezer_add :: proc(self: ^Squeezer, child: ^gtk.Widget) -> ^SqueezerPage ---
+
+    @(link_name = "adw_squeezer_remove")
+    squeezer_remove :: proc(self: ^Squeezer, child: ^gtk.Widget) ---
+
+    @(link_name = "adw_squeezer_get_page")
+    squeezer_get_page :: proc(self: ^Squeezer, child: ^gtk.Widget) -> ^SqueezerPage ---
+
+    @(link_name = "adw_squeezer_get_visible_child")
+    squeezer_get_visible_child :: proc(self: ^Squeezer) -> ^gtk.Widget ---
+
+    @(link_name = "adw_squeezer_get_homogeneous")
+    squeezer_get_homogeneous :: proc(self: ^Squeezer) -> glib.boolean ---
+
+    @(link_name = "adw_squeezer_set_homogeneous")
+    squeezer_set_homogeneous :: proc(self: ^Squeezer, homogeneous: glib.boolean) ---
+
+    @(link_name = "adw_squeezer_get_switch_threshold_policy")
+    squeezer_get_switch_threshold_policy :: proc(self: ^Squeezer) -> FoldThresholdPolicy ---
+
+    @(link_name = "adw_squeezer_set_switch_threshold_policy")
+    squeezer_set_switch_threshold_policy :: proc(self: ^Squeezer, policy: FoldThresholdPolicy) ---
+
+    @(link_name = "adw_squeezer_get_allow_none")
+    squeezer_get_allow_none :: proc(self: ^Squeezer) -> glib.boolean ---
+
+    @(link_name = "adw_squeezer_set_allow_none")
+    squeezer_set_allow_none :: proc(self: ^Squeezer, allow_none: glib.boolean) ---
+
+    @(link_name = "adw_squeezer_get_transition_duration")
+    squeezer_get_transition_duration :: proc(self: ^Squeezer) -> glib.uint_ ---
+
+    @(link_name = "adw_squeezer_set_transition_duration")
+    squeezer_set_transition_duration :: proc(self: ^Squeezer, duration: glib.uint_) ---
+
+    @(link_name = "adw_squeezer_get_transition_type")
+    squeezer_get_transition_type :: proc(self: ^Squeezer) -> SqueezerTransitionType ---
+
+    @(link_name = "adw_squeezer_set_transition_type")
+    squeezer_set_transition_type :: proc(self: ^Squeezer, transition: SqueezerTransitionType) ---
+
+    @(link_name = "adw_squeezer_get_transition_running")
+    squeezer_get_transition_running :: proc(self: ^Squeezer) -> glib.boolean ---
+
+    @(link_name = "adw_squeezer_get_interpolate_size")
+    squeezer_get_interpolate_size :: proc(self: ^Squeezer) -> glib.boolean ---
+
+    @(link_name = "adw_squeezer_set_interpolate_size")
+    squeezer_set_interpolate_size :: proc(self: ^Squeezer, interpolate_size: glib.boolean) ---
+
+    @(link_name = "adw_squeezer_get_xalign")
+    squeezer_get_xalign :: proc(self: ^Squeezer) -> f32 ---
+
+    @(link_name = "adw_squeezer_set_xalign")
+    squeezer_set_xalign :: proc(self: ^Squeezer, xalign: f32) ---
+
+    @(link_name = "adw_squeezer_get_yalign")
+    squeezer_get_yalign :: proc(self: ^Squeezer) -> f32 ---
+
+    @(link_name = "adw_squeezer_set_yalign")
+    squeezer_set_yalign :: proc(self: ^Squeezer, yalign: f32) ---
+
+    @(link_name = "adw_squeezer_get_pages")
+    squeezer_get_pages :: proc(self: ^Squeezer) -> ^gtk.SelectionModel ---
+
+    @(link_name = "adw_status_page_get_type")
+    status_page_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_status_page_new")
+    status_page_new :: proc() -> ^gtk.Widget ---
+
+    @(link_name = "adw_status_page_get_icon_name")
+    status_page_get_icon_name :: proc(self: ^StatusPage) -> cstring ---
+
+    @(link_name = "adw_status_page_set_icon_name")
+    status_page_set_icon_name :: proc(self: ^StatusPage, icon_name: cstring) ---
+
+    @(link_name = "adw_status_page_get_paintable")
+    status_page_get_paintable :: proc(self: ^StatusPage) -> ^gtk.Paintable ---
+
+    @(link_name = "adw_status_page_set_paintable")
+    status_page_set_paintable :: proc(self: ^StatusPage, paintable: ^gtk.Paintable) ---
+
+    @(link_name = "adw_status_page_get_title")
+    status_page_get_title :: proc(self: ^StatusPage) -> cstring ---
+
+    @(link_name = "adw_status_page_set_title")
+    status_page_set_title :: proc(self: ^StatusPage, title: cstring) ---
+
+    @(link_name = "adw_status_page_get_description")
+    status_page_get_description :: proc(self: ^StatusPage) -> cstring ---
+
+    @(link_name = "adw_status_page_set_description")
+    status_page_set_description :: proc(self: ^StatusPage, description: cstring) ---
+
+    @(link_name = "adw_status_page_get_child")
+    status_page_get_child :: proc(self: ^StatusPage) -> ^gtk.Widget ---
+
+    @(link_name = "adw_status_page_set_child")
+    status_page_set_child :: proc(self: ^StatusPage, child: ^gtk.Widget) ---
+
+    @(link_name = "adw_swipeable_get_type")
+    swipeable_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_swipeable_get_distance")
+    swipeable_get_distance :: proc(self: ^Swipeable) -> f64 ---
+
+    @(link_name = "adw_swipeable_get_snap_points")
+    swipeable_get_snap_points :: proc(self: ^Swipeable, n_snap_points: ^i32) -> ^f64 ---
+
+    @(link_name = "adw_swipeable_get_progress")
+    swipeable_get_progress :: proc(self: ^Swipeable) -> f64 ---
+
+    @(link_name = "adw_swipeable_get_cancel_progress")
+    swipeable_get_cancel_progress :: proc(self: ^Swipeable) -> f64 ---
+
+    @(link_name = "adw_swipeable_get_swipe_area")
+    swipeable_get_swipe_area :: proc(self: ^Swipeable, navigation_direction: NavigationDirection, is_drag: glib.boolean, rect: ^gtk.Rectangle) ---
+
+    @(link_name = "adw_swipe_tracker_get_type")
+    swipe_tracker_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_swipe_tracker_new")
+    swipe_tracker_new :: proc(swipeable: ^Swipeable) -> ^SwipeTracker ---
+
+    @(link_name = "adw_swipe_tracker_get_swipeable")
+    swipe_tracker_get_swipeable :: proc(self: ^SwipeTracker) -> ^Swipeable ---
+
+    @(link_name = "adw_swipe_tracker_get_enabled")
+    swipe_tracker_get_enabled :: proc(self: ^SwipeTracker) -> glib.boolean ---
+
+    @(link_name = "adw_swipe_tracker_set_enabled")
+    swipe_tracker_set_enabled :: proc(self: ^SwipeTracker, enabled: glib.boolean) ---
+
+    @(link_name = "adw_swipe_tracker_get_reversed")
+    swipe_tracker_get_reversed :: proc(self: ^SwipeTracker) -> glib.boolean ---
+
+    @(link_name = "adw_swipe_tracker_set_reversed")
+    swipe_tracker_set_reversed :: proc(self: ^SwipeTracker, reversed: glib.boolean) ---
+
+    @(link_name = "adw_swipe_tracker_get_allow_mouse_drag")
+    swipe_tracker_get_allow_mouse_drag :: proc(self: ^SwipeTracker) -> glib.boolean ---
+
+    @(link_name = "adw_swipe_tracker_set_allow_mouse_drag")
+    swipe_tracker_set_allow_mouse_drag :: proc(self: ^SwipeTracker, allow_mouse_drag: glib.boolean) ---
+
+    @(link_name = "adw_swipe_tracker_get_allow_long_swipes")
+    swipe_tracker_get_allow_long_swipes :: proc(self: ^SwipeTracker) -> glib.boolean ---
+
+    @(link_name = "adw_swipe_tracker_set_allow_long_swipes")
+    swipe_tracker_set_allow_long_swipes :: proc(self: ^SwipeTracker, allow_long_swipes: glib.boolean) ---
+
+    @(link_name = "adw_swipe_tracker_get_lower_overshoot")
+    swipe_tracker_get_lower_overshoot :: proc(self: ^SwipeTracker) -> glib.boolean ---
+
+    @(link_name = "adw_swipe_tracker_set_lower_overshoot")
+    swipe_tracker_set_lower_overshoot :: proc(self: ^SwipeTracker, overshoot: glib.boolean) ---
+
+    @(link_name = "adw_swipe_tracker_get_upper_overshoot")
+    swipe_tracker_get_upper_overshoot :: proc(self: ^SwipeTracker) -> glib.boolean ---
+
+    @(link_name = "adw_swipe_tracker_set_upper_overshoot")
+    swipe_tracker_set_upper_overshoot :: proc(self: ^SwipeTracker, overshoot: glib.boolean) ---
+
+    @(link_name = "adw_swipe_tracker_get_allow_window_handle")
+    swipe_tracker_get_allow_window_handle :: proc(self: ^SwipeTracker) -> glib.boolean ---
+
+    @(link_name = "adw_swipe_tracker_set_allow_window_handle")
+    swipe_tracker_set_allow_window_handle :: proc(self: ^SwipeTracker, allow_window_handle: glib.boolean) ---
+
+    @(link_name = "adw_swipe_tracker_shift_position")
+    swipe_tracker_shift_position :: proc(self: ^SwipeTracker, delta: f64) ---
+
+    @(link_name = "adw_switch_row_get_type")
+    switch_row_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_switch_row_new")
+    switch_row_new :: proc() -> ^gtk.Widget ---
+
+    @(link_name = "adw_switch_row_get_active")
+    switch_row_get_active :: proc(self: ^SwitchRow) -> glib.boolean ---
+
+    @(link_name = "adw_switch_row_set_active")
+    switch_row_set_active :: proc(self: ^SwitchRow, is_active: glib.boolean) ---
+
+    @(link_name = "adw_tab_page_get_type")
+    tab_page_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_tab_page_get_child")
+    tab_page_get_child :: proc(self: ^TabPage) -> ^gtk.Widget ---
+
+    @(link_name = "adw_tab_page_get_parent")
+    tab_page_get_parent :: proc(self: ^TabPage) -> ^TabPage ---
+
+    @(link_name = "adw_tab_page_get_selected")
+    tab_page_get_selected :: proc(self: ^TabPage) -> glib.boolean ---
+
+    @(link_name = "adw_tab_page_get_pinned")
+    tab_page_get_pinned :: proc(self: ^TabPage) -> glib.boolean ---
+
+    @(link_name = "adw_tab_page_get_title")
+    tab_page_get_title :: proc(self: ^TabPage) -> cstring ---
+
+    @(link_name = "adw_tab_page_set_title")
+    tab_page_set_title :: proc(self: ^TabPage, title: cstring) ---
+
+    @(link_name = "adw_tab_page_get_tooltip")
+    tab_page_get_tooltip :: proc(self: ^TabPage) -> cstring ---
+
+    @(link_name = "adw_tab_page_set_tooltip")
+    tab_page_set_tooltip :: proc(self: ^TabPage, tooltip: cstring) ---
+
+    @(link_name = "adw_tab_page_get_icon")
+    tab_page_get_icon :: proc(self: ^TabPage) -> ^gio.Icon ---
+
+    @(link_name = "adw_tab_page_set_icon")
+    tab_page_set_icon :: proc(self: ^TabPage, icon: ^gio.Icon) ---
+
+    @(link_name = "adw_tab_page_get_loading")
+    tab_page_get_loading :: proc(self: ^TabPage) -> glib.boolean ---
+
+    @(link_name = "adw_tab_page_set_loading")
+    tab_page_set_loading :: proc(self: ^TabPage, loading: glib.boolean) ---
+
+    @(link_name = "adw_tab_page_get_indicator_icon")
+    tab_page_get_indicator_icon :: proc(self: ^TabPage) -> ^gio.Icon ---
+
+    @(link_name = "adw_tab_page_set_indicator_icon")
+    tab_page_set_indicator_icon :: proc(self: ^TabPage, indicator_icon: ^gio.Icon) ---
+
+    @(link_name = "adw_tab_page_get_indicator_tooltip")
+    tab_page_get_indicator_tooltip :: proc(self: ^TabPage) -> cstring ---
+
+    @(link_name = "adw_tab_page_set_indicator_tooltip")
+    tab_page_set_indicator_tooltip :: proc(self: ^TabPage, tooltip: cstring) ---
+
+    @(link_name = "adw_tab_page_get_indicator_activatable")
+    tab_page_get_indicator_activatable :: proc(self: ^TabPage) -> glib.boolean ---
+
+    @(link_name = "adw_tab_page_set_indicator_activatable")
+    tab_page_set_indicator_activatable :: proc(self: ^TabPage, activatable: glib.boolean) ---
+
+    @(link_name = "adw_tab_page_get_needs_attention")
+    tab_page_get_needs_attention :: proc(self: ^TabPage) -> glib.boolean ---
+
+    @(link_name = "adw_tab_page_set_needs_attention")
+    tab_page_set_needs_attention :: proc(self: ^TabPage, needs_attention: glib.boolean) ---
+
+    @(link_name = "adw_tab_page_get_keyword")
+    tab_page_get_keyword :: proc(self: ^TabPage) -> cstring ---
+
+    @(link_name = "adw_tab_page_set_keyword")
+    tab_page_set_keyword :: proc(self: ^TabPage, keyword: cstring) ---
+
+    @(link_name = "adw_tab_page_get_thumbnail_xalign")
+    tab_page_get_thumbnail_xalign :: proc(self: ^TabPage) -> f32 ---
+
+    @(link_name = "adw_tab_page_set_thumbnail_xalign")
+    tab_page_set_thumbnail_xalign :: proc(self: ^TabPage, xalign: f32) ---
+
+    @(link_name = "adw_tab_page_get_thumbnail_yalign")
+    tab_page_get_thumbnail_yalign :: proc(self: ^TabPage) -> f32 ---
+
+    @(link_name = "adw_tab_page_set_thumbnail_yalign")
+    tab_page_set_thumbnail_yalign :: proc(self: ^TabPage, yalign: f32) ---
+
+    @(link_name = "adw_tab_page_get_live_thumbnail")
+    tab_page_get_live_thumbnail :: proc(self: ^TabPage) -> glib.boolean ---
+
+    @(link_name = "adw_tab_page_set_live_thumbnail")
+    tab_page_set_live_thumbnail :: proc(self: ^TabPage, live_thumbnail: glib.boolean) ---
+
+    @(link_name = "adw_tab_page_invalidate_thumbnail")
+    tab_page_invalidate_thumbnail :: proc(self: ^TabPage) ---
+
+    @(link_name = "adw_tab_view_get_type")
+    tab_view_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_tab_view_new")
+    tab_view_new :: proc() -> ^TabView ---
+
+    @(link_name = "adw_tab_view_get_n_pages")
+    tab_view_get_n_pages :: proc(self: ^TabView) -> i32 ---
+
+    @(link_name = "adw_tab_view_get_n_pinned_pages")
+    tab_view_get_n_pinned_pages :: proc(self: ^TabView) -> i32 ---
+
+    @(link_name = "adw_tab_view_get_is_transferring_page")
+    tab_view_get_is_transferring_page :: proc(self: ^TabView) -> glib.boolean ---
+
+    @(link_name = "adw_tab_view_get_selected_page")
+    tab_view_get_selected_page :: proc(self: ^TabView) -> ^TabPage ---
+
+    @(link_name = "adw_tab_view_set_selected_page")
+    tab_view_set_selected_page :: proc(self: ^TabView, selected_page: ^TabPage) ---
+
+    @(link_name = "adw_tab_view_select_previous_page")
+    tab_view_select_previous_page :: proc(self: ^TabView) -> glib.boolean ---
+
+    @(link_name = "adw_tab_view_select_next_page")
+    tab_view_select_next_page :: proc(self: ^TabView) -> glib.boolean ---
+
+    @(link_name = "adw_tab_view_get_default_icon")
+    tab_view_get_default_icon :: proc(self: ^TabView) -> ^gio.Icon ---
+
+    @(link_name = "adw_tab_view_set_default_icon")
+    tab_view_set_default_icon :: proc(self: ^TabView, default_icon: ^gio.Icon) ---
+
+    @(link_name = "adw_tab_view_get_menu_model")
+    tab_view_get_menu_model :: proc(self: ^TabView) -> ^gio.MenuModel ---
+
+    @(link_name = "adw_tab_view_set_menu_model")
+    tab_view_set_menu_model :: proc(self: ^TabView, menu_model: ^gio.MenuModel) ---
+
+    @(link_name = "adw_tab_view_get_shortcuts")
+    tab_view_get_shortcuts :: proc(self: ^TabView) -> TabViewShortcuts ---
+
+    @(link_name = "adw_tab_view_set_shortcuts")
+    tab_view_set_shortcuts :: proc(self: ^TabView, shortcuts: TabViewShortcuts) ---
+
+    @(link_name = "adw_tab_view_add_shortcuts")
+    tab_view_add_shortcuts :: proc(self: ^TabView, shortcuts: TabViewShortcuts) ---
+
+    @(link_name = "adw_tab_view_remove_shortcuts")
+    tab_view_remove_shortcuts :: proc(self: ^TabView, shortcuts: TabViewShortcuts) ---
+
+    @(link_name = "adw_tab_view_set_page_pinned")
+    tab_view_set_page_pinned :: proc(self: ^TabView, page: ^TabPage, pinned: glib.boolean) ---
+
+    @(link_name = "adw_tab_view_get_page")
+    tab_view_get_page :: proc(self: ^TabView, child: ^gtk.Widget) -> ^TabPage ---
+
+    @(link_name = "adw_tab_view_get_nth_page")
+    tab_view_get_nth_page :: proc(self: ^TabView, position: i32) -> ^TabPage ---
+
+    @(link_name = "adw_tab_view_get_page_position")
+    tab_view_get_page_position :: proc(self: ^TabView, page: ^TabPage) -> i32 ---
+
+    @(link_name = "adw_tab_view_add_page")
+    tab_view_add_page :: proc(self: ^TabView, child: ^gtk.Widget, parent: ^TabPage) -> ^TabPage ---
+
+    @(link_name = "adw_tab_view_insert")
+    tab_view_insert :: proc(self: ^TabView, child: ^gtk.Widget, position: i32) -> ^TabPage ---
+
+    @(link_name = "adw_tab_view_prepend")
+    tab_view_prepend :: proc(self: ^TabView, child: ^gtk.Widget) -> ^TabPage ---
+
+    @(link_name = "adw_tab_view_append")
+    tab_view_append :: proc(self: ^TabView, child: ^gtk.Widget) -> ^TabPage ---
+
+    @(link_name = "adw_tab_view_insert_pinned")
+    tab_view_insert_pinned :: proc(self: ^TabView, child: ^gtk.Widget, position: i32) -> ^TabPage ---
+
+    @(link_name = "adw_tab_view_prepend_pinned")
+    tab_view_prepend_pinned :: proc(self: ^TabView, child: ^gtk.Widget) -> ^TabPage ---
+
+    @(link_name = "adw_tab_view_append_pinned")
+    tab_view_append_pinned :: proc(self: ^TabView, child: ^gtk.Widget) -> ^TabPage ---
+
+    @(link_name = "adw_tab_view_close_page")
+    tab_view_close_page :: proc(self: ^TabView, page: ^TabPage) ---
+
+    @(link_name = "adw_tab_view_close_page_finish")
+    tab_view_close_page_finish :: proc(self: ^TabView, page: ^TabPage, confirm: glib.boolean) ---
+
+    @(link_name = "adw_tab_view_close_other_pages")
+    tab_view_close_other_pages :: proc(self: ^TabView, page: ^TabPage) ---
+
+    @(link_name = "adw_tab_view_close_pages_before")
+    tab_view_close_pages_before :: proc(self: ^TabView, page: ^TabPage) ---
+
+    @(link_name = "adw_tab_view_close_pages_after")
+    tab_view_close_pages_after :: proc(self: ^TabView, page: ^TabPage) ---
+
+    @(link_name = "adw_tab_view_reorder_page")
+    tab_view_reorder_page :: proc(self: ^TabView, page: ^TabPage, position: i32) -> glib.boolean ---
+
+    @(link_name = "adw_tab_view_reorder_backward")
+    tab_view_reorder_backward :: proc(self: ^TabView, page: ^TabPage) -> glib.boolean ---
+
+    @(link_name = "adw_tab_view_reorder_forward")
+    tab_view_reorder_forward :: proc(self: ^TabView, page: ^TabPage) -> glib.boolean ---
+
+    @(link_name = "adw_tab_view_reorder_first")
+    tab_view_reorder_first :: proc(self: ^TabView, page: ^TabPage) -> glib.boolean ---
+
+    @(link_name = "adw_tab_view_reorder_last")
+    tab_view_reorder_last :: proc(self: ^TabView, page: ^TabPage) -> glib.boolean ---
+
+    @(link_name = "adw_tab_view_transfer_page")
+    tab_view_transfer_page :: proc(self: ^TabView, page: ^TabPage, other_view: ^TabView, position: i32) ---
+
+    @(link_name = "adw_tab_view_get_pages")
+    tab_view_get_pages :: proc(self: ^TabView) -> ^gtk.SelectionModel ---
+
+    @(link_name = "adw_tab_view_invalidate_thumbnails")
+    tab_view_invalidate_thumbnails :: proc(self: ^TabView) ---
+
+    @(link_name = "adw_tab_bar_get_type")
+    tab_bar_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_tab_bar_new")
+    tab_bar_new :: proc() -> ^TabBar ---
+
+    @(link_name = "adw_tab_bar_get_view")
+    tab_bar_get_view :: proc(self: ^TabBar) -> ^TabView ---
+
+    @(link_name = "adw_tab_bar_set_view")
+    tab_bar_set_view :: proc(self: ^TabBar, view: ^TabView) ---
+
+    @(link_name = "adw_tab_bar_get_start_action_widget")
+    tab_bar_get_start_action_widget :: proc(self: ^TabBar) -> ^gtk.Widget ---
+
+    @(link_name = "adw_tab_bar_set_start_action_widget")
+    tab_bar_set_start_action_widget :: proc(self: ^TabBar, widget: ^gtk.Widget) ---
+
+    @(link_name = "adw_tab_bar_get_end_action_widget")
+    tab_bar_get_end_action_widget :: proc(self: ^TabBar) -> ^gtk.Widget ---
+
+    @(link_name = "adw_tab_bar_set_end_action_widget")
+    tab_bar_set_end_action_widget :: proc(self: ^TabBar, widget: ^gtk.Widget) ---
+
+    @(link_name = "adw_tab_bar_get_autohide")
+    tab_bar_get_autohide :: proc(self: ^TabBar) -> glib.boolean ---
+
+    @(link_name = "adw_tab_bar_set_autohide")
+    tab_bar_set_autohide :: proc(self: ^TabBar, autohide: glib.boolean) ---
+
+    @(link_name = "adw_tab_bar_get_tabs_revealed")
+    tab_bar_get_tabs_revealed :: proc(self: ^TabBar) -> glib.boolean ---
+
+    @(link_name = "adw_tab_bar_get_expand_tabs")
+    tab_bar_get_expand_tabs :: proc(self: ^TabBar) -> glib.boolean ---
+
+    @(link_name = "adw_tab_bar_set_expand_tabs")
+    tab_bar_set_expand_tabs :: proc(self: ^TabBar, expand_tabs: glib.boolean) ---
+
+    @(link_name = "adw_tab_bar_get_inverted")
+    tab_bar_get_inverted :: proc(self: ^TabBar) -> glib.boolean ---
+
+    @(link_name = "adw_tab_bar_set_inverted")
+    tab_bar_set_inverted :: proc(self: ^TabBar, inverted: glib.boolean) ---
+
+    @(link_name = "adw_tab_bar_setup_extra_drop_target")
+    tab_bar_setup_extra_drop_target :: proc(self: ^TabBar, actions: gtk.DragAction, types: [^]gobj.Type, n_types: glib.size) ---
+
+    @(link_name = "adw_tab_bar_get_extra_drag_preferred_action")
+    tab_bar_get_extra_drag_preferred_action :: proc(self: ^TabBar) -> gtk.DragAction ---
+
+    @(link_name = "adw_tab_bar_get_extra_drag_preload")
+    tab_bar_get_extra_drag_preload :: proc(self: ^TabBar) -> glib.boolean ---
+
+    @(link_name = "adw_tab_bar_set_extra_drag_preload")
+    tab_bar_set_extra_drag_preload :: proc(self: ^TabBar, preload: glib.boolean) ---
+
+    @(link_name = "adw_tab_bar_get_is_overflowing")
+    tab_bar_get_is_overflowing :: proc(self: ^TabBar) -> glib.boolean ---
+
+    @(link_name = "adw_tab_button_get_type")
+    tab_button_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_tab_button_new")
+    tab_button_new :: proc() -> ^gtk.Widget ---
+
+    @(link_name = "adw_tab_button_get_view")
+    tab_button_get_view :: proc(self: ^TabButton) -> ^TabView ---
+
+    @(link_name = "adw_tab_button_set_view")
+    tab_button_set_view :: proc(self: ^TabButton, view: ^TabView) ---
+
+    @(link_name = "adw_tab_overview_get_type")
+    tab_overview_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_tab_overview_new")
+    tab_overview_new :: proc() -> ^gtk.Widget ---
+
+    @(link_name = "adw_tab_overview_get_view")
+    tab_overview_get_view :: proc(self: ^TabOverview) -> ^TabView ---
+
+    @(link_name = "adw_tab_overview_set_view")
+    tab_overview_set_view :: proc(self: ^TabOverview, view: ^TabView) ---
+
+    @(link_name = "adw_tab_overview_get_child")
+    tab_overview_get_child :: proc(self: ^TabOverview) -> ^gtk.Widget ---
+
+    @(link_name = "adw_tab_overview_set_child")
+    tab_overview_set_child :: proc(self: ^TabOverview, child: ^gtk.Widget) ---
+
+    @(link_name = "adw_tab_overview_get_open")
+    tab_overview_get_open :: proc(self: ^TabOverview) -> glib.boolean ---
+
+    @(link_name = "adw_tab_overview_set_open")
+    tab_overview_set_open :: proc(self: ^TabOverview, open: glib.boolean) ---
+
+    @(link_name = "adw_tab_overview_get_inverted")
+    tab_overview_get_inverted :: proc(self: ^TabOverview) -> glib.boolean ---
+
+    @(link_name = "adw_tab_overview_set_inverted")
+    tab_overview_set_inverted :: proc(self: ^TabOverview, inverted: glib.boolean) ---
+
+    @(link_name = "adw_tab_overview_get_enable_search")
+    tab_overview_get_enable_search :: proc(self: ^TabOverview) -> glib.boolean ---
+
+    @(link_name = "adw_tab_overview_set_enable_search")
+    tab_overview_set_enable_search :: proc(self: ^TabOverview, enable_search: glib.boolean) ---
+
+    @(link_name = "adw_tab_overview_get_search_active")
+    tab_overview_get_search_active :: proc(self: ^TabOverview) -> glib.boolean ---
+
+    @(link_name = "adw_tab_overview_get_enable_new_tab")
+    tab_overview_get_enable_new_tab :: proc(self: ^TabOverview) -> glib.boolean ---
+
+    @(link_name = "adw_tab_overview_set_enable_new_tab")
+    tab_overview_set_enable_new_tab :: proc(self: ^TabOverview, enable_new_tab: glib.boolean) ---
+
+    @(link_name = "adw_tab_overview_get_secondary_menu")
+    tab_overview_get_secondary_menu :: proc(self: ^TabOverview) -> ^gio.MenuModel ---
+
+    @(link_name = "adw_tab_overview_set_secondary_menu")
+    tab_overview_set_secondary_menu :: proc(self: ^TabOverview, secondary_menu: ^gio.MenuModel) ---
+
+    @(link_name = "adw_tab_overview_get_show_start_title_buttons")
+    tab_overview_get_show_start_title_buttons :: proc(self: ^TabOverview) -> glib.boolean ---
+
+    @(link_name = "adw_tab_overview_set_show_start_title_buttons")
+    tab_overview_set_show_start_title_buttons :: proc(self: ^TabOverview, show_start_title_buttons: glib.boolean) ---
+
+    @(link_name = "adw_tab_overview_get_show_end_title_buttons")
+    tab_overview_get_show_end_title_buttons :: proc(self: ^TabOverview) -> glib.boolean ---
+
+    @(link_name = "adw_tab_overview_set_show_end_title_buttons")
+    tab_overview_set_show_end_title_buttons :: proc(self: ^TabOverview, show_end_title_buttons: glib.boolean) ---
+
+    @(link_name = "adw_tab_overview_setup_extra_drop_target")
+    tab_overview_setup_extra_drop_target :: proc(self: ^TabOverview, actions: gtk.DragAction, types: [^]gobj.Type, n_types: glib.size) ---
+
+    @(link_name = "adw_tab_overview_get_extra_drag_preferred_action")
+    tab_overview_get_extra_drag_preferred_action :: proc(self: ^TabOverview) -> gtk.DragAction ---
+
+    @(link_name = "adw_tab_overview_get_extra_drag_preload")
+    tab_overview_get_extra_drag_preload :: proc(self: ^TabOverview) -> glib.boolean ---
+
+    @(link_name = "adw_tab_overview_set_extra_drag_preload")
+    tab_overview_set_extra_drag_preload :: proc(self: ^TabOverview, preload: glib.boolean) ---
+
+    @(link_name = "adw_timed_animation_get_type")
+    timed_animation_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_timed_animation_new")
+    timed_animation_new :: proc(widget: ^gtk.Widget, from: f64, to: f64, duration: glib.uint_, target: ^AnimationTarget) -> ^Animation ---
+
+    @(link_name = "adw_timed_animation_get_value_from")
+    timed_animation_get_value_from :: proc(self: ^TimedAnimation) -> f64 ---
+
+    @(link_name = "adw_timed_animation_set_value_from")
+    timed_animation_set_value_from :: proc(self: ^TimedAnimation, value: f64) ---
+
+    @(link_name = "adw_timed_animation_get_value_to")
+    timed_animation_get_value_to :: proc(self: ^TimedAnimation) -> f64 ---
+
+    @(link_name = "adw_timed_animation_set_value_to")
+    timed_animation_set_value_to :: proc(self: ^TimedAnimation, value: f64) ---
+
+    @(link_name = "adw_timed_animation_get_duration")
+    timed_animation_get_duration :: proc(self: ^TimedAnimation) -> glib.uint_ ---
+
+    @(link_name = "adw_timed_animation_set_duration")
+    timed_animation_set_duration :: proc(self: ^TimedAnimation, duration: glib.uint_) ---
+
+    @(link_name = "adw_timed_animation_get_easing")
+    timed_animation_get_easing :: proc(self: ^TimedAnimation) -> Easing ---
+
+    @(link_name = "adw_timed_animation_set_easing")
+    timed_animation_set_easing :: proc(self: ^TimedAnimation, easing: Easing) ---
+
+    @(link_name = "adw_timed_animation_get_repeat_count")
+    timed_animation_get_repeat_count :: proc(self: ^TimedAnimation) -> glib.uint_ ---
+
+    @(link_name = "adw_timed_animation_set_repeat_count")
+    timed_animation_set_repeat_count :: proc(self: ^TimedAnimation, repeat_count: glib.uint_) ---
+
+    @(link_name = "adw_timed_animation_get_reverse")
+    timed_animation_get_reverse :: proc(self: ^TimedAnimation) -> glib.boolean ---
+
+    @(link_name = "adw_timed_animation_set_reverse")
+    timed_animation_set_reverse :: proc(self: ^TimedAnimation, reverse: glib.boolean) ---
+
+    @(link_name = "adw_timed_animation_get_alternate")
+    timed_animation_get_alternate :: proc(self: ^TimedAnimation) -> glib.boolean ---
+
+    @(link_name = "adw_timed_animation_set_alternate")
+    timed_animation_set_alternate :: proc(self: ^TimedAnimation, alternate: glib.boolean) ---
+
+    @(link_name = "adw_toast_overlay_get_type")
+    toast_overlay_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_toast_overlay_new")
+    toast_overlay_new :: proc() -> ^gtk.Widget ---
+
+    @(link_name = "adw_toast_overlay_get_child")
+    toast_overlay_get_child :: proc(self: ^ToastOverlay) -> ^gtk.Widget ---
+
+    @(link_name = "adw_toast_overlay_set_child")
+    toast_overlay_set_child :: proc(self: ^ToastOverlay, child: ^gtk.Widget) ---
+
+    @(link_name = "adw_toast_overlay_add_toast")
+    toast_overlay_add_toast :: proc(self: ^ToastOverlay, toast: ^Toast) ---
+
+    @(link_name = "adw_toolbar_view_get_type")
+    toolbar_view_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_toolbar_view_new")
+    toolbar_view_new :: proc() -> ^gtk.Widget ---
+
+    @(link_name = "adw_toolbar_view_get_content")
+    toolbar_view_get_content :: proc(self: ^ToolbarView) -> ^gtk.Widget ---
+
+    @(link_name = "adw_toolbar_view_set_content")
+    toolbar_view_set_content :: proc(self: ^ToolbarView, content: ^gtk.Widget) ---
+
+    @(link_name = "adw_toolbar_view_add_top_bar")
+    toolbar_view_add_top_bar :: proc(self: ^ToolbarView, widget: ^gtk.Widget) ---
+
+    @(link_name = "adw_toolbar_view_add_bottom_bar")
+    toolbar_view_add_bottom_bar :: proc(self: ^ToolbarView, widget: ^gtk.Widget) ---
+
+    @(link_name = "adw_toolbar_view_remove")
+    toolbar_view_remove :: proc(self: ^ToolbarView, widget: ^gtk.Widget) ---
+
+    @(link_name = "adw_toolbar_view_get_top_bar_style")
+    toolbar_view_get_top_bar_style :: proc(self: ^ToolbarView) -> ToolbarStyle ---
+
+    @(link_name = "adw_toolbar_view_set_top_bar_style")
+    toolbar_view_set_top_bar_style :: proc(self: ^ToolbarView, style: ToolbarStyle) ---
+
+    @(link_name = "adw_toolbar_view_get_bottom_bar_style")
+    toolbar_view_get_bottom_bar_style :: proc(self: ^ToolbarView) -> ToolbarStyle ---
+
+    @(link_name = "adw_toolbar_view_set_bottom_bar_style")
+    toolbar_view_set_bottom_bar_style :: proc(self: ^ToolbarView, style: ToolbarStyle) ---
+
+    @(link_name = "adw_toolbar_view_get_reveal_top_bars")
+    toolbar_view_get_reveal_top_bars :: proc(self: ^ToolbarView) -> glib.boolean ---
+
+    @(link_name = "adw_toolbar_view_set_reveal_top_bars")
+    toolbar_view_set_reveal_top_bars :: proc(self: ^ToolbarView, reveal: glib.boolean) ---
+
+    @(link_name = "adw_toolbar_view_get_reveal_bottom_bars")
+    toolbar_view_get_reveal_bottom_bars :: proc(self: ^ToolbarView) -> glib.boolean ---
+
+    @(link_name = "adw_toolbar_view_set_reveal_bottom_bars")
+    toolbar_view_set_reveal_bottom_bars :: proc(self: ^ToolbarView, reveal: glib.boolean) ---
+
+    @(link_name = "adw_toolbar_view_get_extend_content_to_top_edge")
+    toolbar_view_get_extend_content_to_top_edge :: proc(self: ^ToolbarView) -> glib.boolean ---
+
+    @(link_name = "adw_toolbar_view_set_extend_content_to_top_edge")
+    toolbar_view_set_extend_content_to_top_edge :: proc(self: ^ToolbarView, extend: glib.boolean) ---
+
+    @(link_name = "adw_toolbar_view_get_extend_content_to_bottom_edge")
+    toolbar_view_get_extend_content_to_bottom_edge :: proc(self: ^ToolbarView) -> glib.boolean ---
+
+    @(link_name = "adw_toolbar_view_set_extend_content_to_bottom_edge")
+    toolbar_view_set_extend_content_to_bottom_edge :: proc(self: ^ToolbarView, extend: glib.boolean) ---
+
+    @(link_name = "adw_toolbar_view_get_top_bar_height")
+    toolbar_view_get_top_bar_height :: proc(self: ^ToolbarView) -> i32 ---
+
+    @(link_name = "adw_toolbar_view_get_bottom_bar_height")
+    toolbar_view_get_bottom_bar_height :: proc(self: ^ToolbarView) -> i32 ---
+
+    @(link_name = "adw_view_stack_page_get_type")
+    view_stack_page_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_view_stack_page_get_child")
+    view_stack_page_get_child :: proc(self: ^ViewStackPage) -> ^gtk.Widget ---
+
+    @(link_name = "adw_view_stack_page_get_name")
+    view_stack_page_get_name :: proc(self: ^ViewStackPage) -> cstring ---
+
+    @(link_name = "adw_view_stack_page_set_name")
+    view_stack_page_set_name :: proc(self: ^ViewStackPage, name: cstring) ---
+
+    @(link_name = "adw_view_stack_page_get_title")
+    view_stack_page_get_title :: proc(self: ^ViewStackPage) -> cstring ---
+
+    @(link_name = "adw_view_stack_page_set_title")
+    view_stack_page_set_title :: proc(self: ^ViewStackPage, title: cstring) ---
+
+    @(link_name = "adw_view_stack_page_get_use_underline")
+    view_stack_page_get_use_underline :: proc(self: ^ViewStackPage) -> glib.boolean ---
+
+    @(link_name = "adw_view_stack_page_set_use_underline")
+    view_stack_page_set_use_underline :: proc(self: ^ViewStackPage, use_underline: glib.boolean) ---
+
+    @(link_name = "adw_view_stack_page_get_icon_name")
+    view_stack_page_get_icon_name :: proc(self: ^ViewStackPage) -> cstring ---
+
+    @(link_name = "adw_view_stack_page_set_icon_name")
+    view_stack_page_set_icon_name :: proc(self: ^ViewStackPage, icon_name: cstring) ---
+
+    @(link_name = "adw_view_stack_page_get_needs_attention")
+    view_stack_page_get_needs_attention :: proc(self: ^ViewStackPage) -> glib.boolean ---
+
+    @(link_name = "adw_view_stack_page_set_needs_attention")
+    view_stack_page_set_needs_attention :: proc(self: ^ViewStackPage, needs_attention: glib.boolean) ---
+
+    @(link_name = "adw_view_stack_page_get_badge_number")
+    view_stack_page_get_badge_number :: proc(self: ^ViewStackPage) -> glib.uint_ ---
+
+    @(link_name = "adw_view_stack_page_set_badge_number")
+    view_stack_page_set_badge_number :: proc(self: ^ViewStackPage, badge_number: glib.uint_) ---
+
+    @(link_name = "adw_view_stack_page_get_visible")
+    view_stack_page_get_visible :: proc(self: ^ViewStackPage) -> glib.boolean ---
+
+    @(link_name = "adw_view_stack_page_set_visible")
+    view_stack_page_set_visible :: proc(self: ^ViewStackPage, visible: glib.boolean) ---
+
+    @(link_name = "adw_view_stack_get_type")
+    view_stack_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_view_stack_new")
+    view_stack_new :: proc() -> ^gtk.Widget ---
+
+    @(link_name = "adw_view_stack_add")
+    view_stack_add :: proc(self: ^ViewStack, child: ^gtk.Widget) -> ^ViewStackPage ---
+
+    @(link_name = "adw_view_stack_add_named")
+    view_stack_add_named :: proc(self: ^ViewStack, child: ^gtk.Widget, name: cstring) -> ^ViewStackPage ---
+
+    @(link_name = "adw_view_stack_add_titled")
+    view_stack_add_titled :: proc(self: ^ViewStack, child: ^gtk.Widget, name: cstring, title: cstring) -> ^ViewStackPage ---
+
+    @(link_name = "adw_view_stack_add_titled_with_icon")
+    view_stack_add_titled_with_icon :: proc(self: ^ViewStack, child: ^gtk.Widget, name: cstring, title: cstring, icon_name: cstring) -> ^ViewStackPage ---
+
+    @(link_name = "adw_view_stack_remove")
+    view_stack_remove :: proc(self: ^ViewStack, child: ^gtk.Widget) ---
+
+    @(link_name = "adw_view_stack_get_page")
+    view_stack_get_page :: proc(self: ^ViewStack, child: ^gtk.Widget) -> ^ViewStackPage ---
+
+    @(link_name = "adw_view_stack_get_child_by_name")
+    view_stack_get_child_by_name :: proc(self: ^ViewStack, name: cstring) -> ^gtk.Widget ---
+
+    @(link_name = "adw_view_stack_get_visible_child")
+    view_stack_get_visible_child :: proc(self: ^ViewStack) -> ^gtk.Widget ---
+
+    @(link_name = "adw_view_stack_set_visible_child")
+    view_stack_set_visible_child :: proc(self: ^ViewStack, child: ^gtk.Widget) ---
+
+    @(link_name = "adw_view_stack_get_visible_child_name")
+    view_stack_get_visible_child_name :: proc(self: ^ViewStack) -> cstring ---
+
+    @(link_name = "adw_view_stack_set_visible_child_name")
+    view_stack_set_visible_child_name :: proc(self: ^ViewStack, name: cstring) ---
+
+    @(link_name = "adw_view_stack_get_hhomogeneous")
+    view_stack_get_hhomogeneous :: proc(self: ^ViewStack) -> glib.boolean ---
+
+    @(link_name = "adw_view_stack_set_hhomogeneous")
+    view_stack_set_hhomogeneous :: proc(self: ^ViewStack, hhomogeneous: glib.boolean) ---
+
+    @(link_name = "adw_view_stack_get_vhomogeneous")
+    view_stack_get_vhomogeneous :: proc(self: ^ViewStack) -> glib.boolean ---
+
+    @(link_name = "adw_view_stack_set_vhomogeneous")
+    view_stack_set_vhomogeneous :: proc(self: ^ViewStack, vhomogeneous: glib.boolean) ---
+
+    @(link_name = "adw_view_stack_get_pages")
+    view_stack_get_pages :: proc(self: ^ViewStack) -> ^gtk.SelectionModel ---
+
+    @(link_name = "adw_view_stack_pages_get_type")
+    view_stack_pages_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_view_stack_pages_get_selected_page")
+    view_stack_pages_get_selected_page :: proc(self: ^ViewStackPages) -> ^ViewStackPage ---
+
+    @(link_name = "adw_view_stack_pages_set_selected_page")
+    view_stack_pages_set_selected_page :: proc(self: ^ViewStackPages, page: ^ViewStackPage) ---
+
+    @(link_name = "adw_view_switcher_get_type")
+    view_switcher_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_view_switcher_new")
+    view_switcher_new :: proc() -> ^gtk.Widget ---
+
+    @(link_name = "adw_view_switcher_get_policy")
+    view_switcher_get_policy :: proc(self: ^ViewSwitcher) -> ViewSwitcherPolicy ---
+
+    @(link_name = "adw_view_switcher_set_policy")
+    view_switcher_set_policy :: proc(self: ^ViewSwitcher, policy: ViewSwitcherPolicy) ---
+
+    @(link_name = "adw_view_switcher_get_stack")
+    view_switcher_get_stack :: proc(self: ^ViewSwitcher) -> ^ViewStack ---
+
+    @(link_name = "adw_view_switcher_set_stack")
+    view_switcher_set_stack :: proc(self: ^ViewSwitcher, stack: ^ViewStack) ---
+
+    @(link_name = "adw_view_switcher_bar_get_type")
+    view_switcher_bar_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_view_switcher_bar_new")
+    view_switcher_bar_new :: proc() -> ^gtk.Widget ---
+
+    @(link_name = "adw_view_switcher_bar_get_stack")
+    view_switcher_bar_get_stack :: proc(self: ^ViewSwitcherBar) -> ^ViewStack ---
+
+    @(link_name = "adw_view_switcher_bar_set_stack")
+    view_switcher_bar_set_stack :: proc(self: ^ViewSwitcherBar, stack: ^ViewStack) ---
+
+    @(link_name = "adw_view_switcher_bar_get_reveal")
+    view_switcher_bar_get_reveal :: proc(self: ^ViewSwitcherBar) -> glib.boolean ---
+
+    @(link_name = "adw_view_switcher_bar_set_reveal")
+    view_switcher_bar_set_reveal :: proc(self: ^ViewSwitcherBar, reveal: glib.boolean) ---
+
+    @(link_name = "adw_view_switcher_title_get_type")
+    view_switcher_title_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_view_switcher_title_new")
+    view_switcher_title_new :: proc() -> ^gtk.Widget ---
+
+    @(link_name = "adw_view_switcher_title_get_stack")
+    view_switcher_title_get_stack :: proc(self: ^ViewSwitcherTitle) -> ^ViewStack ---
+
+    @(link_name = "adw_view_switcher_title_set_stack")
+    view_switcher_title_set_stack :: proc(self: ^ViewSwitcherTitle, stack: ^ViewStack) ---
+
+    @(link_name = "adw_view_switcher_title_get_title")
+    view_switcher_title_get_title :: proc(self: ^ViewSwitcherTitle) -> cstring ---
+
+    @(link_name = "adw_view_switcher_title_set_title")
+    view_switcher_title_set_title :: proc(self: ^ViewSwitcherTitle, title: cstring) ---
+
+    @(link_name = "adw_view_switcher_title_get_subtitle")
+    view_switcher_title_get_subtitle :: proc(self: ^ViewSwitcherTitle) -> cstring ---
+
+    @(link_name = "adw_view_switcher_title_set_subtitle")
+    view_switcher_title_set_subtitle :: proc(self: ^ViewSwitcherTitle, subtitle: cstring) ---
+
+    @(link_name = "adw_view_switcher_title_get_view_switcher_enabled")
+    view_switcher_title_get_view_switcher_enabled :: proc(self: ^ViewSwitcherTitle) -> glib.boolean ---
+
+    @(link_name = "adw_view_switcher_title_set_view_switcher_enabled")
+    view_switcher_title_set_view_switcher_enabled :: proc(self: ^ViewSwitcherTitle, enabled: glib.boolean) ---
+
+    @(link_name = "adw_view_switcher_title_get_title_visible")
+    view_switcher_title_get_title_visible :: proc(self: ^ViewSwitcherTitle) -> glib.boolean ---
+
+    @(link_name = "adw_window_title_get_type")
+    window_title_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "adw_window_title_new")
+    window_title_new :: proc(title: cstring, subtitle: cstring) -> ^gtk.Widget ---
+
+    @(link_name = "adw_window_title_get_title")
+    window_title_get_title :: proc(self: ^WindowTitle) -> cstring ---
+
+    @(link_name = "adw_window_title_set_title")
+    window_title_set_title :: proc(self: ^WindowTitle, title: cstring) ---
+
+    @(link_name = "adw_window_title_get_subtitle")
+    window_title_get_subtitle :: proc(self: ^WindowTitle) -> cstring ---
+
+    @(link_name = "adw_window_title_set_subtitle")
+    window_title_set_subtitle :: proc(self: ^WindowTitle, subtitle: cstring) ---
+
+}
+
+foreign import adwaita_runic "system:adwaita-1"
+

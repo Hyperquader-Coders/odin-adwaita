@@ -1,0 +1,156 @@
+# Generated with runic (docs/DECISIONS.md). Adapted from odin-gtk (MIT, docs/LICENSE-odin-gtk.md).
+# build/sys is a symlink to / (scripts/generate.sh). GTK, GLib, cairo, pango and the rest are
+# external sources: their types come from the odin-* bindings, never declared here.
+version: 0
+platforms:
+  - Linux x86_64
+from:
+  language: c
+  shared.linux: 'libadwaita-1.so'
+  headers: ../build/sys/usr/include/libadwaita-1/adwaita.h
+  includedirs:
+    - ../stdinc/
+    - ../build/sys/usr/include/libadwaita-1/
+    - ../build/sys/usr/include/gtk-4.0/
+    - ../build/sys/usr/include/glib-2.0/
+    - ../build/sys/usr/lib/x86_64-linux-gnu/glib-2.0/include/
+    - ../build/sys/usr/include/cairo/
+    - ../build/sys/usr/include/pango-1.0/
+    - ../build/sys/usr/include/harfbuzz/
+    - ../build/sys/usr/include/gdk-pixbuf-2.0/
+    - ../build/sys/usr/include/graphene-1.0/
+    - ../build/sys/usr/lib/x86_64-linux-gnu/graphene-1.0/include/
+  defines:
+    GLIB_DISABLE_DEPRECATION_WARNINGS: 1
+    GDK_DISABLE_DEPRECATION_WARNINGS: 1
+    GTK_DISABLE_DEPRECATION_WARNINGS: 1
+    ADW_DISABLE_DEPRECATION_WARNINGS: 1
+  load_all_includes: true
+  extern:
+    - "../stdinc/*"
+    - "../stdinc/sys/*"
+    - "../build/sys/usr/include/glib-2.0/glib/*"
+    - "../build/sys/usr/include/glib-2.0/glib.h"
+    - "../build/sys/usr/include/glib-2.0/glib/deprecated/*"
+    - "../build/sys/usr/lib/x86_64-linux-gnu/glib-2.0/include/*"
+    - "../build/sys/usr/include/glib-2.0/gobject/*"
+    - "../build/sys/usr/include/glib-2.0/glib-object.h"
+    - "../build/sys/usr/include/glib-2.0/gio/*"
+    - "../build/sys/usr/include/glib-2.0/gio.h"
+    - "../build/sys/usr/include/glib-2.0/gmodule/*"
+    - "../build/sys/usr/include/glib-2.0/gmodule.h"
+    - "../build/sys/usr/include/cairo/*"
+    - "../build/sys/usr/include/harfbuzz/*"
+    - "../build/sys/usr/include/pango-1.0/pango/*"
+    - "../build/sys/usr/include/gdk-pixbuf-2.0/gdk-pixbuf/*"
+    - "../build/sys/usr/include/graphene-1.0/*"
+    - "../build/sys/usr/lib/x86_64-linux-gnu/graphene-1.0/include/*"
+    - "../build/sys/usr/include/gtk-4.0/gtk/*"
+    - "../build/sys/usr/include/gtk-4.0/gtk/a11y/*"
+    - "../build/sys/usr/include/gtk-4.0/gtk/css/*"
+    - "../build/sys/usr/include/gtk-4.0/gtk/deprecated/*"
+    - "../build/sys/usr/include/gtk-4.0/gtk/print/*"
+    - "../build/sys/usr/include/gtk-4.0/gdk/*"
+    - "../build/sys/usr/include/gtk-4.0/gdk/deprecated/*"
+    - "../build/sys/usr/include/gtk-4.0/gdk/version/*"
+    - "../build/sys/usr/include/gtk-4.0/gdk/wayland/*"
+    - "../build/sys/usr/include/gtk-4.0/gdk/x11/*"
+    - "../build/sys/usr/include/gtk-4.0/gdk/broadway/*"
+    - "../build/sys/usr/include/gtk-4.0/gsk/*"
+    - "../build/sys/usr/include/gtk-4.0/gsk/gl/*"
+    - "../build/sys/usr/include/gtk-4.0/gsk/gpu/*"
+    - "../build/sys/usr/include/gtk-4.0/gsk/broadway/*"
+    - "../build/sys/usr/include/gtk-4.0/gtk/gtk.h"
+    - "../build/sys/usr/include/gtk-4.0/gdk/gdk.h"
+  ignore:
+    types:
+      - '*autoptr*'
+      - va_list
+    constants:
+      - 'ADW_DEPRECATED*'
+      - '*AVAILABLE*'
+      - '_*'
+      - 'ADW_VAR'
+    functions:
+      - '*autoptr*'
+      - '*auto_cleanup*'
+to:
+  language: odin
+  package: adwaita
+  out: adwaita.odin
+  no_build_tag: true
+  detect:
+    parameters: declared
+    arrays:
+      about_dialog_set_artists: [artists]
+      about_dialog_set_designers: [designers]
+      about_dialog_set_developers: [developers]
+      about_dialog_set_documenters: [documenters]
+      about_window_set_artists: [artists]
+      about_window_set_designers: [designers]
+      about_window_set_developers: [developers]
+      about_window_set_documenters: [documenters]
+      breakpoint_add_settersv: [objects, names, values]
+      navigation_view_replace: [pages]
+      navigation_view_replace_with_tags: [tags]
+      tab_bar_setup_extra_drop_target: [types]
+      tab_overview_setup_extra_drop_target: [types]
+  trim_prefix:
+    types:
+      - g
+      - G
+      - tk
+      - dk
+      - sk
+      - 'raphene_'
+      - 'cairo_'
+      - Pango
+      - Adw
+    functions:
+      - adw_
+      - glib_
+      - ADW_
+    variables:
+      - adw_
+    constants:
+      - ADW_
+    enum_type_name: true
+  extern:
+    sources:
+      "../stdinc/stdarg.h": "core:c/libc"
+      "../stdinc/stdio.h": "core:c/libc"
+      "../stdinc/pthread.h": "core:c/libc"
+      "../stdinc/sys/types.h": "core:sys/linux"
+      "../build/sys/usr/include/glib-2.0/glib/*": "glib glib:glib"
+      "../build/sys/usr/include/glib-2.0/glib.h": "glib glib:glib"
+      "../build/sys/usr/include/glib-2.0/glib/deprecated/*": "glib glib:glib"
+      "../build/sys/usr/lib/x86_64-linux-gnu/glib-2.0/include/*": "glib glib:glib"
+      "../build/sys/usr/include/glib-2.0/gobject/*": "gobj glib:gobject"
+      "../build/sys/usr/include/glib-2.0/glib-object.h": "gobj glib:gobject"
+      "../build/sys/usr/include/glib-2.0/gio/*": "gio glib:gio"
+      "../build/sys/usr/include/glib-2.0/gio.h": "gio glib:gio"
+      "../build/sys/usr/include/glib-2.0/gmodule/*": "gobj glib:gobject"
+      "../build/sys/usr/include/glib-2.0/gmodule.h": "gobj glib:gobject"
+      "../build/sys/usr/include/cairo/*": "cairo cairo:cairo"
+      "../build/sys/usr/include/pango-1.0/pango/*": "pango pango:pango"
+      "../build/sys/usr/include/gdk-pixbuf-2.0/gdk-pixbuf/*": "pixbuf pixbuf:gdkpixbuf"
+      "../build/sys/usr/include/graphene-1.0/*": "graphene graphene:graphene"
+      "../build/sys/usr/lib/x86_64-linux-gnu/graphene-1.0/include/*": "graphene graphene:graphene"
+      "../build/sys/usr/include/gtk-4.0/gtk/*": "gtk gtk4:gtk4"
+      "../build/sys/usr/include/gtk-4.0/gtk/a11y/*": "gtk gtk4:gtk4"
+      "../build/sys/usr/include/gtk-4.0/gtk/css/*": "gtk gtk4:gtk4"
+      "../build/sys/usr/include/gtk-4.0/gtk/deprecated/*": "gtk gtk4:gtk4"
+      "../build/sys/usr/include/gtk-4.0/gtk/print/*": "gtk gtk4:gtk4"
+      "../build/sys/usr/include/gtk-4.0/gdk/*": "gtk gtk4:gtk4"
+      "../build/sys/usr/include/gtk-4.0/gdk/deprecated/*": "gtk gtk4:gtk4"
+      "../build/sys/usr/include/gtk-4.0/gdk/version/*": "gtk gtk4:gtk4"
+      "../build/sys/usr/include/gtk-4.0/gdk/wayland/*": "gtk gtk4:gtk4"
+      "../build/sys/usr/include/gtk-4.0/gdk/x11/*": "gtk gtk4:gtk4"
+      "../build/sys/usr/include/gtk-4.0/gdk/broadway/*": "gtk gtk4:gtk4"
+      "../build/sys/usr/include/gtk-4.0/gsk/*": "gtk gtk4:gtk4"
+      "../build/sys/usr/include/gtk-4.0/gsk/gl/*": "gtk gtk4:gtk4"
+      "../build/sys/usr/include/gtk-4.0/gsk/gpu/*": "gtk gtk4:gtk4"
+      "../build/sys/usr/include/gtk-4.0/gsk/broadway/*": "gtk gtk4:gtk4"
+      "../build/sys/usr/include/gtk-4.0/gtk/gtk.h": "gtk gtk4:gtk4"
+      "../build/sys/usr/include/gtk-4.0/gdk/gdk.h": "gtk gtk4:gtk4"
+    trim_prefix: true
