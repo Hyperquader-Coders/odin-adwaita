@@ -1,0 +1,10 @@
+carousel_set_scroll_params, params
+dialog_set_focus, focus
+entry_row_set_attributes, attributes
+flap_set_reveal_params, params
+leaflet_set_child_transition_params, params
+length_unit_from_px, settings
+length_unit_to_px, settings
+spring_animation_new, spring_params
+spring_animation_set_spring_params, spring_params
+swipeable_get_snap_points, n_snap_points
